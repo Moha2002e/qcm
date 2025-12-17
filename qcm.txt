@@ -656,3 +656,593 @@ D. Créer la DB
 E. Limiter les données envoyées au client
 ________________________________________
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🧠 Termes à définir (25 essentiels)
+1.	Entity Framework Core
+2.	DbContext
+3.	DbSet
+4.	Migration
+5.	Fluent API
+6.	Data Annotation
+7.	LINQ
+8.	EntityState
+9.	Cascade Delete
+10.	Scaffold-DbContext
+11.	Connection String
+12.	Middleware
+13.	Dependency Injection (DI)
+14.	ActionResult
+15.	Swagger / OpenAPI
+16.	Serilog
+17.	Clean Architecture
+18.	Domain Layer
+19.	Application Layer
+20.	Infrastructure Layer
+21.	Repository Pattern
+22.	Service Layer
+23.	DTO (Data Transfer Object)
+24.	Mapperly
+25.	CQRS (Command Query Responsibility Segregation)
+
+1.	Entity Framework Core – ORM pour gérer la base de données depuis du code C#.
+2.	DbContext – Classe représentant la session avec la base et les entités.
+3.	DbSet – Collection d’entités d’un type spécifique dans le DbContext.
+4.	Migration – Fichier qui modifie ou crée le schéma de la base.
+5.	Fluent API – Configuration des entités via code C# plutôt qu’attributs.
+6.	Data Annotation – Attributs C# pour configurer les entités et colonnes.
+7.	LINQ – Syntaxe C# pour interroger collections et bases de données.
+8.	EntityState – État d’une entité suivi par EF Core (Added, Modified, Deleted…).
+9.	Cascade Delete – Supprime automatiquement les entités enfants lors de la suppression du parent.
+10.	Scaffold-DbContext – Génère le modèle EF Core à partir d’une base existante.
+11.	Connection String – Chaîne définissant comment se connecter à la base de données.
+12.	Middleware – Composant de traitement d’une requête dans le pipeline ASP.NET Core.
+13.	Dependency Injection (DI) – Injection automatique des dépendances dans les classes.
+14.	ActionResult – Type de retour d’une action contrôleur combinant données et statut HTTP.
+15.	Swagger / OpenAPI – Outils pour documenter et tester les API REST.
+16.	Serilog – Framework de logging structuré pour applications .NET.
+17.	Clean Architecture – Organisation du code en couches séparant responsabilités et dépendances.
+18.	Domain Layer – Contient les entités métier et la logique pure.
+19.	Application Layer – Contient la logique d’orchestration et les cas d’usage.
+20.	Infrastructure Layer – Gère l’accès aux données, API externes et services techniques.
+21.	Repository Pattern – Classe qui encapsule l’accès aux données pour une entité.
+22.	Service Layer – Contient la logique métier réutilisable par l’application.
+23.	DTO (Data Transfer Object) – Objet pour transférer uniquement les données nécessaires entre couches.
+24.	Mapperly – Outil pour convertir automatiquement entités ↔ DTO.
+25.	CQRS – Sépare les opérations de lecture (Query) et d’écriture (Command) sur les données.
+
+
+
+
+________________________________________
+1.Lorsqu’une entité est lue via un DbContext, puis modifiée sans appel à Attach ou Update, EF Core :
+A. Lève une exception de suivi incohérent
+B. Ignore la modification
+C. La détecte automatiquement si elle est suivie par le ChangeTracker
+D. Modifie toutes les lignes correspondantes
+E. Nécessite explicitement context.Entry(entity).State = Modified
+________________________________________
+2.Le comportement de context.Attach(entity) dépend de :
+A. Si la clé primaire est renseignée ou non
+B. L’état courant de l’entité
+C. Les entités enfants rattachées
+D. Le mode de suivi du contexte
+E. Toutes ces réponses
+________________________________________
+3.Lors d’un SaveChanges(), EF Core :
+A. Génère un script SQL et l’exécute sans transaction
+B. Utilise une transaction implicite regroupant les modifications suivies
+C. Valide chaque entité individuellement
+D. Envoie un batch par propriété modifiée
+E. Dépend du provider de base de données uniquement
+________________________________________
+4.Si deux DbContext différents chargent la même entité et que chacun la modifie avant SaveChanges(), EF :
+A. Écrase silencieusement le dernier enregistrement
+B. Lance une exception d’accès concurrent
+C. Ne détecte pas le conflit sauf si une colonne de concurrence est configurée
+D. Synchronise automatiquement les changements
+E. Fusionne les versions
+________________________________________
+5.Quelle est la différence entre Add() et Attach() ?
+A. Attach crée une nouvelle entité, Add la réutilise
+B. Add attache mais ne change pas l’état
+C. Add marque l’entité comme Added, Attach comme Unchanged
+D. Elles sont équivalentes
+E. Attach ne fonctionne que sur les entités enfants
+________________________________________
+6.Un DbContext ne doit généralement pas être enregistré en Singleton car :
+A. Il ne gère pas le multithreading
+B. Il ne supporte pas les transactions longues
+C. Son ChangeTracker accumule les entités
+D. Il est conçu pour une durée de vie courte (Scoped)
+E. Toutes ces réponses
+________________________________________
+7.Quelle instruction crée réellement la table en base dans une approche Code-First ?
+A. EnsureCreated()
+B. Add-Migration
+C. Update-Database
+D. Migrate()
+E. context.SaveChanges()
+________________________________________
+8.Les conventions par défaut d’EF Core :
+A. Imposent les noms de colonnes en majuscules
+B. Ne peuvent pas être surchargées
+C. Peuvent être remplacées via Fluent API ou annotations
+D. Sont désactivées par défaut
+E. N’agissent que sur les clés étrangères
+
+9.Lorsqu’un DbContext suit deux entités ayant la même clé primaire :
+A. EF met à jour la plus récente
+B. EF crée deux lignes
+C. Une exception InvalidOperationException est levée
+D. Les deux sont fusionnées
+E. Rien ne se passe
+________________________________________
+10.Le ChangeTracker.AutoDetectChangesEnabled désactivé permet :
+A. D’empêcher la détection de modifications automatiques
+B. D’optimiser les opérations massives (batch)
+C. De désactiver la persistance
+D. De supprimer le contexte
+E. De rendre SaveChanges() instantané
+________________________________________
+11.La suppression en cascade implicite s’applique :
+A. À toutes les relations
+B. Seulement si la relation est Required (non nullable)
+C. Seulement si DeleteBehavior.Cascade est explicite
+D. Jamais, par sécurité
+E. Pour toutes les entités enfants
+________________________________________
+12.Quelle est la sortie SQL la plus probable du code suivant :
+context.Students.Where(s => s.Grade.GradeName == "A");
+A. Un JOIN avec la table Grade
+B. Une sous-requête
+C. Une requête cartésienne
+D. Un SELECT sur Students uniquement
+E. Une exception de mapping
+________________________________________
+13.Dans un modèle Many-to-Many sans entité de jointure explicite, EF Core :
+A. Crée une entité Join implicite
+B. Crée une table de liaison sans classe dédiée
+C. Requiert [ForeignKey] manuelle
+D. Nécessite une configuration One-to-Many double
+E. Ne supporte pas ce scénario
+________________________________________
+14.Quelle est la conséquence de context.ChangeTracker.Clear() ?
+A. Supprime la base
+B. Détache toutes les entités suivies
+C. Vide les tables
+D. Enregistre les changements
+E. Met les entités à Unchanged
+________________________________________
+15.Une migration EF Core contient :
+A. Un snapshot du modèle + le code SQL des modifications
+B. Des métadonnées JSON
+C. Deux classes : une Migration et un ModelSnapshot
+D. Des scripts SQL exécutables
+E. Des triggers automatiques
+________________________________________
+16.Si Database.EnsureCreated() est utilisé avant une migration :
+A. La migration suivante l’écrase
+B. Les migrations ne pourront plus être appliquées sans supprimer la DB
+C. Les migrations s’empilent
+D. EF fusionne les deux schémas
+E. Rien ne change
+
+17.Le code :
+context.Entry(student).State = EntityState.Detached;
+A. Sauvegarde l’entité
+B. Détache l’entité du contexte, elle n’est plus suivie
+C. Supprime la ligne en DB
+D. Rattache une entité
+E. Fait un rollback
+________________________________________
+18.LINQ to Entities :
+A. Utilise des itérateurs C#
+B. Exécute la requête côté client
+C. Traduit l’expression en SQL exécuté côté serveur
+D. Crée un cache mémoire
+E. Est identique à LINQ to Objects
+________________________________________
+19.FirstOrDefault() sur un IQueryable EF Core :
+A. Charge tout le dataset
+B. Exécute immédiatement la requête SQL avec TOP 1
+C. Retourne un proxy non chargé
+D. Retourne null si rien n’est trouvé
+E. Crée une collection vide si rien n’est trouvé
+________________________________________
+20.La commande dotnet ef migrations add Init --context AppContext :
+A. Ajoute une migration en précisant la classe de contexte
+B. Crée la base
+C. Liste les migrations
+D. Ajoute une première migration
+E. Applique la migration
+________________________________________
+21.Quelle différence principale existe entre AsEnumerable() et AsNoTracking() sur une requête EF Core ?
+A. AsEnumerable() exécute la requête en mémoire
+B. AsNoTracking() désactive la détection des modifications
+C. AsEnumerable() conserve le tracking
+D. AsNoTracking() est plus léger pour la lecture seule
+E. Toutes ces réponses sont correctes
+________________________________________
+22.Le code suivant :
+var s = context.Students.First();
+s.Name = "Karl";
+context.SaveChanges();
+Que fait EF Core ?
+A. N’enregistre pas le changement sans Update()
+B. Détecte la modification et exécute un UPDATE SQL
+C. Crée un nouvel enregistrement
+D. Déclenche une exception si la table est vide
+E. Met la ligne à Unchanged
+________________________________________
+23.Lorsqu’une propriété Navigation est marquée virtual, EF Core :
+A. Crée un proxy dynamique pour le lazy loading
+B. Peut différer le chargement des données liées
+C. Nécessite Microsoft.EntityFrameworkCore.Proxies
+D. Désactive le tracking
+E. Ne supporte pas le Include()
+
+ 
+24.L’option UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking) configurée globalement :
+A. Désactive les transactions
+B. Désactive par défaut le suivi des entités retournées
+C. Rend la lecture plus performante
+D. Bloque SaveChanges()
+E. Nécessite un rechargement manuel pour modifier
+________________________________________
+25.Quel est le résultat de ce code ?
+context.Students.Where(s => s.Id == 1).FirstOrDefault();
+context.Students.Where(s => s.Id == 1).FirstOrDefault();
+A. Une seule requête SQL est exécutée grâce au cache EF
+B. Deux requêtes SQL sont exécutées, pas de cache de requête par défaut
+C. La seconde lève une exception de suivi
+D. Une transaction est ouverte
+E. Le premier résultat reste en mémoire partagée
+________________________________________
+26.Les Shadow Properties dans EF Core :
+A. Sont des propriétés non déclarées dans la classe C# mais suivies par EF
+B. Permettent de stocker des métadonnées internes (FK, timestamps, etc.)
+C. Ne sont accessibles que via Entry().Property("Nom")
+D. Peuvent être persistées en base
+E. Toutes ces réponses
+________________________________________
+27.Le type de suppression DeleteBehavior.ClientSetNull :
+A. Supprime les enfants en base
+B. Met à null les FK en mémoire, sans propager en DB avant SaveChanges()
+C. Dépend de la transaction
+D. Supprime aussi le parent
+E. Déconnecte le contexte
+________________________________________
+28.Les Owned Types :
+A. Sont stockés dans la même table que l’entité propriétaire
+B. Représentent des objets de valeur sans clé propre
+C. Ne peuvent être partagés entre entités
+D. Nécessitent Fluent API
+E. Toutes ces réponses
+________________________________________
+29.Pour qu’une propriété DateCreated soit automatiquement remplie lors de l’insertion :
+A. [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+B. [DefaultValue("getdate()")]
+C. Configuration via Fluent API .HasDefaultValueSql("getutcdate()")
+D. [Timestamp]
+E. Nécessite un trigger SQL
+________________________________________
+30.Les requêtes composées sur IQueryable EF Core sont :
+A. Exécutées immédiatement
+B. Construites en expression tree et traduites à l’exécution (deferred execution)
+C. Stockées en cache jusqu’à ToList()
+D. Exécutées ligne par ligne
+E. Converties en LINQ to Objects
+
+ 
+31.Le code suivant :
+var stud = new Student { Id = 10, Name = "Karl" };
+context.Update(stud);
+Suppose que l’étudiant existe déjà.
+A. Marque l’entité comme Modified sans la lire
+B. Charge la ligne depuis la base
+C. Lève une exception s’il n’existe pas
+D. Supprime les relations
+E. Nécessite un SaveChanges() pour exécuter le SQL
+________________________________________
+32.Quelle pratique est déconseillée pour les performances EF ?
+A. Include() sur plusieurs niveaux de profondeur
+B. ToList() avant Where()
+C. Charger 10 000 entités trackées
+D. Exécuter SaveChanges() dans une boucle
+E. Toutes ces pratiques sont déconseillées
+________________________________________
+33.Les clés composites sont configurées via :
+A. [Key("A","B")]
+B. [CompositeKey]
+C. modelBuilder.Entity<T>().HasKey(e => new { e.A, e.B })
+D. AddCompositeKey()
+E. Non supporté par EF
+________________________________________
+34.Le mode SingleOrDefault() :
+A. Lève une exception si plus d’une correspondance existe
+B. Retourne null si aucune entité
+C. Peut charger plus lentement qu’un FirstOrDefault()
+D. Combine filtrage + validation d’unicité
+E. Ne peut pas être traduit en SQL
+________________________________________
+35.Les Compiled Queries d’EF Core servent à :
+A. Exécuter du SQL brut
+B. Précompiler l’arbre d’expression pour réutilisation (gain de perf)
+C. Créer des index
+D. Générer des migrations automatiques
+E. Sauvegarder le contexte
+________________________________________
+36.Quel scénario nécessite le TransactionScope ?
+A. SaveChanges() standard
+B. Modification de plusieurs contextes ou sources de données dans la même transaction
+C. Lazy Loading
+D. Delete cascade
+E. Mapping complexe
+________________________________________
+37.L’option .UseLazyLoadingProxies() :
+A. Est activée par défaut
+B. Nécessite les propriétés virtual
+C. Crée des proxys dynamiques pour charger les données à la demande
+D. Affecte les performances
+E. Réponses : B, C, D
+
+ 
+38.Quelle différence entre Find() et FirstOrDefault() ?
+A. Find() cherche d’abord dans le cache du contexte avant la DB
+B. Find() nécessite la clé primaire
+C. FirstOrDefault() exécute toujours une requête SQL
+D. Find() est plus rapide si l’entité est déjà suivie
+E. Toutes ces réponses
+________________________________________
+39.Une migration contenant un renommage de colonne et un changement de type :
+A. Est exécutée en une seule commande SQL
+B. Peut générer un DROP + CREATE selon le provider
+C. Ne peut pas être rollbackée
+D. N’est pas détectée automatiquement
+E. Supprime la contrainte FK associée
+________________________________________
+40.Pour insérer des données initiales conditionnelles :
+A. [SeedData]
+B. Utiliser HasData() dans OnModelCreating
+C. Créer une classe statique DbSeeder exécutée au démarrage
+D. Ajouter une migration spéciale
+E. Utiliser context.Database.Migrate()
+________________________________________
+42.Différence principale Middleware vs Filter en Web API :
+A. Les filters s’exécutent avant le routing
+B. Les middlewares enveloppent tout le pipeline, les filters ciblent contrôleurs/actions
+C. Les filters ont accès au ModelState et aux résultats d’action
+D. Les middlewares ne peuvent pas court-circuiter la réponse
+E. Les middlewares peuvent s’appliquer aux fichiers statiques et endpoints non-API
+________________________________________
+43.En Minimal APIs, que renvoie le plus précisément Results.NotFound() ?
+A. ActionResult
+B. IActionResult
+C. Un IResult (implémentation HttpResults)
+D. ProblemDetails
+E. HttpResponseMessage
+________________________________________
+44.Pour masquer la validation implicite d’[ApiController] et gérer toi-même la réponse :
+A. Supprimer [ApiController]
+B. Désactiver SuppressModelStateInvalidFilter
+C. Utiliser [ValidateNever] sur le type
+D. Intercepter via un ActionFilter et tester ModelState.IsValid
+E. app.Services.DisableValidation()
+________________________________________
+45.Concernant ActionResult<T> :
+A. Empêche de retourner NotFound()
+B. Permet de retourner soit un T, soit un IActionResult
+C. Sérialise T et force 200 OK
+D. Expose le type pour la doc OpenAPI plus précisément qu’un IActionResult
+E. N’est pas compatible avec async
+________________________________________
+46.[FromBody] vs [FromQuery] : comportement par défaut en API :
+A. Les paramètres simples viennent du body par défaut
+B. Un seul paramètre [FromBody] par action en JSON (par défaut)
+C. Les paramètres complexes (classe) viennent du body par défaut
+D. Les paramètres simples (string, int) viennent du body
+E. Les paramètres simples viennent de la query/route par défaut
+
+ 
+51.ILogger<T> : lequel est vrai ?
+A. Les messages interpolés sont toujours structurés
+B. Utiliser des “message templates” logger.LogInformation("User {Id} ...", id) crée des champs structurés
+C. Écrire des objets comme {@obj} n’est supporté que par STJ
+D. ILogger nécessite Serilog
+E. Le nom de catégorie du log “category name” est le nom de T par défaut
+________________________________________
+52.Serilog avec ASP.NET Core pour journaliser chaque requête :
+A. Ajouter UseLogging()
+B. app.UseSerilogRequestLogging()
+C. Logger uniquement en Production
+D. Possibilité d’enrichir (ex: WithMachineName, FromLogContext) via config
+E. Oblige le format JSON
+________________________________________
+53.Configurer Swagger/Scalar en .NET 9 :
+A. builder.Services.AddOpenApi()
+B. app.UseSwagger() obligatoire
+C. app.MapOpenApi() pour exposer /openapi/v1.json
+D. app.MapScalarApiReference() pour l’UI Scalar
+E. app.UseOpenApiUI()
+________________________________________
+56.CancellationToken dans une action :
+A. Peut être passé en paramètre pour annuler un await db.ToListAsync(ct)
+B. Inutile pour EF Core
+C. Désactive le time-out
+D. Est alimenté par la fermeture de la connexion HTTP
+E. N’est disponible qu’en Minimal API
+________________________________________
+57.Choisir la durée de vie DI appropriée :
+A. DbContext en Singleton pour réduire les allocations
+B. HttpClient en Scoped par défaut
+C. DbContext en Scoped (requête)
+D. Services stateless (Mapper, Validator) souvent en Transient
+E. Caches/configuration (lecture) en Singleton
+________________________________________
+59.Pour valider un modèle d’entrée (DTO) avec des règles avancées :
+A. [RegularExpression] uniquement
+B. FluentValidation (librairie tierce) ou DataAnnotations
+C. Créer un ActionFilter de validation pour format unifié des erreurs
+D. Valider le DTO dans le contrôleur 
+E. ModelState est obsolète
+________________________________________
+63.Pagination propre en Web API :
+A. Prendre tout puis paginer en mémoire
+B. Retourner des métadonnées (page, size, total) dans des en-têtes ou un enveloppe JSON
+C. Limiter pageSize max côté serveur
+D. Utiliser AsNoTracking pour les listes
+E. Ignorer la stabilité d’ordre
+________________________________________
+64.Minimal APIs vs Controllers :
+A. Minimal = pas de filtres possible
+B. Minimal expose des endpoints fonctionnels, léger pour microservices
+C. Controllers = filtres + conventions MVC + attributs riches
+D. Minimal interdit DI
+E. Minimal renvoie des IResult, contrôleur renvoie ActionResult<T>
+
+ 
+66.Global exception handling recommandé :
+A. try/catch dans chaque action
+B. Middleware global + mapping → ProblemDetails standard
+C. Filtres d’exception uniquement
+D. Rediriger vers /error en production
+E. Journaliser (corrélation Id) + ne pas divulguer les détails en prod
+________________________________________
+68.Routing : contraintes et noms :
+A. [HttpGet("{id:int}")] contraint id à un entier
+B. Le nom d’une route (ex. :GetByName) doit être unique quel que soit le contrôleur 
+C. Les routes nommées ne servent qu’à la doc
+D. Des paramètres optionnels "{category?}" sont possibles
+E. * capture un segment, ** plusieurs (catch-all)
+________________________________________
+69.Content negotiation :
+A. Par défaut JSON via System.Text.Json
+B. Accept: application/xml est toujours respecté sans config
+C. On peut ajouter un formatter XML
+D. text/csv est pris en charge nativement
+E. La négociation peut renvoyer 406 si non supporté (si configuré)
+________________________________________
+74.OpenAPI doc :
+A. Toujours exposer /openapi/v1.json en prod sans auth
+B. Protéger l’UI (Swagger/Scalar) en prod ou la désactiver
+C. Décrire les schémas, codes de retour, auth (OAuth2/Bearer)
+D. Générer automatiquement des clients sans configuration
+E. MapOpenApi() supporte plusieurs versions
+________________________________________
+75.Performance — anti-patterns courants :
+A. Serializer synchro sur gros payloads
+B. ToList() prématuré avant Where/Select
+C. Logging verbeux au niveau Debug/Trace en prod
+D. AsNoTracking() pour lecture seule
+E. SaveChanges() dans une boucle au lieu de batch
+________________________________________
+77.HttpLoggingMiddleware :
+A. Peut journaliser headers, requête, réponse
+B. Toujours recommandé en prod sans filtre
+C. Risque de fuite de données sensibles si mal configuré
+D. Ne fonctionne pas avec HTTPS
+E. Peut dégrader la perf si on logge les bodies volumineux
+________________________________________
+79.DI circular dependency :
+A. Peut provoquer des boucles d’initialisation et exceptions
+B. Résolu automatiquement par le conteneur
+C. Souvent signe d’un design à refactorer
+D. Résolu en changeant toutes les durées de vie en Singleton
+E. Parfois corrigé en introduisant des ports/interfaces plus fins
+________________________________________
+80.JSON patch / partial updates :
+A. HttpPatch non supporté
+B. Supporté uniquement via Newtonsoft
+C. Valider les opérations patch et la sécurité (chemins autorisés)
+D. Toujours préférable à PUT
+E. Penser à la concurrence (RowVersion)
+
+81.La Clean Architecture vise avant tout à :
+A. Réduire le couplage entre UI et données
+B. Faire dépendre le code métier uniquement d’abstractions
+C. Isoler le domaine de toute technologie (framework, base, UI)
+D. Utiliser CQRS obligatoirement
+E. Faciliter le test unitaire et la maintenabilité dans le temps
+________________________________________
+82.Dans une architecture en couches proprement isolée :
+A. La couche Presentation référence la couche Domain directement
+B. La couche Application référence le Domain et expose des interfaces implémentées dans Infrastructure
+C. Infrastructure connaît Application mais pas l’inverse
+D. Les dépendances vont toujours du haut (UI) vers le bas (Domain)
+E. Les DTO peuvent être définis dans Domain
+________________________________________
+83.Le pattern Repository permet :
+A. De remplacer les requêtes SQL par LINQ
+B. D’avoir un accès direct au contexte EF
+C. D’encapsuler la logique d’accès aux données derrière une interface abstraite
+D. De rendre les tests possibles avec des mocks ou bases InMemory
+E. D’utiliser EF Core
+________________________________________
+84.Quel est le rôle d’un Service d’application dans la Clean Architecture ?
+A. Orchestrer les règles métier entre plusieurs entités et repositories
+B. Remplacer le contrôleur
+C. Coordonner le mapping entité ↔ DTO et déclencher des transactions
+D. Implémenter la logique de validation HTTP
+E. Exécuter directement les requêtes SQL
+________________________________________
+85.Le Domain Layer devrait contenir :
+A. Des entités, des value objects, et les règles métier pures
+B. Les classes de configuration EF
+C. Les contrôleurs
+D. Aucune dépendance vers Entity Framework ou ASP.NET Core
+E. Les DTO d’entrée API
+________________________________________
+86.Le CQRS (Command Query Responsibility Segregation) :
+A. Sépare les modèles de lecture et d’écriture
+B. Nécessite deux bases de données distinctes
+C. Améliore la scalabilité et la clarté des intentions (read/write)
+D. Est obligatoire pour tout projet EF Core
+E. Peut coexister avec Mediator / MediatR
+________________________________________
+87.Dans une implémentation CQRS avec MediatR :
+A. Chaque Command ou Query est un objet envoyé à un Handler
+B. Le Handler retourne toujours IActionResult
+C. Les Commands modifient l’état, les Queries ne doivent avoir aucun effet de bord
+D. Plusieurs handlers peuvent traiter une même commande simultanément
+E. Le Mediator centralise les appels pour découpler les dépendances directes
+________________________________________
+88.Pourquoi ne pas exposer les entités EF Core directement via l’API ?
+A. Cela simplifie la maintenance
+B. Fuite de la structure interne de la base (casse les clients à chaque évolution)
+C. Risque de référence circulaire et sérialisation infinie
+D. Violation du principe de séparation entre modèle métier et contrat d’exposition (DTO)
+E. Les entités ne sont pas sérialisables
+________________________________________
+89.Le mapping entité ↔ DTO :
+A. Doit toujours être manuel
+B. Peut être automatisé par des frameworks (Mapperly, AutoMapper)
+C. Peut être généré compile-time (Mapperly) pour éviter le coût de réflexion
+D. Peut inclure une logique de transformation (ex : concaténer Nom + Prénom)
+E. Est inutile si les entités correspondent 1:1 à la base
+________________________________________
+90.Concernant la cohérence transactionnelle entre Command et Query :
+A. Une Command doit être transactionnelle (atomicité garantie)
+B. Une Query peut ouvrir une transaction pour lecture isolée
+C. On évite que les Query et Command partagent le même DbContext
+D. Les Handlers Command peuvent injecter un IUnitOfWork pour contrôler la persistance
+E. Les transactions doivent être gérées dans les contrôleurs
+________________________________________
+
