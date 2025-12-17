@@ -1,0 +1,1034 @@
+[
+    {
+        "id": 1,
+        "question": "Entity Framework est principalement :",
+        "options": [
+            "Un langage de base de données",
+            "Un ORM (Object-Relational Mapper)",
+            "Un framework de logging",
+            "Une extension de LINQ",
+            "Une bibliothèque pour Blazor"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 2,
+        "question": "L’approche Code-First consiste à :",
+        "options": [
+            "Créer d’abord la base de données et générer le code ensuite",
+            "Créer les classes C# avant la base de données",
+            "Utiliser un diagramme EDMX",
+            "Créer un script SQL avant les entités",
+            "Éviter les migrations"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 3,
+        "question": "Quelle classe représente une session avec la base de données dans EF Core ?",
+        "options": [
+            "DbSet",
+            "DbConnection",
+            "DbContext",
+            "DatabaseContext",
+            "ContextService"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 4,
+        "question": "Un DbSet<Student> représente :",
+        "options": [
+            "Une collection d’entités Student mappée à une table",
+            "Une seule instance de Student",
+            "Un script SQL de migration",
+            "Une clé étrangère",
+            "Un logger d’exécution"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 5,
+        "question": "Par défaut, EF Core suit les changements sur les entités grâce à :",
+        "options": [
+            "L’API LINQ",
+            "Le Change Tracker",
+            "Le Migration Builder",
+            "Le Mapperly",
+            "L’EntityStateManager"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 6,
+        "question": "Dans EF Core, quelle méthode enregistre les modifications dans la base ?",
+        "options": [
+            "context.Submit()",
+            "context.SaveChangeAsync()",
+            "context.SaveChanges()",
+            "context.Persist()",
+            "context.Commit()"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 7,
+        "question": "Les propriétés d’une entité mappées à des colonnes simples sont appelées :",
+        "options": [
+            "Propriétés scalaires",
+            "Propriétés de navigation",
+            "Propriétés virtuelles",
+            "Propriétés abstraites",
+            "Propriétés persistées"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 8,
+        "question": "Le code suivant illustre une relation : public class Student { public Grade Grade { get; set; } } Quel type de relation ?",
+        "options": [
+            "One-to-Many",
+            "One-to-One",
+            "Many-to-Many",
+            "Aucun lien",
+            "Un lien nullable sans clé"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 9,
+        "question": "L’attribut [Key] en EF Core :",
+        "options": [
+            "Supprime la clé primaire",
+            "Indique la propriété servant de clé primaire",
+            "Configure un index",
+            "Marque la propriété comme obligatoire",
+            "Spécifie la taille maximale"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 10,
+        "question": "Comment rendre une propriété non mappée en base de données ? Quelles approches permettent d'exclure une propriété du mapping en base de données ?",
+        "options": [
+            "[NotMapped]",
+            "modelBuilder.Entity<Student>().Ignore(s => s.FullName)",
+            "[Ignore]",
+            "modelBuilder.Entity<Student>().Property(s => s.FullName).HasColumnName(null)",
+            "[DatabaseGenerated(DatabaseGeneratedOption.None)]"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 11,
+        "question": "La méthode OnModelCreating d’un DbContext est utilisée pour :",
+        "options": [
+            "Configurer la connexion à SQL Server",
+            "Configurer les entités via Fluent API",
+            "Enregistrer les données",
+            "Supprimer la base de données",
+            "Charger les entités"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 12,
+        "question": "Dans la configuration Fluent API, quel code configure la table ? modelBuilder.Entity<Student>().ToTable(\"StudentInfo\");",
+        "options": [
+            "Déclare une entité",
+            "Mappe l’entité à une table SQL spécifique",
+            "Ajoute l’entité",
+            "Configure une relation",
+            "Configure une table"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 13,
+        "question": "Pour configurer une colonne auto-incrémentée avec FluentApi, quelle(s) approche(s) est/sont valide(s) ?",
+        "options": [
+            "[DatabaseGenerated(DatabaseGeneratedOption.Identity)]",
+            "modelBuilder.Entity<User>().Property(u => u.Id).ValueGeneratedOnAdd()",
+            "[Key] suffit pour un int/long",
+            "modelBuilder.Entity<User>().Property(u => u.Id).UseIdentityColumn()",
+            "modelBuilder.Entity<User>().Key(u => u.Id).UseIdentityColumn()"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 14,
+        "question": "Dans EF Core, Include() est utilisé pour :",
+        "options": [
+            "Charger les entités avec lazy loading",
+            "Charger explicitement les entités liées (eager loading)",
+            "Supprimer une relation",
+            "Ajouter une migration",
+            "Mapper une clé étrangère"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 15,
+        "question": "Le code suivant : context.Students.Remove(student); context.SaveChanges(); fait quoi ?",
+        "options": [
+            "Modifie la ligne",
+            "Supprime la ligne correspondante en base",
+            "Détache l’entité du contexte",
+            "Ajoute un étudiant",
+            "Vide la table"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 16,
+        "question": "Le ChangeTracker gère les états suivants, sauf :",
+        "options": [
+            "Added",
+            "Modified",
+            "Deleted",
+            "Created",
+            "Unchanged"
+        ],
+        "correctAnswer": 3
+    },
+    {
+        "id": 17,
+        "question": "Pour une relation Many-to-Many, EF Core 9 recommande :",
+        "options": [
+            "Créer manuellement les clés étrangères",
+            "Utiliser .UsingEntity<Jointure>() dans Fluent API",
+            "Utiliser [ManyToMany]",
+            "Créer une seule propriété virtuelle",
+            "Mapper les deux côtés sans jointure"
+        ],
+        "correctAnswer": 4
+    },
+    {
+        "id": 18,
+        "question": "La suppression en cascade (Cascade Delete) :",
+        "options": [
+            "Supprime toutes les tables",
+            "Supprime les enfants quand le parent est supprimé",
+            "Empêche la suppression",
+            "Efface la base de données entière",
+            "Nécessite WillCascadeOnDelete(false) pour l’activer"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 19,
+        "question": "Pour désactiver la suppression en cascade dans Fluent API : .OnDelete(DeleteBehavior.Restrict);",
+        "options": [
+            "Active le delete",
+            "Ignore les relations",
+            "Empêche la suppression du parent s’il a des enfants",
+            "Supprime les enfants",
+            "Clone la relation"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 20,
+        "question": "Une migration EF Core sert à :",
+        "options": [
+            "Générer des seeders",
+            "Créer ou modifier le schéma de base de données",
+            "Supprimer les entités",
+            "Synchroniser le modèle et la base de données",
+            "Synchroniser la base de données et le modèle"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 21,
+        "question": "Commande pour créer une migration via CLI :",
+        "options": [
+            "dotnet ef add",
+            "dotnet ef create migration",
+            "dotnet ef migrations add NomMigration",
+            "add-migration",
+            "update-database"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 22,
+        "question": "Commande pour appliquer une migration :",
+        "options": [
+            "dotnet ef database update",
+            "dotnet ef run migration",
+            "add-migration",
+            "update-database",
+            "context.apply()"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 23,
+        "question": "context.Database.EnsureCreated() :",
+        "options": [
+            "Met à jour la DB",
+            "Crée la base sans gestion de migration",
+            "Supprime la base",
+            "Crée une migration automatique",
+            "Installe EF Core"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 24,
+        "question": "Dans EF Core, ExecuteUpdateAsync :",
+        "options": [
+            "Met à jour plusieurs lignes directement en SQL",
+            "Supprime plusieurs lignes",
+            "Ajoute un ensemble d’entités",
+            "Met à jour une seule entité",
+            "N’existe pas"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 25,
+        "question": "Le Scaffold-DbContext sert à :",
+        "options": [
+            "Générer le modèle à partir d’un schéma existant",
+            "Supprimer des migrations",
+            "Ajouter des données par défaut",
+            "Mettre à jour un modèle d’entité",
+            "Mettre à jour un snapshot"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 26,
+        "question": "Les fournisseurs EF Core permettent de :",
+        "options": [
+            "Gérer les relations entre entités",
+            "Changer de moteur de base de données (SQL Server, PostgreSQL, etc.)",
+            "Configurer les entités",
+            "Créer des migrations",
+            "Sérialiser les entités"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 27,
+        "question": "Exemple de code pour requêter avec LINQ (Select new {...}). Résultat :",
+        "options": [
+            "Une liste d'objets anonymes avec Name, CourseCount et Courses, sans tracking, triée par nom",
+            "Une exception car Select() après Include() ignore les données chargées par Include",
+            "Un résultat identique même si on retire Include() et ThenInclude() car Select() charge automatiquement les relations nécessaires",
+            "Une requête SQL avec LEFT JOIN sur Enrollments et Courses, puis une projection côté client",
+            "Une exception car AsNoTracking() et Include() sont incompatibles"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 28,
+        "question": "Le mot clé virtual sur une propriété de navigation permet :",
+        "options": [
+            "D’empêcher la sérialisation",
+            "Le lazy loading",
+            "Le mapping manuel",
+            "Le changement d’état",
+            "L’immuabilité"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 29,
+        "question": "Quel namespace contient DbContext ?",
+        "options": [
+            "System.Data",
+            "Microsoft.EntityFrameworkCore",
+            "Microsoft.Data.SqlClient",
+            "System.Linq",
+            "EFCore.Context"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 30,
+        "question": "Fluent API et Data Annotations :",
+        "options": [
+            "S’excluent mutuellement",
+            "Peuvent être combinés, Fluent API a priorité",
+            "Ne peuvent pas coexister",
+            "Peuvent être combinés, Data Annotations a priorité",
+            "Servent au seeding"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 31,
+        "question": "Dans un DbContext, la méthode OnConfiguring :",
+        "options": [
+            "Configure la chaîne de connexion",
+            "Configure les relations",
+            "Gère les migrations",
+            "Enregistre les logs",
+            "Ajoute les seeds"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 32,
+        "question": "L’état Detached d’une entité signifie :",
+        "options": [
+            "Non suivie par le contexte",
+            "Supprimée de la base",
+            "Ajoutée à la base",
+            "Non persistée mais suivie",
+            "Synonyme de Deleted"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 33,
+        "question": "context.Entry(entity).State = EntityState.Modified;",
+        "options": [
+            "Force EF à marquer une entité comme modifiée",
+            "Détache l’entité",
+            "Supprime l’entité",
+            "Ajoute la clé étrangère",
+            "Sauvegarde l’entité"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 34,
+        "question": "Pour injecter un DbContext dans ASP.NET Core :",
+        "options": [
+            "builder.Services.AddScoped<MyContext>()",
+            "builder.Services.AddDbContext<MyContext>()",
+            "builder.AddDb()",
+            "services.UseSqlServer()",
+            "builder.UseEFContext()"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 35,
+        "question": "Les migrations EF Core sont stockées dans :",
+        "options": [
+            "bin/Debug",
+            "Database/Migrations",
+            "Le dossier Migrations du projet",
+            "%appdata%",
+            "Le fichier appsettings.json"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 36,
+        "question": "Une Navigation Property de collection :",
+        "options": [
+            "Mappe une seule entité",
+            "Représente une liste d’entités liées",
+            "Est obligatoire",
+            "Est One-To-Many",
+            "Sert uniquement aux Many-to-Many"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 37,
+        "question": "EF Core gère les transactions :",
+        "options": [
+            "Automatiquement sur SaveChanges()",
+            "Uniquement manuellement",
+            "Jamais",
+            "Avec ctx.Database.BeginTransactionAsync & ctx.Database.Commit/Rollback",
+            "Avec [Transactional]"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 38,
+        "question": "L’instruction : context.Attach(entity);",
+        "options": [
+            "Attache une entité existante au contexte sans modification",
+            "Attache une entité existante",
+            "Ajoute une entité",
+            "Ajoute une entité avec modification",
+            "Ne suis pas l’entité dans le change tracker"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 39,
+        "question": "IEntityTypeConfiguration<T> sert à :",
+        "options": [
+            "Configurer l’injection de dépendances",
+            "Déplacer la configuration Fluent API dans une classe dédiée",
+            "Configurer les entités",
+            "Générer la DB",
+            "Découple les configurations du DB contexte"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 40,
+        "question": "modelBuilder.ApplyConfigurationsFromAssembly(...) :",
+        "options": [
+            "Applique les migrations",
+            "Applique automatiquement toutes les configurations d’entités dans l’assembly",
+            "Compile la base de données",
+            "Sauvegarde les entités",
+            "Crée un contexte"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 41,
+        "question": "ASP.NET Core est :",
+        "options": [
+            "Un framework uniquement Windows",
+            "Multiplateforme et open-source",
+            "Basé sur IIS exclusivement",
+            "Sans injection de dépendances",
+            "Dédié à Blazor uniquement"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 42,
+        "question": "Le point d’entrée d’une application API est :",
+        "options": [
+            "Startup.cs",
+            "Program.cs",
+            "MainController.cs",
+            "AppConfig.cs",
+            "ApiEntry.cs"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 43,
+        "question": "Une API minimaliste :",
+        "options": [
+            "Nécessite ControllerBase",
+            "Utilise app.MapGet(...) ou app.MapPost(...)",
+            "app.Controllers.Get ou app.Controllers.Post",
+            "Ne peut pas retourner JSON",
+            "Nécessite MVC"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 44,
+        "question": "Un contrôleur Web API hérite généralement de :",
+        "options": [
+            "Controller",
+            "ControllerBase",
+            "BaseController",
+            "WebController",
+            "MvcBase"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 45,
+        "question": "Attribut pour une route GET :",
+        "options": [
+            "[HttpPost]",
+            "[Route(\"GET\")]",
+            "[HttpGet]",
+            "[Verb(\"Get\")]",
+            "[Get]"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 46,
+        "question": "Méthode CreatedAtAction(...) retourne un code HTTP:",
+        "options": [
+            "201 Created",
+            "200 OK",
+            "404 NotFound",
+            "204 NoContent",
+            "400 BadRequest"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 47,
+        "question": "ActionResult<T> combine :",
+        "options": [
+            "Une Action par défaut + Résultat",
+            "Typage fort + flexibilité des statuts de réponse",
+            "T + JSON",
+            "Response only",
+            "Middleware + Result"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 48,
+        "question": "Le code suivant : return NotFound(); Renvoie :",
+        "options": [
+            "500",
+            "200",
+            "404",
+            "201",
+            "204"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 49,
+        "question": "Le pipeline d’exécution ASP.NET Core est une chaîne de :",
+        "options": [
+            "Routes",
+            "Middlewares",
+            "Controllers",
+            "Filtres uniquement",
+            "Assemblies"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 50,
+        "question": "builder.Services.AddControllers() :",
+        "options": [
+            "Active le routage basé sur les contrôleurs",
+            "Enregistre les contrôleurs dans le conteneur DI",
+            "Démarre la base de données",
+            "Ajoute Swagger",
+            "Crée la route API"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 51,
+        "question": "app.MapControllers() :",
+        "options": [
+            "Active le routage basé sur les contrôleurs",
+            "Enregistre les contrôleurs dans le conteneur DI",
+            "Configure Open Api",
+            "Active l’API",
+            "Initialise Serilog"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 52,
+        "question": "Dans appsettings.json, les chaînes de connexion se trouvent sous :",
+        "options": [
+            "DbContext",
+            "EF",
+            "ConnectionStrings",
+            "ToDoConnectionStrings",
+            "DatabaseConfig"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 53,
+        "question": "L’attribut [ApiController] permet :",
+        "options": [
+            "D’activer Swagger",
+            "La validation automatique des modèles et le binding intelligent",
+            "Le routing par convention",
+            "Le mapping JSON manuel",
+            "L’injection de dépendance"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 54,
+        "question": "Quelle méthode du contrôleur retourne 204 NoContent ?",
+        "options": [
+            "return Ok()",
+            "return Empty()",
+            "return NoContent()",
+            "return None()",
+            "return null"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 55,
+        "question": "Dans le routage : [HttpGet(\"{id:int}\")] signifie :",
+        "options": [
+            "Paramètre optionnel",
+            "Paramètre id de type entier obligatoire",
+            "Paramètre id de type entier",
+            "Identifiant global",
+            "Paramètre facultatif"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 56,
+        "question": "Swagger et Scalar sont :",
+        "options": [
+            "Des UIs de visualisation et test d’API OpenAPI",
+            "Des frameworks REST",
+            "Des serveurs SQL",
+            "Des ORM",
+            "Des middlewares d’authentification"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 57,
+        "question": "Le logging natif de Microsoft utilise :",
+        "options": [
+            "ILogger",
+            "Log4Net",
+            "EventLog",
+            "TraceSource",
+            "Serilog"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 58,
+        "question": "Serilog est :",
+        "options": [
+            "Un ORM",
+            "Un moteur SQL",
+            "Un framework de logging structuré",
+            "Une UI Swagger",
+            "Un container DI"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 59,
+        "question": "Pour activer Serilog dans ASP.NET Core :",
+        "options": [
+            "app.UseLogger()",
+            "app.UseSerilogRequestLogging()",
+            "builder.AddSerilog()",
+            "services.UseSerilog()",
+            "logger.Enable()"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 60,
+        "question": "AddSerilog(...) permet :",
+        "options": [
+            "D’ajouter un middleware",
+            "De lire la configuration Serilog depuis appsettings.json",
+            "De configurer les endpoints",
+            "D’initialiser EF Core",
+            "De créer un fichier log manuellement"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 61,
+        "question": "Serilog peut écrire vers :",
+        "options": [
+            "Console",
+            "Fichier",
+            "ElasticSearch",
+            "EventLog",
+            "Toutes les réponses"
+        ],
+        "correctAnswer": 4
+    },
+    {
+        "id": 62,
+        "question": "ILogger<WeatherService> injecté dans un service permet :",
+        "options": [
+            "D’envoyer des mails",
+            "De tracer les événements du service dans les logs",
+            "D’accéder à EF Core",
+            "De gérer les erreurs",
+            "D’écrire des fichiers CSV"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 63,
+        "question": "Le middleware app.UseDeveloperExceptionPage() :",
+        "options": [
+            "Affiche les détails d’erreurs en mode développement",
+            "Cache les exceptions",
+            "Logue les erreurs dans Serilog",
+            "Relance le serveur",
+            "Supprime la base"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 64,
+        "question": "AddOpenApi() sert à :",
+        "options": [
+            "Ajouter EF Core",
+            "Générer le document openapi/v1.json",
+            "Configurer les routes",
+            "Activer Scalar",
+            "Ajouter Swagger"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 65,
+        "question": "Les méthodes HTTP principales utilisées dans REST :",
+        "options": [
+            "Ping, Call, Update, Erase",
+            "GET, POST, PUT, DELETE",
+            "Fetch, Push, Merge, Clear",
+            "Query, Modify, Create, Drop",
+            "Sync, Upload, Remove, Refresh"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 66,
+        "question": "app.Run(); :",
+        "options": [
+            "Crée la base",
+            "Démarre le serveur web",
+            "Compile l’application",
+            "Arrête la base",
+            "Logue les erreurs"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 67,
+        "question": "Les filtres API globaux :",
+        "options": [
+            "S’appliquent à un seul contrôleur",
+            "Affectent toutes les requêtes (log, auth, validation)",
+            "Ne peuvent être configurés",
+            "Existent seulement en MVC",
+            "Ne sont pas supportés"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 68,
+        "question": "Le mot clé async sur une méthode API permet :",
+        "options": [
+            "De gérer les appels asynchrones (I/O non bloquants)",
+            "De forcer la synchronicité",
+            "De désactiver les exceptions",
+            "D’activer LINQ",
+            "D’utiliser EF Core"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 69,
+        "question": "Le résultat Results.Ok(obj) appartient à :",
+        "options": [
+            "IActionResult",
+            "HttpResults (Minimal APIs)",
+            "ActionResult<T>",
+            "ResponseBody",
+            "IResponse"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 70,
+        "question": "Code pour retourner 404 avec Minimal API : return Results.NotFound();",
+        "options": [
+            "Invalide",
+            "Nécessite MVC",
+            "Correct",
+            "Retourne 500",
+            "Retourne 204"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 71,
+        "question": "Une bonne pratique pour les erreurs API est :",
+        "options": [
+            "try/catch dans chaque action",
+            "Utiliser un middleware d’erreur global",
+            "Ignorer les exceptions",
+            "Les cacher avec NoContent",
+            "try/catch au niveaudu program.cs"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 72,
+        "question": "Les types de retour conseillés pour API modernes :",
+        "options": [
+            "void",
+            "HttpResponse",
+            "ActionResult",
+            "ActionResult<T>",
+            "Task<object>"
+        ],
+        "correctAnswer": 3
+    },
+    {
+        "id": 73,
+        "question": "Dans le cycle API : Requête → Routing → Contrôleur → Action → Réponse. Quelle étape exécute la logique métier ?",
+        "options": [
+            "Routing",
+            "Middleware",
+            "Action",
+            "Filter",
+            "Logger"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 74,
+        "question": "Pour initialiser la base au démarrage :",
+        "options": [
+            "Créer un scope, puis appeler context.Database.EnsureCreated()",
+            "Lancer dotnet ef database update",
+            "Utiliser OnModelCreating",
+            "Ajouter [InitDatabase]",
+            "Modifier appsettings.json"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 75,
+        "question": "Un service injecté avec AddScoped vit :",
+        "options": [
+            "Pendant tout le cycle de vie de l’application",
+            "Le temps d’une requête HTTP",
+            "Jusqu’à un redémarrage",
+            "Jusqu’à l’appel Dispose()",
+            "5 minutes"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 76,
+        "question": "Les niveaux de logs par ordre croissant sont :",
+        "options": [
+            "Critical < Debug < Error < Information",
+            "Debug < Warning < Critical < Trace",
+            "Trace < Debug < Information < Warning < Error < Critical",
+            "Warning < Trace < Error",
+            "Debug < Trace < Warning < Info"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 77,
+        "question": "Le but de la Clean Architecture est :",
+        "options": [
+            "Séparer les responsabilités et limiter les dépendances",
+            "Découpler les couches",
+            "Coupler domaine et infrastructure",
+            "Éviter les DTO",
+            "Améliorer la maintenabilité du code"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 78,
+        "question": "Les 4 couches principales sont :",
+        "options": [
+            "Controler, Application, Entity, Infrastructure",
+            "Presentation, Application, Domain, Infrastructure",
+            "Controler, Repository, Service, Model",
+            "Presentation, Application, Model, Repository",
+            "ORM, DTO, Controller, Logger"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 79,
+        "question": "Le dossier Domain contient :",
+        "options": [
+            "Les DTO",
+            "Les contrôleurs",
+            "Les entités métier et la logique pure",
+            "Les fichiers de migration",
+            "Les vues"
+        ],
+        "correctAnswer": 2
+    },
+    {
+        "id": 80,
+        "question": "Un Repository :",
+        "options": [
+            "Encapsule l’accès aux données",
+            "Appelle les contrôleurs",
+            "Gère le routage",
+            "Supprime les services",
+            "Configure EF"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 81,
+        "question": "Un Service de la couche Application :",
+        "options": [
+            "Définit le schéma SQL",
+            "Orchestre les règles métier (use cases)",
+            "Gère la configuration",
+            "Sérialise les logs",
+            "Écrit dans Serilog"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 82,
+        "question": "Un Mapper (Mapperly, AutoMapper…) :",
+        "options": [
+            "Crée les migrations",
+            "Transforme les entités en DTO et inversement",
+            "Crée le DbContext",
+            "Sauvegarde les données",
+            "Lit le fichier appsettings"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 83,
+        "question": "CQRS signifie :",
+        "options": [
+            "Command Query Responsibility Segregation",
+            "Core Query Runtime System",
+            "Concurrent Query Routing Service",
+            "Command Queue Remote System",
+            "Control Query Reset Segment"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 84,
+        "question": "Une Command :",
+        "options": [
+            "Modifie l’état du système (Create, Update, Delete)",
+            "Récupère des données",
+            "Fait un SELECT",
+            "Supprime les logs",
+            "Configure l’API"
+        ],
+        "correctAnswer": 0
+    },
+    {
+        "id": 85,
+        "question": "Une Query :",
+        "options": [
+            "Modifie les données",
+            "Lit des données sans effet de bord",
+            "Supprime des entités",
+            "Gère les logs",
+            "Déclenche les migrations"
+        ],
+        "correctAnswer": 1
+    },
+    {
+        "id": 86,
+        "question": "Les DTO servent à :",
+        "options": [
+            "Transférer des fichiers",
+            "Transférer des données entre couches",
+            "Gérer les logs",
+            "Créer la DB",
+            "Limiter les données envoyées au client"
+        ],
+        "correctAnswer": 1
+    }
+]

@@ -1,0 +1,658 @@
+1.	Entity Framework est principalement :
+A. Un langage de base de données
+B. Un ORM (Object-Relational Mapper)
+C. Un framework de logging
+D. Une extension de LINQ
+E. Une bibliothèque pour Blazor
+________________________________________
+2.	L’approche Code-First consiste à :
+A. Créer d’abord la base de données et générer le code ensuite
+B. Créer les classes C# avant la base de données
+C. Utiliser un diagramme EDMX
+D. Créer un script SQL avant les entités
+E. Éviter les migrations
+________________________________________
+3.	Quelle classe représente une session avec la base de données dans EF Core ?
+A. DbSet
+B. DbConnection
+C. DbContext
+D. DatabaseContext
+E. ContextService
+________________________________________
+4.	Un DbSet<Student> représente :
+A. Une collection d’entités Student mappée à une table
+B. Une seule instance de Student
+C. Un script SQL de migration
+D. Une clé étrangère
+E. Un logger d’exécution
+________________________________________
+5.	Par défaut, EF Core suit les changements sur les entités grâce à :
+A. L’API LINQ
+B. Le Change Tracker
+C. Le Migration Builder
+D. Le Mapperly
+E. L’EntityStateManager
+________________________________________
+6.	Dans EF Core, quelle méthode enregistre les modifications dans la base ?
+A. context.Submit()
+B. context.SaveChangeAsync()
+C. context.SaveChanges()
+D. context.Persist()
+E. context.Commit()
+________________________________________
+7.	Les propriétés d’une entité mappées à des colonnes simples sont appelées :
+A. Propriétés scalaires
+B. Propriétés de navigation
+C. Propriétés virtuelles
+D. Propriétés abstraites
+E. Propriétés persistées
+
+
+
+
+
+
+
+
+
+________________________________________
+8.	Le code suivant illustre une relation :
+public class Student {
+   public Grade Grade { get; set; }
+}
+Quel type de relation ?
+A. One-to-Many 
+B. One-to-One
+C. Many-to-Many
+D. Aucun lien
+E. Un lien nullable sans clé
+________________________________________
+9.	L’attribut [Key] en EF Core :
+A. Supprime la clé primaire
+B. Indique la propriété servant de clé primaire
+C. Configure un index
+D. Marque la propriété comme obligatoire
+E. Spécifie la taille maximale
+________________________________________
+10.	Comment rendre une propriété non mappée en base de données ?Quelles approches permettent d'exclure une propriété du mapping en base de données ?
+A. [NotMapped]
+B. modelBuilder.Entity<Student>().Ignore(s => s.FullName)
+C. [Ignore]
+D. modelBuilder.Entity<Student>().Property(s => s.FullName).HasColumnName(null)
+E. [DatabaseGenerated(DatabaseGeneratedOption.None)]
+________________________________________
+11.	La méthode OnModelCreating d’un DbContext est utilisée pour :
+A. Configurer la connexion à SQL Server
+B. Configurer les entités via Fluent API
+C. Enregistrer les données
+D. Supprimer la base de données
+E. Charger les entités
+________________________________________
+12.	Dans la configuration Fluent API, quel code configure la table ?
+modelBuilder.Entity<Student>()
+            .ToTable("StudentInfo");
+A. Déclare une entité
+B. Mappe l’entité à une table SQL spécifique
+C. Ajoute l’entité
+D. Configure une relation
+E. Configure une table
+________________________________________
+13.	Pour configurer une colonne auto-incrémentée avec FluentApi, quelle(s) approche(s) est/sont valide(s) ?
+A. [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+B. modelBuilder.Entity<User>().Property(u => u.Id).ValueGeneratedOnAdd()
+C. [Key] suffit pour un int/long 
+D. modelBuilder.Entity<User>().Property(u => u.Id).UseIdentityColumn()
+E. modelBuilder.Entity<User>().Key(u => u.Id).UseIdentityColumn()
+________________________________________
+14.	Dans EF Core, Include() est utilisé pour :
+A. Charger les entités avec lazy loading
+B. Charger explicitement les entités liées (eager loading)
+C. Supprimer une relation
+D. Ajouter une migration
+E. Mapper une clé étrangère
+________________________________________
+15.	Le code suivant :
+context.Students.Remove(student);
+context.SaveChanges();
+fait quoi ?
+A. Modifie la ligne
+B. Supprime la ligne correspondante en base
+C. Détache l’entité du contexte
+D. Ajoute un étudiant
+E. Vide la table
+________________________________________
+16.	Le ChangeTracker gère les états suivants, sauf :
+A. Added
+B. Modified
+C. Deleted
+D. Created
+E. Unchang
+
+17.	Pour une relation Many-to-Many, EF Core 9 recommande :
+A. Créer manuellement les clés étrangères
+B. Utiliser .UsingEntity<Jointure>() dans Fluent API
+C. Utiliser [ManyToMany]
+D. Créer une seule propriété virtuelle
+E. Mapper les deux côtés sans jointure
+________________________________________
+18.	La suppression en cascade (Cascade Delete) :
+A. Supprime toutes les tables
+B. Supprime les enfants quand le parent est supprimé
+C. Empêche la suppression
+D. Efface la base de données entière
+E. Nécessite WillCascadeOnDelete(false) pour l’activer
+________________________________________
+19.	Pour désactiver la suppression en cascade dans Fluent API :
+modelBuilder.Entity<Grade>()
+    .HasMany(g => g.Students)
+    .WithOne()
+    .OnDelete(DeleteBehavior.Restrict);
+A. Active le delete
+B. Ignore les relations
+C. Empêche la suppression du parent s’il a des enfants
+D. Supprime les enfants
+E. Clone la relation
+________________________________________
+20.	Une migration EF Core sert à :
+A. Générer des seeders
+B. Créer ou modifier le schéma de base de données
+C. Supprimer les entités
+D. Synchroniser le modèle et la base de données
+E. Synchroniser la base de données et le modèle
+________________________________________
+21.	Commande pour créer une migration via CLI :
+A. dotnet ef add
+B. dotnet ef create migration
+C. dotnet ef migrations add NomMigration
+D. add-migration
+E. update-database
+________________________________________
+22.	Commande pour appliquer une migration :
+A. dotnet ef database update
+B. dotnet ef run migration
+C. add-migration
+D. update-database
+E. context.apply()
+
+23.	context.Database.EnsureCreated() :
+A. Met à jour la DB
+B. Crée la base sans gestion de migration
+C. Supprime la base
+D. Crée une migration automatique
+E. Installe EF Core
+________________________________________
+24.	Dans EF Core, ExecuteUpdateAsync :
+A. Met à jour plusieurs lignes directement en SQL
+B. Supprime plusieurs lignes
+C. Ajoute un ensemble d’entités
+D. Met à jour une seule entité
+E. N’existe pas
+________________________________________
+25.	Le Scaffold-DbContext sert à :
+A. Générer le modèle à partir d’un schéma existant 
+B. Supprimer des migrations
+C. Ajouter des données par défaut
+D. Mettre à jour un modèle d’entité
+E. Mettre à jour un snapshot
+________________________________________
+26.	Les fournisseurs EF Core permettent de :
+A. Gérer les relations entre entités
+B. Changer de moteur de base de données (SQL Server, PostgreSQL, etc.)
+C. Configurer les entités
+D. Créer des migrations
+E. Sérialiser les entités
+________________________________________
+27.	Exemple de code pour requêter avec LINQ :
+var result = context.Students
+    .Where(s => s.Age > 18)
+    .Include(s => s.Enrollments)
+        .ThenInclude(e => e.Course)
+    .AsNoTracking()
+    .OrderBy(s => s.Name)
+    .Select(s => new {
+        s.Name,
+        CourseCount = s.Enrollments.Count(),
+        Courses = s.Enrollments.Select(e => e.Course.Title)
+    }).ToList();
+Résultat :
+A. Une liste d'objets anonymes avec Name, CourseCount et Courses, sans tracking, triée par nom
+B. Une exception car Select() après Include() ignore les données chargées par Include
+C. Un résultat identique même si on retire Include() et ThenInclude() car Select() charge automatiquement les relations nécessaires
+D. Une requête SQL avec LEFT JOIN sur Enrollments et Courses, puis une projection côté client
+E. Une exception car AsNoTracking() et Include() sont incompatibles
+
+
+28.	Le mot clé virtual sur une propriété de navigation permet :
+A. D’empêcher la sérialisation
+B. Le lazy loading
+C. Le mapping manuel
+D. Le changement d’état
+E. L’immuabilité
+________________________________________
+29.	Quel namespace contient DbContext ?
+A. System.Data
+B. Microsoft.EntityFrameworkCore
+C. Microsoft.Data.SqlClient
+D. System.Linq
+E. EFCore.Context
+________________________________________
+30.	Fluent API et Data Annotations :
+A. S’excluent mutuellement
+B. Peuvent être combinés, Fluent API a priorité
+C. Ne peuvent pas coexister
+D. Peuvent être combinés, Data Annotations a priorité
+E. Servent au seeding
+________________________________________
+31.	Dans un DbContext, la méthode OnConfiguring :
+A. Configure la chaîne de connexion
+B. Configure les relations
+C. Gère les migrations
+D. Enregistre les logs
+E. Ajoute les seeds
+________________________________________
+32.	L’état Detached d’une entité signifie :
+A. Non suivie par le contexte
+B. Supprimée de la base
+C. Ajoutée à la base
+D. Non persistée mais suivie
+E. Synonyme de Deleted
+________________________________________
+33.	context.Entry(entity).State = EntityState.Modified;
+A. Force EF à marquer une entité comme modifiée
+B. Détache l’entité
+C. Supprime l’entité
+D. Ajoute la clé étrangère
+E. Sauvegarde l’entité
+
+34.	Pour injecter un DbContext dans ASP.NET Core :
+A. builder.Services.AddScoped<MyContext>()
+B. builder.Services.AddDbContext<MyContext>()
+C. builder.AddDb()
+D. services.UseSqlServer()
+E. builder.UseEFContext()
+________________________________________
+35.	Les migrations EF Core sont stockées dans :
+A. bin/Debug
+B. Database/Migrations
+C. Le dossier Migrations du projet
+D. %appdata%
+E. Le fichier appsettings.json
+
+________________________________________
+36.	Une Navigation Property de collection :
+A. Mappe une seule entité
+B. Représente une liste d’entités liées
+C. Est obligatoire
+D. Est One-To-Many
+E. Sert uniquement aux Many-to-Many
+________________________________________
+37.	EF Core gère les transactions :
+A. Automatiquement sur SaveChanges()
+B. Uniquement manuellement
+C. Jamais
+D. Avec ctx.Database.BeginTransactionAsync & ctx.Database.Commit/Rollback
+E. Avec [Transactional]
+________________________________________
+38.	L’instruction :
+context.Attach(entity);
+A. Attache une entité existante au contexte sans modification
+B. Attache une entité existante
+C. Ajoute une entité
+D. Ajoute une entité avec modification
+E. Ne suis pas l’entité dans le change tracker 
+________________________________________
+39.	IEntityTypeConfiguration<T> sert à :
+A. Configurer l’injection de dépendances
+B. Déplacer la configuration Fluent API dans une classe dédiée
+C. Configurer les entités
+D. Générer la DB
+E. Découple les configurations du DB contexte
+
+40.	odelBuilder.ApplyConfigurationsFromAssembly(...) :
+A. Applique les migrations
+B. Applique automatiquement toutes les configurations d’entités dans l’assembly
+C. Compile la base de données
+D. Sauvegarde les entités
+E. Crée un contexte
+________________________________________
+41.	ASP.NET Core est :
+A. Un framework uniquement Windows
+B. Multiplateforme et open-source
+C. Basé sur IIS exclusivement
+D. Sans injection de dépendances
+E. Dédié à Blazor uniquement
+________________________________________
+42.	Le point d’entrée d’une application API est :
+A. Startup.cs
+B. Program.cs
+C. MainController.cs
+D. AppConfig.cs
+E. ApiEntry.cs
+________________________________________
+43.	Une API minimaliste :
+A. Nécessite ControllerBase
+B. Utilise app.MapGet(...) ou app.MapPost(...)
+C. app.Controllers.Get ou app.Controllers.Post
+D. Ne peut pas retourner JSON
+E. Nécessite MVC
+________________________________________
+44.	Un contrôleur Web API hérite généralement de :
+A. Controller
+B. ControllerBase
+C. BaseController
+D. WebController
+E. MvcBase
+________________________________________
+45.	Attribut pour une route GET :
+A. [HttpPost]
+B. [Route("GET")]
+C. [HttpGet]
+D. [Verb("Get")]
+E. [Get]
+
+46.	Méthode CreatedAtAction(...) retourne un code HTTP:
+A. 201 Created
+B. 200 OK
+C. 404 NotFound
+D. 204 NoContent
+E. 400 BadRequest
+________________________________________
+47.	ActionResult<T> combine :
+A. Une Action par défaut + Résultat
+B. Typage fort + flexibilité des statuts de réponse
+C. T + JSON
+D. Response only 
+E. Middleware + Result
+________________________________________
+48.	Le code suivant :
+return NotFound();
+Renvoie :
+A. 500
+B. 200
+C. 404
+D. 201
+E. 204
+________________________________________
+49.	Le pipeline d’exécution ASP.NET Core est une chaîne de :
+A. Routes
+B. Middlewares
+C. Controllers 
+D. Filtres uniquement
+E. Assemblies
+________________________________________
+50.	builder.Services.AddControllers() :
+A. Active le routage basé sur les contrôleurs
+B. Enregistre les contrôleurs dans le conteneur DI
+C. Démarre la base de données
+D. Ajoute Swagger
+E. Crée la route API
+________________________________________
+51.	app.MapControllers() :
+A. Active le routage basé sur les contrôleurs
+B. Enregistre les contrôleurs dans le conteneur DI
+C. Configure Open Api
+D. Active l’API
+E. Initialise Serilog
+
+52.	Dans appsettings.json, les chaînes de connexion se trouvent sous :
+A. "DbContext"
+B. "EF"
+C. "ConnectionStrings"
+D. "ToDoConnectionStrings" pour un DbContext « ToDo »
+E. "DatabaseConfig"
+➡ Réponse : C
+________________________________________
+53.	L’attribut [ApiController] permet :
+A. D’activer Swagger
+B. La validation automatique des modèles et le binding intelligent
+C. Le routing par convention
+D. Le mapping JSON manuel
+E. L’injection de dépendance
+________________________________________
+54.	Quelle méthode du contrôleur retourne 204 NoContent ?
+A. return Ok()
+B. return Empty()
+C. return NoContent()
+D. return None() 
+E.return null
+________________________________________
+55.	Dans le routage :
+[HttpGet("{id:int}")]
+signifie :
+A. Paramètre optionnel
+B. Paramètre id de type entier obligatoire
+C. Paramètre id de type entier
+D. Identifiant global
+E. Paramètre facultatif
+________________________________________
+56.	Swagger et Scalar sont :
+A. Des UIs de visualisation et test d’API OpenAPI
+B. Des frameworks REST
+C. Des serveurs SQL
+D. Des ORM
+E. Des middlewares d’authentification
+________________________________________
+57.	Le logging natif de Microsoft utilise :
+A. ILogger
+B. Log4Net
+C. EventLog
+D. TraceSource
+E. Serilog
+
+58.	Serilog est :
+A. Un ORM
+B. Un moteur SQL
+C. Un framework de logging structuré
+D. Une UI Swagger
+E. Un container DI
+
+
+
+
+________________________________________
+59.	Pour activer Serilog dans ASP.NET Core :
+A. app.UseLogger()
+B. app.UseSerilogRequestLogging()
+C. builder.AddSerilog()
+D. services.UseSerilog()
+E. logger.Enable()
+________________________________________
+60.	AddSerilog(...) permet :
+A. D’ajouter un middleware
+B. De lire la configuration Serilog depuis appsettings.json
+C. De configurer les endpoints
+D. D’initialiser EF Core
+E. De créer un fichier log manuellement
+________________________________________
+61.	Serilog peut écrire vers :
+A. Console
+B. Fichier
+C. ElasticSearch
+D. EventLog
+E. Toutes les réponses
+________________________________________
+62.	ILogger<WeatherService> injecté dans un service permet :
+A. D’envoyer des mails
+B. De tracer les événements du service dans les logs
+C. D’accéder à EF Core
+D. De gérer les erreurs
+E. D’écrire des fichiers CSV
+________________________________________
+63.	Le middleware app.UseDeveloperExceptionPage() :
+A. Affiche les détails d’erreurs en mode développement
+B. Cache les exceptions
+C. Logue les erreurs dans Serilog
+D. Relance le serveur
+E. Supprime la base
+
+64.	AddOpenApi() sert à :
+A. Ajouter EF Core
+B. Générer le document openapi/v1.json
+C. Configurer les routes
+D. Activer Scalar
+E. Ajouter Swagger
+________________________________________
+65.	Les méthodes HTTP principales utilisées dans REST :
+A. Ping, Call, Update, Erase
+B. GET, POST, PUT, DELETE
+C. Fetch, Push, Merge, Clear
+D. Query, Modify, Create, Drop
+E. Sync, Upload, Remove, Refresh
+________________________________________
+66.	app.Run(); :
+A. Crée la base
+B. Démarre le serveur web
+C. Compile l’application
+D. Arrête la base
+E. Logue les erreurs
+________________________________________
+67.	Les filtres API globaux :
+A. S’appliquent à un seul contrôleur
+B. Affectent toutes les requêtes (log, auth, validation)
+C. Ne peuvent être configurés
+D. Existent seulement en MVC
+E. Ne sont pas supportés
+________________________________________
+68.	Le mot clé async sur une méthode API permet :
+A. De gérer les appels asynchrones (I/O non bloquants)
+B. De forcer la synchronicité
+C. De désactiver les exceptions
+D. D’activer LINQ
+E. D’utiliser EF Core
+________________________________________
+69.	Le résultat Results.Ok(obj) appartient à :
+A. IActionResult
+B. HttpResults (Minimal APIs)
+C. ActionResult<T>
+D. ResponseBody
+E. IResponse
+
+70.	Code pour retourner 404 avec Minimal API :
+return Results.NotFound();
+A. Invalide
+B. Nécessite MVC
+C. Correct
+D. Retourne 500
+E. Retourne 204
+________________________________________
+71.	Une bonne pratique pour les erreurs API est :
+A. try/catch dans chaque action
+B. Utiliser un middleware d’erreur global
+C. Ignorer les exceptions
+D. Les cacher avec NoContent
+E. try/catch au niveaudu program.cs
+________________________________________
+72.	Les types de retour conseillés pour API modernes :
+A. void
+B. HttpResponse
+C. ActionResult
+D. ActionResult<T>
+E. Task<object>
+________________________________________
+73.	Dans le cycle API :
+Requête → Routing → Contrôleur → Action → Réponse
+Quelle étape exécute la logique métier ?
+A. Routing
+B. Middleware
+C. Action
+D. Filter
+E. Logger
+
+
+
+
+
+
+________________________________________
+74.	Pour initialiser la base au démarrage :
+A. Créer un scope, puis appeler context.Database.EnsureCreated()
+B. Lancer dotnet ef database update
+C. Utiliser OnModelCreating
+D. Ajouter [InitDatabase]
+E. Modifier appsettings.json
+________________________________________
+75.	Un service injecté avec AddScoped vit :
+A. Pendant tout le cycle de vie de l’application
+B. Le temps d’une requête HTTP
+C. Jusqu’à un redémarrage
+D. Jusqu’à l’appel Dispose()
+E. 5 minutes
+
+76.	Les niveaux de logs par ordre croissant sont :
+A. Critical < Debug < Error < Information
+B. Debug < Warning < Critical < Trace
+C. Trace < Debug < Information < Warning < Error < Critical
+D. Warning < Trace < Error
+E. Debug < Trace < Warning < Info
+________________________________________
+77.	Le but de la Clean Architecture est :
+A. Séparer les responsabilités et limiter les dépendances
+B. Découpler les couches
+C. Coupler domaine et infrastructure
+D. Éviter les DTO
+E. Améliorer la maintenabilité du code
+________________________________________
+78.	Les 4 couches principales sont :
+A. Controler, Application, Entity, Infrastructure
+B. Presentation, Application, Domain, Infrastructure
+C. Controler, Repository, Service, Model
+D. Presentation, Application, Model, Repository
+E. ORM, DTO, Controller, Logger
+________________________________________
+79.	Le dossier Domain contient :
+A. Les DTO
+B. Les contrôleurs
+C. Les entités métier et la logique pure
+D. Les fichiers de migration
+E. Les vues
+________________________________________
+80.	Un Repository :
+A. Encapsule l’accès aux données
+B. Appelle les contrôleurs
+C. Gère le routage
+D. Supprime les services
+E. Configure EF
+________________________________________
+81.	Un Service de la couche Application :
+A. Définit le schéma SQL
+B. Orchestre les règles métier (use cases)
+C. Gère la configuration
+D. Sérialise les logs
+E. Écrit dans Serilog
+ 
+82.	Un Mapper (Mapperly, AutoMapper…) :
+A. Crée les migrations
+B. Transforme les entités en DTO et inversement
+C. Crée le DbContext
+D. Sauvegarde les données
+E. Lit le fichier appsettings
+________________________________________
+83.	CQRS signifie :
+A. Command Query Responsibility Segregation
+B. Core Query Runtime System
+C. Concurrent Query Routing Service
+D. Command Queue Remote System
+E. Control Query Reset Segment
+________________________________________
+84.	Une Command :
+A. Modifie l’état du système (Create, Update, Delete)
+B. Récupère des données
+C. Fait un SELECT
+D. Supprime les logs
+E. Configure l’API
+________________________________________
+85.	Une Query :
+A. Modifie les données
+B. Lit des données sans effet de bord
+C. Supprime des entités
+D. Gère les logs
+E. Déclenche les migrations
+________________________________________
+86.	Les DTO servent à :
+A. Transférer des fichiers
+B. Transférer des données entre couches 
+C. Gérer les logs
+D. Créer la DB
+E. Limiter les données envoyées au client
+________________________________________
+
