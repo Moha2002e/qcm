@@ -23,13 +23,8 @@ onMounted(() => {
 })
 
 function initializeQuiz() {
-  // Shuffle all questions
-  const shuffled = [...rawQuestions]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  allQuestions.value = shuffled
+  // No shuffle for questions, they must be in order 1..86
+  allQuestions.value = [...rawQuestions]
 }
 
 const currentChunkQuestions = computed(() => {
