@@ -13,7 +13,7 @@ const currentChunkIndex = ref(0)
 const currentQuestionIndex = ref(0) // 0 to CHUNK_SIZE - 1
 const userAnswers = ref([]) // Array of objects for current chunk
 const quizState = ref('intro') // 'intro', 'playing', 'result'
-const totalScore = ref(0) // Cumulative score not needed? User asked: "chaque 20 questions après j'étais en validité et avoir une note" -> Score per chunk usually.
+const totalScore = ref(0) 
 
 // Review data
 const chunkResults = ref([])
@@ -23,9 +23,12 @@ onMounted(() => {
 })
 
 function initializeQuiz() {
-  // No shuffle for questions, they must be in order 1..86
   allQuestions.value = [...rawQuestions]
 }
+
+const totalSeries = computed(() => {
+  return Math.ceil(allQuestions.value.length / CHUNK_SIZE)
+})
 
 const currentChunkQuestions = computed(() => {
   const start = currentChunkIndex.value * CHUNK_SIZE
@@ -45,8 +48,8 @@ const hasNextChunk = computed(() => {
 })
 
 // Actions
-function startQuiz() {
-  currentChunkIndex.value = 0
+function startQuiz(seriesIndex = 0) {
+  currentChunkIndex.value = seriesIndex
   startChunk()
 }
 
@@ -86,8 +89,8 @@ function nextChunk() {
 }
 
 function restartQuiz() {
-  initializeQuiz()
-  startQuiz()
+  quizState.value = 'intro'
+  initializeQuiz() // Optional reload
 }
 
 const chunkScore = computed(() => {
@@ -110,12 +113,24 @@ const chunkScore = computed(() => {
           <span>{{ allQuestions.length }} Questions</span>
         </div>
         <div class="info-item">
-          <span class="icon">⏱️</span>
-          <span>Mode Série (20/session)</span>
+          <span class="icon">📚</span>
+          <span>{{ totalSeries }} Séries</span>
         </div>
       </div>
       
-      <button class="btn start-btn" @click="startQuiz">Commencer le Quiz</button>
+      <div class="series-selection">
+        <h3>Choisissez votre série :</h3>
+        <div class="series-grid">
+          <button 
+            v-for="i in totalSeries" 
+            :key="i" 
+            class="btn series-btn" 
+            @click="startQuiz(i - 1)"
+          >
+            Série {{ i }}
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Quiz Playing -->
@@ -158,7 +173,7 @@ const chunkScore = computed(() => {
 
 .intro-card {
   text-align: center;
-  max-width: 500px;
+  max-width: 600px; /* Increased width for series grid */
   padding: 4rem 2rem;
   animation: float 6s ease-in-out infinite;
 }
@@ -217,9 +232,36 @@ const chunkScore = computed(() => {
   border-radius: 50%;
 }
 
-.start-btn {
-  font-size: 1.3rem;
-  padding: 1.2rem 3rem;
-  border-radius: 50px;
+.series-selection {
+  margin-top: 2rem;
+}
+
+.series-selection h3 {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.series-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.series-btn {
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.series-btn:hover {
+  background: var(--accent-color);
+  color: rgb(157, 12, 12);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 </style>
