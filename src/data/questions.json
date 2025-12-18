@@ -9,7 +9,8 @@
       "Une extension de LINQ",
       "Une bibliothèque pour Blazor"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
       "Créer un script SQL avant les entités",
       "Éviter les migrations"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
       "DatabaseContext",
       "ContextService"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
       "Une clé étrangère",
       "Un logger d’exécution"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
       "Le Mapperly",
       "L’EntityStateManager"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 6,
@@ -69,7 +74,8 @@
       "context.Persist()",
       "context.Commit()"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 7,
@@ -81,7 +87,8 @@
       "Propriétés abstraites",
       "Propriétés persistées"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 8,
@@ -93,7 +100,8 @@
       "Aucun lien",
       "Un lien nullable sans clé"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 9,
@@ -105,7 +113,8 @@
       "Marque la propriété comme obligatoire",
       "Spécifie la taille maximale"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 10,
@@ -117,7 +126,8 @@
       "modelBuilder.Entity<Student>().Property(s => s.FullName).HasColumnName(null)",
       "[DatabaseGenerated(DatabaseGeneratedOption.None)]"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 11,
@@ -129,7 +139,8 @@
       "Supprimer la base de données",
       "Charger les entités"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 12,
@@ -141,7 +152,8 @@
       "Configure une relation",
       "Configure une table"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 13,
@@ -153,7 +165,8 @@
       "modelBuilder.Entity<User>().Property(u => u.Id).UseIdentityColumn()",
       "modelBuilder.Entity<User>().Key(u => u.Id).UseIdentityColumn()"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 14,
@@ -165,7 +178,8 @@
       "Ajouter une migration",
       "Mapper une clé étrangère"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 15,
@@ -177,7 +191,8 @@
       "Ajoute un étudiant",
       "Vide la table"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 16,
@@ -189,7 +204,8 @@
       "Created",
       "Unchanged"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "part": 1
   },
   {
     "id": 17,
@@ -201,7 +217,8 @@
       "Créer une seule propriété virtuelle",
       "Mapper les deux côtés sans jointure"
     ],
-    "correctAnswer": 4
+    "correctAnswer": 4,
+    "part": 1
   },
   {
     "id": 18,
@@ -213,7 +230,8 @@
       "Efface la base de données entière",
       "Nécessite WillCascadeOnDelete(false) pour l’activer"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 19,
@@ -225,7 +243,8 @@
       "Supprime les enfants",
       "Clone la relation"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 20,
@@ -237,7 +256,8 @@
       "Synchroniser le modèle et la base de données",
       "Synchroniser la base de données et le modèle"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 21,
@@ -249,7 +269,8 @@
       "add-migration",
       "update-database"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 22,
@@ -261,7 +282,8 @@
       "update-database",
       "context.apply()"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 23,
@@ -273,7 +295,8 @@
       "Crée une migration automatique",
       "Installe EF Core"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 24,
@@ -285,7 +308,8 @@
       "Met à jour une seule entité",
       "N’existe pas"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 25,
@@ -297,7 +321,8 @@
       "Mettre à jour un modèle d’entité",
       "Mettre à jour un snapshot"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 26,
@@ -309,7 +334,8 @@
       "Créer des migrations",
       "Sérialiser les entités"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 27,
@@ -321,7 +347,8 @@
       "Une requête SQL avec LEFT JOIN sur Enrollments et Courses, puis une projection côté client",
       "Une exception car AsNoTracking() et Include() sont incompatibles"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 28,
@@ -333,7 +360,8 @@
       "Le changement d’état",
       "L’immuabilité"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 29,
@@ -345,7 +373,8 @@
       "System.Linq",
       "EFCore.Context"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 30,
@@ -357,7 +386,8 @@
       "Peuvent être combinés, Data Annotations a priorité",
       "Servent au seeding"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 31,
@@ -369,7 +399,8 @@
       "Enregistre les logs",
       "Ajoute les seeds"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 32,
@@ -381,7 +412,8 @@
       "Non persistée mais suivie",
       "Synonyme de Deleted"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 33,
@@ -393,7 +425,8 @@
       "Ajoute la clé étrangère",
       "Sauvegarde l’entité"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 34,
@@ -405,7 +438,8 @@
       "services.UseSqlServer()",
       "builder.UseEFContext()"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 35,
@@ -417,7 +451,8 @@
       "%appdata%",
       "Le fichier appsettings.json"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 36,
@@ -429,7 +464,8 @@
       "Est One-To-Many",
       "Sert uniquement aux Many-to-Many"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 37,
@@ -441,7 +477,8 @@
       "Avec ctx.Database.BeginTransactionAsync & ctx.Database.Commit/Rollback",
       "Avec [Transactional]"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 38,
@@ -453,7 +490,8 @@
       "Ajoute une entité avec modification",
       "Ne suis pas l’entité dans le change tracker"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 39,
@@ -465,7 +503,8 @@
       "Générer la DB",
       "Découple les configurations du DB contexte"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 40,
@@ -477,7 +516,8 @@
       "Sauvegarde les entités",
       "Crée un contexte"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 41,
@@ -489,7 +529,8 @@
       "Sans injection de dépendances",
       "Dédié à Blazor uniquement"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 42,
@@ -501,7 +542,8 @@
       "AppConfig.cs",
       "ApiEntry.cs"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 43,
@@ -513,7 +555,8 @@
       "Ne peut pas retourner JSON",
       "Nécessite MVC"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 44,
@@ -525,7 +568,8 @@
       "WebController",
       "MvcBase"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 45,
@@ -537,7 +581,8 @@
       "[Verb(\"Get\")]",
       "[Get]"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 46,
@@ -549,7 +594,8 @@
       "204 NoContent",
       "400 BadRequest"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 47,
@@ -561,7 +607,8 @@
       "Response only",
       "Middleware + Result"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 48,
@@ -573,7 +620,8 @@
       "201",
       "204"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 49,
@@ -585,7 +633,8 @@
       "Filtres uniquement",
       "Assemblies"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 50,
@@ -597,7 +646,8 @@
       "Ajoute Swagger",
       "Crée la route API"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 51,
@@ -609,7 +659,8 @@
       "Active l’API",
       "Initialise Serilog"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 52,
@@ -621,7 +672,8 @@
       "ToDoConnectionStrings",
       "DatabaseConfig"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 53,
@@ -633,7 +685,8 @@
       "Le mapping JSON manuel",
       "L’injection de dépendance"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 54,
@@ -645,7 +698,8 @@
       "return None()",
       "return null"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 55,
@@ -657,7 +711,8 @@
       "Identifiant global",
       "Paramètre facultatif"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 56,
@@ -669,7 +724,8 @@
       "Des ORM",
       "Des middlewares d’authentification"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 57,
@@ -681,7 +737,8 @@
       "TraceSource",
       "Serilog"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 58,
@@ -693,7 +750,8 @@
       "Une UI Swagger",
       "Un container DI"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 59,
@@ -705,7 +763,8 @@
       "services.UseSerilog()",
       "logger.Enable()"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 60,
@@ -717,7 +776,8 @@
       "D’initialiser EF Core",
       "De créer un fichier log manuellement"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 61,
@@ -729,7 +789,8 @@
       "EventLog",
       "Toutes les réponses"
     ],
-    "correctAnswer": 4
+    "correctAnswer": 4,
+    "part": 1
   },
   {
     "id": 62,
@@ -741,7 +802,8 @@
       "De gérer les erreurs",
       "D’écrire des fichiers CSV"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 63,
@@ -753,7 +815,8 @@
       "Relance le serveur",
       "Supprime la base"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 64,
@@ -765,7 +828,8 @@
       "Activer Scalar",
       "Ajouter Swagger"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 65,
@@ -777,7 +841,8 @@
       "Query, Modify, Create, Drop",
       "Sync, Upload, Remove, Refresh"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 66,
@@ -789,7 +854,8 @@
       "Arrête la base",
       "Logue les erreurs"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 67,
@@ -801,7 +867,8 @@
       "Existent seulement en MVC",
       "Ne sont pas supportés"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 68,
@@ -813,7 +880,8 @@
       "D’activer LINQ",
       "D’utiliser EF Core"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 69,
@@ -825,7 +893,8 @@
       "ResponseBody",
       "IResponse"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 70,
@@ -837,7 +906,8 @@
       "Retourne 500",
       "Retourne 204"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 71,
@@ -849,7 +919,8 @@
       "Les cacher avec NoContent",
       "try/catch au niveaudu program.cs"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 72,
@@ -861,7 +932,8 @@
       "ActionResult<T>",
       "Task<object>"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "part": 1
   },
   {
     "id": 73,
@@ -873,7 +945,8 @@
       "Filter",
       "Logger"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 74,
@@ -885,7 +958,8 @@
       "Ajouter [InitDatabase]",
       "Modifier appsettings.json"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 75,
@@ -897,7 +971,8 @@
       "Jusqu’à l’appel Dispose()",
       "5 minutes"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 76,
@@ -909,7 +984,8 @@
       "Warning < Trace < Error",
       "Debug < Trace < Warning < Info"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 77,
@@ -921,7 +997,8 @@
       "Éviter les DTO",
       "Améliorer la maintenabilité du code"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 78,
@@ -933,7 +1010,8 @@
       "Presentation, Application, Model, Repository",
       "ORM, DTO, Controller, Logger"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 79,
@@ -945,7 +1023,8 @@
       "Les fichiers de migration",
       "Les vues"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "part": 1
   },
   {
     "id": 80,
@@ -957,7 +1036,8 @@
       "Supprime les services",
       "Configure EF"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 81,
@@ -969,7 +1049,8 @@
       "Sérialise les logs",
       "Écrit dans Serilog"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 82,
@@ -981,7 +1062,8 @@
       "Sauvegarde les données",
       "Lit le fichier appsettings"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 83,
@@ -993,7 +1075,8 @@
       "Command Queue Remote System",
       "Control Query Reset Segment"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 84,
@@ -1005,7 +1088,8 @@
       "Supprime les logs",
       "Configure l’API"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 1
   },
   {
     "id": 85,
@@ -1017,7 +1101,8 @@
       "Gère les logs",
       "Déclenche les migrations"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 86,
@@ -1029,10 +1114,336 @@
       "Créer la DB",
       "Limiter les données envoyées au client"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "part": 1
   },
   {
     "id": 87,
+    "part": 2,
+    "question": "Définition : \"ORM pour gérer la base de données depuis du code C#.\"",
+    "options": [
+      "Entity Framework Core",
+      "Cascade Delete",
+      "Service Layer",
+      "Migration",
+      "Scaffold"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 88,
+    "part": 2,
+    "question": "Définition : \"Classe représentant la session avec la base et les entités.\"",
+    "options": [
+      "DbContext",
+      "Clean Architecture",
+      "Application Layer",
+      "Connection String",
+      "Entity Framework Core"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 89,
+    "part": 2,
+    "question": "Définition : \"Collection d’entités d’un type spécifique dans le DbContext.\"",
+    "options": [
+      "Entity Framework Core",
+      "Serilog",
+      "DbSet",
+      "Cascade Delete",
+      "Repository Pattern"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 90,
+    "part": 2,
+    "question": "Définition : \"Fichier qui modifie ou crée le schéma de la base.\"",
+    "options": [
+      "Migration",
+      "EntityState",
+      "CQRS",
+      "Application Layer",
+      "Entity Framework Core"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 91,
+    "part": 2,
+    "question": "Définition : \"Configuration des entités via code C# plutôt qu’attributs.\"",
+    "options": [
+      "Data Annotation",
+      "Connection String",
+      "Fluent API",
+      "EntityState",
+      "DbContext"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 92,
+    "part": 2,
+    "question": "Définition : \"Attributs C# pour configurer les entités et colonnes.\"",
+    "options": [
+      "Cascade Delete",
+      "Data Annotation",
+      "Entity Framework Core",
+      "Dependency Injection (DI)",
+      "Scaffold"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 93,
+    "part": 2,
+    "question": "Définition : \"Syntaxe C# pour interroger collections et bases de données.\"",
+    "options": [
+      "DbSet",
+      "DTO (Data Transfer Object)",
+      "Migration",
+      "LINQ",
+      "Cascade Delete"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 94,
+    "part": 2,
+    "question": "Définition : \"État d’une entité suivi par EF Core (Added, Modified, Deleted…).\"",
+    "options": [
+      "Migration",
+      "Service Layer",
+      "CQRS",
+      "EntityState",
+      "Dependency Injection (DI)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 95,
+    "part": 2,
+    "question": "Définition : \"Supprime automatiquement les entités enfants lors de la suppression du parent.\"",
+    "options": [
+      "CQRS",
+      "Entity Framework Core",
+      "DbContext",
+      "Cascade Delete",
+      "DTO (Data Transfer Object)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 96,
+    "part": 2,
+    "question": "Définition : \"DbContext – Génère le modèle EF Core à partir d’une base existante.\"",
+    "options": [
+      "Swagger / OpenAPI",
+      "Dependency Injection (DI)",
+      "CQRS",
+      "Scaffold",
+      "DbSet"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 97,
+    "part": 2,
+    "question": "Définition : \"Chaîne définissant comment se connecter à la base de données.\"",
+    "options": [
+      "Connection String",
+      "Entity Framework Core",
+      "Infrastructure Layer",
+      "Clean Architecture",
+      "Serilog"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 98,
+    "part": 2,
+    "question": "Définition : \"Composant de traitement d’une requête dans le pipeline ASP.NET Core.\"",
+    "options": [
+      "Middleware",
+      "Dependency Injection (DI)",
+      "Connection String",
+      "Serilog",
+      "Entity Framework Core"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 99,
+    "part": 2,
+    "question": "Définition : \"Injection automatique des dépendances dans les classes.\"",
+    "options": [
+      "ActionResult",
+      "Clean Architecture",
+      "CQRS",
+      "Swagger / OpenAPI",
+      "Dependency Injection (DI)"
+    ],
+    "correctAnswer": 4
+  },
+  {
+    "id": 100,
+    "part": 2,
+    "question": "Définition : \"Type de retour d’une action contrôleur combinant données et statut HTTP.\"",
+    "options": [
+      "Serilog",
+      "Clean Architecture",
+      "ActionResult",
+      "EntityState",
+      "Service Layer"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 101,
+    "part": 2,
+    "question": "Définition : \"Outils pour documenter et tester les API REST.\"",
+    "options": [
+      "Entity Framework Core",
+      "Middleware",
+      "EntityState",
+      "Swagger / OpenAPI",
+      "DbContext"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 102,
+    "part": 2,
+    "question": "Définition : \"Framework de logging structuré pour applications .NET.\"",
+    "options": [
+      "ActionResult",
+      "LINQ",
+      "Connection String",
+      "Migration",
+      "Serilog"
+    ],
+    "correctAnswer": 4
+  },
+  {
+    "id": 103,
+    "part": 2,
+    "question": "Définition : \"Organisation du code en couches séparant responsabilités et dépendances.\"",
+    "options": [
+      "Service Layer",
+      "Migration",
+      "LINQ",
+      "Middleware",
+      "Clean Architecture"
+    ],
+    "correctAnswer": 4
+  },
+  {
+    "id": 104,
+    "part": 2,
+    "question": "Définition : \"Contient les entités métier et la logique pure.\"",
+    "options": [
+      "Domain Layer",
+      "DbSet",
+      "CQRS",
+      "Entity Framework Core",
+      "Clean Architecture"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 105,
+    "part": 2,
+    "question": "Définition : \"Contient la logique d’orchestration et les cas d’usage.\"",
+    "options": [
+      "Application Layer",
+      "Swagger / OpenAPI",
+      "Middleware",
+      "ActionResult",
+      "Migration"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 106,
+    "part": 2,
+    "question": "Définition : \"Gère l’accès aux données, API externes et services techniques.\"",
+    "options": [
+      "DbSet",
+      "LINQ",
+      "DTO (Data Transfer Object)",
+      "EntityState",
+      "Infrastructure Layer"
+    ],
+    "correctAnswer": 4
+  },
+  {
+    "id": 107,
+    "part": 2,
+    "question": "Définition : \"Classe qui encapsule l’accès aux données pour une entité.\"",
+    "options": [
+      "Cascade Delete",
+      "Repository Pattern",
+      "Application Layer",
+      "Domain Layer",
+      "Serilog"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 108,
+    "part": 2,
+    "question": "Définition : \"Contient la logique métier réutilisable par l’application.\"",
+    "options": [
+      "Application Layer",
+      "Migration",
+      "Mapperly",
+      "Service Layer",
+      "Clean Architecture"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": 109,
+    "part": 2,
+    "question": "Définition : \"Objet pour transférer uniquement les données nécessaires entre couches.\"",
+    "options": [
+      "Clean Architecture",
+      "ActionResult",
+      "DTO (Data Transfer Object)",
+      "Swagger / OpenAPI",
+      "Connection String"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 110,
+    "part": 2,
+    "question": "Définition : \"Outil pour convertir automatiquement entités ↔ DTO.\"",
+    "options": [
+      "Mapperly",
+      "Clean Architecture",
+      "LINQ",
+      "Migration",
+      "Swagger / OpenAPI"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": 111,
+    "part": 2,
+    "question": "Définition : \"Sépare les opérations de lecture (Query) et d’écriture (Command) sur les données.\"",
+    "options": [
+      "Repository Pattern",
+      "DTO (Data Transfer Object)",
+      "Migration",
+      "ActionResult",
+      "CQRS"
+    ],
+    "correctAnswer": 4
+  },
+  {
+    "id": 112,
     "question": "Lorsqu’une entité est lue via un DbContext, puis modifiée sans appel à Attach ou Update, EF Core :",
     "options": [
       "Lève une exception de suivi incohérent",
@@ -1041,10 +1452,11 @@
       "Modifie toutes les lignes correspondantes",
       "Nécessite explicitement context.Entry(entity).State = Modified"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 88,
+    "id": 113,
     "question": "Le comportement de context.Attach(entity) dépend de :",
     "options": [
       "Si la clé primaire est renseignée ou non",
@@ -1053,10 +1465,11 @@
       "Le mode de suivi du contexte",
       "Toutes ces réponses"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 89,
+    "id": 114,
     "question": "Lors d’un SaveChanges(), EF Core :",
     "options": [
       "Génère un script SQL et l’exécute sans transaction",
@@ -1065,10 +1478,11 @@
       "Envoie un batch par propriété modifiée",
       "Dépend du provider de base de données uniquement"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 90,
+    "id": 115,
     "question": "Si deux DbContext différents chargent la même entité et que chacun la modifie avant SaveChanges(), EF :",
     "options": [
       "Écrase silencieusement le dernier enregistrement",
@@ -1077,10 +1491,11 @@
       "Synchronise automatiquement les changements",
       "Fusionne les versions"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 91,
+    "id": 116,
     "question": "Quelle est la différence entre Add() et Attach() ?",
     "options": [
       "Attach crée une nouvelle entité, Add la réutilise",
@@ -1089,10 +1504,11 @@
       "Elles sont équivalentes",
       "Attach ne fonctionne que sur les entités enfants"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 92,
+    "id": 117,
     "question": "Un DbContext ne doit généralement pas être enregistré en Singleton car :",
     "options": [
       "Il ne gère pas le multithreading",
@@ -1101,10 +1517,11 @@
       "Il est conçu pour une durée de vie courte (Scoped)",
       "Toutes ces réponses"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 93,
+    "id": 118,
     "question": "Quelle instruction crée réellement la table en base dans une approche Code-First ?",
     "options": [
       "EnsureCreated()",
@@ -1113,10 +1530,11 @@
       "Migrate()",
       "context.SaveChanges()"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 94,
+    "id": 119,
     "question": "Les conventions par défaut d’EF Core :",
     "options": [
       "Imposent les noms de colonnes en majuscules",
@@ -1125,10 +1543,11 @@
       "Sont désactivées par défaut",
       "N’agissent que sur les clés étrangères"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 95,
+    "id": 120,
     "question": "Lorsqu’un DbContext suit deux entités ayant la même clé primaire :",
     "options": [
       "EF met à jour la plus récente",
@@ -1137,10 +1556,11 @@
       "Les deux sont fusionnées",
       "Rien ne se passe"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 96,
+    "id": 121,
     "question": "Le ChangeTracker.AutoDetectChangesEnabled désactivé permet :",
     "options": [
       "D’empêcher la détection de modifications automatiques",
@@ -1149,10 +1569,11 @@
       "De supprimer le contexte",
       "De rendre SaveChanges() instantané"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 97,
+    "id": 122,
     "question": "La suppression en cascade implicite s’applique :",
     "options": [
       "À toutes les relations",
@@ -1161,10 +1582,11 @@
       "Jamais, par sécurité",
       "Pour toutes les entités enfants"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 98,
+    "id": 123,
     "question": "Quelle est la sortie SQL la plus probable du code suivant : context.Students.Where(s => s.Grade.GradeName == \"A\");",
     "options": [
       "Un JOIN avec la table Grade",
@@ -1173,10 +1595,11 @@
       "Un SELECT sur Students uniquement",
       "Une exception de mapping"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 99,
+    "id": 124,
     "question": "Dans un modèle Many-to-Many sans entité de jointure explicite, EF Core :",
     "options": [
       "Crée une entité Join implicite",
@@ -1185,10 +1608,11 @@
       "Nécessite une configuration One-to-Many double",
       "Ne supporte pas ce scénario"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 100,
+    "id": 125,
     "question": "Quelle est la conséquence de context.ChangeTracker.Clear() ?",
     "options": [
       "Supprime la base",
@@ -1197,10 +1621,11 @@
       "Enregistre les changements",
       "Met les entités à Unchanged"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 101,
+    "id": 126,
     "question": "Une migration EF Core contient :",
     "options": [
       "Un snapshot du modèle + le code SQL des modifications",
@@ -1209,10 +1634,11 @@
       "Des scripts SQL exécutables",
       "Des triggers automatiques"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 102,
+    "id": 127,
     "question": "Si Database.EnsureCreated() est utilisé avant une migration :",
     "options": [
       "La migration suivante l’écrase",
@@ -1221,10 +1647,11 @@
       "EF fusionne les deux schémas",
       "Rien ne change"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 103,
+    "id": 128,
     "question": "Le code : context.Entry(student).State = EntityState.Detached;",
     "options": [
       "Sauvegarde l’entité",
@@ -1233,10 +1660,11 @@
       "Rattache une entité",
       "Fait un rollback"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 104,
+    "id": 129,
     "question": "LINQ to Entities :",
     "options": [
       "Utilise des itérateurs C#",
@@ -1245,10 +1673,11 @@
       "Crée un cache mémoire",
       "Est identique à LINQ to Objects"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 105,
+    "id": 130,
     "question": "FirstOrDefault() sur un IQueryable EF Core :",
     "options": [
       "Charge tout le dataset",
@@ -1257,10 +1686,11 @@
       "Retourne null si rien n’est trouvé",
       "Crée une collection vide si rien n’est trouvé"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 106,
+    "id": 131,
     "question": "La commande dotnet ef migrations add Init --context AppContext :",
     "options": [
       "Ajoute une migration en précisant la classe de contexte",
@@ -1269,10 +1699,11 @@
       "Ajoute une première migration",
       "Applique la migration"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 107,
+    "id": 132,
     "question": "Quelle différence principale existe entre AsEnumerable() et AsNoTracking() sur une requête EF Core ?",
     "options": [
       "AsEnumerable() exécute la requête en mémoire",
@@ -1281,10 +1712,11 @@
       "AsNoTracking() est plus léger pour la lecture seule",
       "Toutes ces réponses sont correctes"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 108,
+    "id": 133,
     "question": "Le code suivant : var s = context.Students.First(); s.Name = \"Karl\"; context.SaveChanges(); Que fait EF Core ?",
     "options": [
       "N’enregistre pas le changement sans Update()",
@@ -1293,10 +1725,11 @@
       "Déclenche une exception si la table est vide",
       "Met la ligne à Unchanged"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 109,
+    "id": 134,
     "question": "Lorsqu’une propriété Navigation est marquée virtual, EF Core :",
     "options": [
       "Crée un proxy dynamique pour le lazy loading",
@@ -1305,10 +1738,11 @@
       "Désactive le tracking",
       "Ne supporte pas le Include()"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 110,
+    "id": 135,
     "question": "L’option UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking) configurée globalement :",
     "options": [
       "Désactive les transactions",
@@ -1317,10 +1751,11 @@
       "Bloque SaveChanges()",
       "Nécessite un rechargement manuel pour modifier"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 111,
+    "id": 136,
     "question": "Quel est le résultat de ce code ? context.Students.Where(s => s.Id == 1).FirstOrDefault(); context.Students.Where(s => s.Id == 1).FirstOrDefault();",
     "options": [
       "Une seule requête SQL est exécutée grâce au cache EF",
@@ -1329,10 +1764,11 @@
       "Une transaction est ouverte",
       "Le premier résultat reste en mémoire partagée"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 112,
+    "id": 137,
     "question": "Les Shadow Properties dans EF Core :",
     "options": [
       "Sont des propriétés non déclarées dans la classe C# mais suivies par EF",
@@ -1341,10 +1777,11 @@
       "Peuvent être persistées en base",
       "Toutes ces réponses"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 113,
+    "id": 138,
     "question": "Le type de suppression DeleteBehavior.ClientSetNull :",
     "options": [
       "Supprime les enfants en base",
@@ -1353,10 +1790,11 @@
       "Supprime aussi le parent",
       "Déconnecte le contexte"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 114,
+    "id": 139,
     "question": "Les Owned Types :",
     "options": [
       "Sont stockés dans la même table que l’entité propriétaire",
@@ -1365,10 +1803,11 @@
       "Nécessitent Fluent API",
       "Toutes ces réponses"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 115,
+    "id": 140,
     "question": "Pour qu’une propriété DateCreated soit automatiquement remplie lors de l’insertion :",
     "options": [
       "[DatabaseGenerated(DatabaseGeneratedOption.Computed)]",
@@ -1377,10 +1816,11 @@
       "[Timestamp]",
       "Nécessite un trigger SQL"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 116,
+    "id": 141,
     "question": "Les requêtes composées sur IQueryable EF Core sont :",
     "options": [
       "Exécutées immédiatement",
@@ -1389,10 +1829,11 @@
       "Exécutées ligne par ligne",
       "Converties en LINQ to Objects"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 117,
+    "id": 142,
     "question": "Le code suivant : var stud = new Student { Id = 10, Name = \"Karl\" }; context.Update(stud); Suppose que l’étudiant existe déjà.",
     "options": [
       "Marque l’entité comme Modified sans la lire",
@@ -1401,10 +1842,11 @@
       "Supprime les relations",
       "Nécessite un SaveChanges() pour exécuter le SQL"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 118,
+    "id": 143,
     "question": "Quelle pratique est déconseillée pour les performances EF ?",
     "options": [
       "Include() sur plusieurs niveaux de profondeur",
@@ -1413,10 +1855,11 @@
       "Exécuter SaveChanges() dans une boucle",
       "Toutes ces pratiques sont déconseillées"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 119,
+    "id": 144,
     "question": "Les clés composites sont configurées via :",
     "options": [
       "[Key(\"A\",\"B\")]",
@@ -1425,10 +1868,11 @@
       "AddCompositeKey()",
       "Non supporté par EF"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 120,
+    "id": 145,
     "question": "Le mode SingleOrDefault() :",
     "options": [
       "Lève une exception si plus d’une correspondance existe",
@@ -1437,10 +1881,11 @@
       "Combine filtrage + validation d’unicité",
       "Ne peut pas être traduit en SQL"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 121,
+    "id": 146,
     "question": "Les Compiled Queries d’EF Core servent à :",
     "options": [
       "Exécuter du SQL brut",
@@ -1449,10 +1894,11 @@
       "Générer des migrations automatiques",
       "Sauvegarder le contexte"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 122,
+    "id": 147,
     "question": "Quel scénario nécessite le TransactionScope ?",
     "options": [
       "SaveChanges() standard",
@@ -1461,10 +1907,11 @@
       "Delete cascade",
       "Mapping complexe"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 123,
+    "id": 148,
     "question": "L’option .UseLazyLoadingProxies() :",
     "options": [
       "Est activée par défaut",
@@ -1473,10 +1920,11 @@
       "Affecte les performances",
       "Réponses : B, C, D"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 124,
+    "id": 149,
     "question": "Quelle différence entre Find() et FirstOrDefault() ?",
     "options": [
       "Find() cherche d’abord dans le cache du contexte avant la DB",
@@ -1485,10 +1933,11 @@
       "Find() est plus rapide si l’entité est déjà suivie",
       "Toutes ces réponses"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 125,
+    "id": 150,
     "question": "Une migration contenant un renommage de colonne et un changement de type :",
     "options": [
       "Est exécutée en une seule commande SQL",
@@ -1497,10 +1946,11 @@
       "N’est pas détectée automatiquement",
       "Supprime la contrainte FK associée"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 126,
+    "id": 151,
     "question": "Pour insérer des données initiales conditionnelles :",
     "options": [
       "[SeedData]",
@@ -1509,10 +1959,11 @@
       "Ajouter une migration spéciale",
       "Utiliser context.Database.Migrate()"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 127,
+    "id": 152,
     "question": "Différence principale Middleware vs Filter en Web API :",
     "options": [
       "Les filters s’exécutent avant le routing",
@@ -1521,10 +1972,11 @@
       "Les middlewares ne peuvent pas court-circuiter la réponse",
       "Les middlewares peuvent s’appliquer aux fichiers statiques et endpoints non-API"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 128,
+    "id": 153,
     "question": "En Minimal APIs, que renvoie le plus précisément Results.NotFound() ?",
     "options": [
       "ActionResult",
@@ -1533,10 +1985,11 @@
       "ProblemDetails",
       "HttpResponseMessage"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 129,
+    "id": 154,
     "question": "Pour masquer la validation implicite d’[ApiController] et gérer toi-même la réponse :",
     "options": [
       "Supprimer [ApiController]",
@@ -1545,10 +1998,11 @@
       "Intercepter via un ActionFilter et tester ModelState.IsValid",
       "app.Services.DisableValidation()"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 130,
+    "id": 155,
     "question": "Concernant ActionResult<T> :",
     "options": [
       "Empêche de retourner NotFound()",
@@ -1557,10 +2011,11 @@
       "Expose le type pour la doc OpenAPI plus précisément qu’un IActionResult",
       "N’est pas compatible avec async"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 131,
+    "id": 156,
     "question": "[FromBody] vs [FromQuery] : comportement par défaut en API :",
     "options": [
       "Les paramètres simples viennent du body par défaut",
@@ -1569,10 +2024,11 @@
       "Les paramètres simples (string, int) viennent du body",
       "Les paramètres simples viennent de la query/route par défaut"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 132,
+    "id": 157,
     "question": "ILogger<T> : lequel est vrai ?",
     "options": [
       "Les messages interpolés sont toujours structurés",
@@ -1581,10 +2037,11 @@
       "ILogger nécessite Serilog",
       "Le nom de catégorie du log “category name” est le nom de T par défaut"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 133,
+    "id": 158,
     "question": "Serilog avec ASP.NET Core pour journaliser chaque requête :",
     "options": [
       "Ajouter UseLogging()",
@@ -1593,10 +2050,11 @@
       "Possibilité d’enrichir (ex: WithMachineName, FromLogContext) via config",
       "Oblige le format JSON"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 134,
+    "id": 159,
     "question": "Configurer Swagger/Scalar en .NET 9 :",
     "options": [
       "builder.Services.AddOpenApi()",
@@ -1605,10 +2063,11 @@
       "app.MapScalarApiReference() pour l’UI Scalar",
       "app.UseOpenApiUI()"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 135,
+    "id": 160,
     "question": "CancellationToken dans une action :",
     "options": [
       "Peut être passé en paramètre pour annuler un await db.ToListAsync(ct)",
@@ -1617,10 +2076,11 @@
       "Est alimenté par la fermeture de la connexion HTTP",
       "N’est disponible qu’en Minimal API"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 136,
+    "id": 161,
     "question": "Choisir la durée de vie DI appropriée :",
     "options": [
       "DbContext en Singleton pour réduire les allocations",
@@ -1629,10 +2089,11 @@
       "Services stateless (Mapper, Validator) souvent en Transient",
       "Caches/configuration (lecture) en Singleton"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 137,
+    "id": 162,
     "question": "Pour valider un modèle d’entrée (DTO) avec des règles avancées :",
     "options": [
       "[RegularExpression] uniquement",
@@ -1641,10 +2102,11 @@
       "Valider le DTO dans le contrôleur",
       "ModelState est obsolète"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 138,
+    "id": 163,
     "question": "Pagination propre en Web API :",
     "options": [
       "Prendre tout puis paginer en mémoire",
@@ -1653,10 +2115,11 @@
       "Utiliser AsNoTracking pour les listes",
       "Ignorer la stabilité d’ordre"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 139,
+    "id": 164,
     "question": "Minimal APIs vs Controllers :",
     "options": [
       "Minimal = pas de filtres possible",
@@ -1665,10 +2128,11 @@
       "Minimal interdit DI",
       "Minimal renvoie des IResult, contrôleur renvoie ActionResult<T>"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 140,
+    "id": 165,
     "question": "Global exception handling recommandé :",
     "options": [
       "try/catch dans chaque action",
@@ -1677,10 +2141,11 @@
       "Rediriger vers /error en production",
       "Journaliser (corrélation Id) + ne pas divulguer les détails en prod"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 141,
+    "id": 166,
     "question": "Routing : contraintes et noms :",
     "options": [
       "[HttpGet(\"{id:int}\")] contraint id à un entier",
@@ -1689,10 +2154,11 @@
       "Des paramètres optionnels \"{category?}\" sont possibles",
       "* capture un segment, ** plusieurs (catch-all)"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 142,
+    "id": 167,
     "question": "Content negotiation :",
     "options": [
       "Par défaut JSON via System.Text.Json",
@@ -1701,10 +2167,11 @@
       "text/csv est pris en charge nativement",
       "La négociation peut renvoyer 406 si non supporté (si configuré)"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 143,
+    "id": 168,
     "question": "OpenAPI doc :",
     "options": [
       "Toujours exposer /openapi/v1.json en prod sans auth",
@@ -1713,10 +2180,11 @@
       "Générer automatiquement des clients sans configuration",
       "MapOpenApi() supporte plusieurs versions"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 144,
+    "id": 169,
     "question": "Performance — anti-patterns courants :",
     "options": [
       "Serializer synchro sur gros payloads",
@@ -1725,10 +2193,11 @@
       "AsNoTracking() pour lecture seule",
       "SaveChanges() dans une boucle au lieu de batch"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 145,
+    "id": 170,
     "question": "HttpLoggingMiddleware :",
     "options": [
       "Peut journaliser headers, requête, réponse",
@@ -1737,10 +2206,11 @@
       "Ne fonctionne pas avec HTTPS",
       "Peut dégrader la perf si on logge les bodies volumineux"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 146,
+    "id": 171,
     "question": "DI circular dependency :",
     "options": [
       "Peut provoquer des boucles d’initialisation et exceptions",
@@ -1749,10 +2219,11 @@
       "Résolu en changeant toutes les durées de vie en Singleton",
       "Parfois corrigé en introduisant des ports/interfaces plus fins"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 147,
+    "id": 172,
     "question": "JSON patch / partial updates :",
     "options": [
       "HttpPatch non supporté",
@@ -1761,10 +2232,11 @@
       "Toujours préférable à PUT",
       "Penser à la concurrence (RowVersion)"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 148,
+    "id": 173,
     "question": "La Clean Architecture vise avant tout à :",
     "options": [
       "Réduire le couplage entre UI et données",
@@ -1773,10 +2245,11 @@
       "Utiliser CQRS obligatoirement",
       "Faciliter le test unitaire et la maintenabilité dans le temps"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 149,
+    "id": 174,
     "question": "Dans une architecture en couches proprement isolée :",
     "options": [
       "La couche Presentation référence la couche Domain directement",
@@ -1785,10 +2258,11 @@
       "Les dépendances vont toujours du haut (UI) vers le bas (Domain)",
       "Les DTO peuvent être définis dans Domain"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 150,
+    "id": 175,
     "question": "Le pattern Repository permet :",
     "options": [
       "De remplacer les requêtes SQL par LINQ",
@@ -1797,10 +2271,11 @@
       "De rendre les tests possibles avec des mocks ou bases InMemory",
       "D’utiliser EF Core"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 151,
+    "id": 176,
     "question": "Quel est le rôle d’un Service d’application dans la Clean Architecture ?",
     "options": [
       "Orchestrer les règles métier entre plusieurs entités et repositories",
@@ -1809,10 +2284,11 @@
       "Implémenter la logique de validation HTTP",
       "Exécuter directement les requêtes SQL"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 152,
+    "id": 177,
     "question": "Le Domain Layer devrait contenir :",
     "options": [
       "Des entités, des value objects, et les règles métier pures",
@@ -1821,10 +2297,11 @@
       "Aucune dépendance vers Entity Framework ou ASP.NET Core",
       "Les DTO d’entrée API"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 153,
+    "id": 178,
     "question": "Le CQRS (Command Query Responsibility Segregation) :",
     "options": [
       "Sépare les modèles de lecture et d’écriture",
@@ -1833,10 +2310,11 @@
       "Est obligatoire pour tout projet EF Core",
       "Peut coexister avec Mediator / MediatR"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 154,
+    "id": 179,
     "question": "Dans une implémentation CQRS avec MediatR :",
     "options": [
       "Chaque Command ou Query est un objet envoyé à un Handler",
@@ -1845,10 +2323,11 @@
       "Plusieurs handlers peuvent traiter une même commande simultanément",
       "Le Mediator centralise les appels pour découpler les dépendances directes"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 155,
+    "id": 180,
     "question": "Pourquoi ne pas exposer les entités EF Core directement via l’API ?",
     "options": [
       "Cela simplifie la maintenance",
@@ -1857,10 +2336,11 @@
       "Violation du principe de séparation entre modèle métier et contrat d’exposition (DTO)",
       "Les entités ne sont pas sérialisables"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 156,
+    "id": 181,
     "question": "Le mapping entité ↔ DTO :",
     "options": [
       "Doit toujours être manuel",
@@ -1869,10 +2349,11 @@
       "Peut inclure une logique de transformation (ex : concaténer Nom + Prénom)",
       "Est inutile si les entités correspondent 1:1 à la base"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   },
   {
-    "id": 157,
+    "id": 182,
     "question": "Concernant la cohérence transactionnelle entre Command et Query :",
     "options": [
       "Une Command doit être transactionnelle (atomicité garantie)",
@@ -1881,6 +2362,7 @@
       "Les Handlers Command peuvent injecter un IUnitOfWork pour contrôler la persistance",
       "Les transactions doivent être gérées dans les contrôleurs"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "part": 3
   }
 ]
