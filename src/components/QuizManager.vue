@@ -13,16 +13,13 @@ const allQuestions = ref([])
 const currentChunkQuestions = ref([])
 const userAnswers = ref({})
 const currentQuestionIndex = ref(0)
-const quizState = ref('intro') // intro, playing, result
+const quizState = ref('intro') // intro, series-selection, playing, result
 
 // --- CONFIGURATION ---
-// Part 1: 86 questions (IDs 1-86)
-// Part 2: 25 questions (IDs 87-111)
-// Part 3: 71 questions (IDs 112-182)
 const partConfig = {
-  1: { startId: 1, endId: 86, chunkSize: 20 },
-  2: { startId: 87, endId: 111, chunkSize: 25 }, // One big chunk
-  3: { startId: 112, endId: 182, chunkSize: 20 }
+  1: { startId: 1, endId: 86, chunkSize: 20, label: "Questions .NET (Original)" },
+  2: { startId: 87, endId: 111, chunkSize: 25, label: "Définitions" },
+  3: { startId: 112, endId: 182, chunkSize: 20, label: "Questions .NET (New)" }
 }
 
 onMounted(() => {
@@ -31,22 +28,22 @@ onMounted(() => {
 
 // --- ACTIONS ---
 
-function startQuiz() {
-  currentPart.value = 1
-  chunkIndex.value = 0
-  startChunk()
+function selectPart(partId) {
+    currentPart.value = partId
+    quizState.value = 'series-selection'
+}
+
+function selectSeries(seriesIndex) {
+    chunkIndex.value = seriesIndex
+    startChunk()
 }
 
 function startChunk() {
   const config = partConfig[currentPart.value]
   
   // Filter questions for the current part
-  // Note: we rely on the 'part' property I added in build_full_data.js.
-  // If 'part' is missing (e.g. older json), we might need fallback, but I rebuilt the JSON.
-  // Fallback: use ID ranges
   const partQuestions = allQuestions.value.filter(q => {
       if (q.part) return q.part === currentPart.value
-      // Fallback by ID if part prop missing (safety)
       return q.id >= config.startId && q.id <= config.endId
   })
   
@@ -57,32 +54,23 @@ function startChunk() {
   const remaining = partQuestions.length - startIndex
   
   if (currentPart.value === 1) {
-      // Part 1 Special Rule: 4th series is 26 questions (the remainder)
-      // Logic: If this is the 4th chunk (index 3), take everything.
-      // Or if remaining questions are small enough to likely be the last chunk.
-      // 20, 20, 20, 26.
-      if (chunkIndex.value === 3 || remaining < (config.chunkSize + 5)) {
+      // Part 1: 4th series (index 3) takes the remainder (Total 26)
+      if (chunkIndex.value === 3 || remaining < (config.chunkSize + 10)) {
           endIndex = partQuestions.length
       }
   } else if (currentPart.value === 2) {
-      // Part 2: All 25 questions in one go
+      // Part 2: All 25 questions
       endIndex = partQuestions.length
   } else if (currentPart.value === 3) {
-      // Part 3: 20, 20, 20, 11
-      // If remaining is small (Last chunk), take all.
+      // Part 3: Last chunk takes remainder
       if (remaining < config.chunkSize) {
           endIndex = partQuestions.length
       }
   }
   
-  // Clamp to length
   endIndex = Math.min(endIndex, partQuestions.length)
-
-  console.log(`Starting Part ${currentPart.value}, Chunk ${chunkIndex.value}. Indices: ${startIndex} to ${endIndex}. Total in part: ${partQuestions.length}`)
-
   currentChunkQuestions.value = partQuestions.slice(startIndex, endIndex)
   
-  // Reset for new chunk
   currentQuestionIndex.value = 0
   userAnswers.value = {}
   quizState.value = 'playing'
@@ -90,8 +78,6 @@ function startChunk() {
 
 function handleAnswer(questionId, optionIndex) {
   userAnswers.value[questionId] = optionIndex
-  
-  // Delay before next question
   setTimeout(() => {
     if (currentQuestionIndex.value < currentChunkQuestions.value.length - 1) {
       currentQuestionIndex.value++
@@ -110,20 +96,23 @@ function nextChunk() {
        chunkIndex.value++
        startChunk()
    } else if (currentPart.value < 3) {
-       // Move to next part
+       // Optional: Suggest moving to next part? 
+       // For now, let's go back to series selection or start of next part
        currentPart.value++
-       chunkIndex.value = 0
-       startChunk()
+       quizState.value = 'series-selection'
    } else {
-       // Truly finished
        restartQuiz()
    }
 }
 
 function restartQuiz() {
+    quizState.value = 'intro'
     currentPart.value = 1
     chunkIndex.value = 0
-    startChunk()
+}
+
+function returnToIntro() {
+    quizState.value = 'intro'
 }
 
 // --- COMPUTED ---
@@ -146,55 +135,125 @@ const chunkResults = computed(() => {
   }))
 })
 
-const hasNextChunkInPart = computed(() => {
-   const config = partConfig[currentPart.value]
-   const partQuestions = allQuestions.value.filter(q => {
-      // Same fallback logic for safety
-      if (q.part) return q.part === currentPart.value
-      return q.id >= config.startId && q.id <= config.endId
-   })
-   
-   if (currentChunkQuestions.value.length === 0) return false
-   
-   const currentLastId = currentChunkQuestions.value[currentChunkQuestions.value.length - 1].id
-   const partLastId = partQuestions[partQuestions.length - 1].id
-   
-   return currentLastId < partLastId
+// Calculate available series for the selected part
+const availableSeries = computed(() => {
+    const config = partConfig[currentPart.value]
+    if (!config) return []
+    
+    const partQuestions = allQuestions.value.filter(q => {
+        if (q.part) return q.part === currentPart.value
+        return q.id >= config.startId && q.id <= config.endId
+    })
+    
+    const count = partQuestions.length
+    const series = []
+    
+    let currentIdx = 0
+    let seriesCount = 1
+    
+    while(currentIdx < count) {
+        let size = config.chunkSize
+        
+        // Match chunking logic for display
+        const remaining = count - currentIdx
+        
+        if (currentPart.value === 1 && seriesCount === 4) {
+             size = remaining // Last one is 26
+        } else if (currentPart.value === 2) {
+             size = count
+        } else if (remaining < config.chunkSize) {
+             size = remaining
+        }
+        
+        // If it's the very last bit and logic dictates merge (e.g. Part 1), loop handles it.
+        // But for display loop:
+        series.push({
+            id: seriesCount - 1,
+            label: `Série ${seriesCount}`,
+            desc: `${size} Questions`
+        })
+        
+        currentIdx += size
+        seriesCount++
+    }
+    
+    return series
 })
+
+const hasNextChunkInPart = computed(() => {
+   // Logic to check if there is a next series available
+   // We can just check if chunkIndex + 1 exists in availableSeries
+   // Note: availableSeries is re-calculated based on currentPart, confusing if we change part.
+   // But we only run this when playing.
+   return chunkIndex.value < availableSeries.value.length - 1
+})
+
 </script>
 
 <template>
   <div class="quiz-container">
     <transition name="fade" mode="out-in">
       
-      <!-- INTRO -->
-      <div v-if="quizState === 'intro'" class="intro-screen glass-panel">
+      <!-- STEP 1: PART SELECTION (INTRO) -->
+      <div v-if="quizState === 'intro'" class="selection-screen glass-panel">
         <h1 class="title">1QCM'OK</h1>
-        <p class="subtitle">182 Questions • EF Core & Architecture</p>
+        <p class="subtitle">Sélectionnez une Partie</p>
         
-        <div class="info-grid">
-           <div class="info-item">
-               <span class="label">Partie 1</span>
-               <span class="val">86 Questions</span>
-           </div>
-           <div class="info-item">
-               <span class="label">Partie 2</span>
-               <span class="val">25 Définitions</span>
-           </div>
-           <div class="info-item">
-               <span class="label">Partie 3</span>
-               <span class="val">71 Questions</span>
-           </div>
+        <div class="card-grid">
+            <div class="selection-card" @click="selectPart(1)">
+                <div class="card-icon">1</div>
+                <h3>Partie 1</h3>
+                <p>Questions 1-86</p>
+                <div class="tag">86 Questions</div>
+            </div>
+            
+            <div class="selection-card" @click="selectPart(2)">
+                <div class="card-icon">2</div>
+                <h3>Partie 2</h3>
+                <p>Définitions</p>
+                <div class="tag">25 Questions</div>
+            </div>
+            
+            <div class="selection-card" @click="selectPart(3)">
+                <div class="card-icon">3</div>
+                <h3>Partie 3</h3>
+                <p>Questions 112-182</p>
+                <div class="tag">71 Questions</div>
+            </div>
         </div>
-
-        <button class="btn start-btn" @click="startQuiz">Commencer le Quiz</button>
       </div>
 
-      <!-- PLAYING -->
+      <!-- STEP 2: SERIES SELECTION -->
+      <div v-else-if="quizState === 'series-selection'" class="selection-screen glass-panel">
+         
+         <div class="nav-header">
+             <button class="btn-text" @click="returnToIntro">← Retour</button>
+         </div>
+
+         <h2 class="section-title">Partie {{ currentPart }}</h2>
+         <p class="subtitle">Choisissez votre série</p>
+         
+         <div class="series-grid">
+             <button 
+                v-for="s in availableSeries" 
+                :key="s.id" 
+                class="btn series-btn"
+                @click="selectSeries(s.id)"
+             >
+                <span class="series-name">{{ s.label }}</span>
+                <span class="series-count">{{ s.desc }}</span>
+             </button>
+         </div>
+      </div>
+
+      <!-- STEP 3: PLAYING -->
       <div v-else-if="quizState === 'playing'" class="playing-screen">
         <div class="header-bar">
             <div class="part-indicator">
-                Partie {{ currentPart }} <span class="chunk-indicator" v-if="chunkIndex > 0">Série {{ chunkIndex + 1 }}</span>
+                <button class="btn-xs" @click="restartQuiz">Accueil</button>
+                <span class="separator">/</span>
+                Partie {{ currentPart }} 
+                <span class="chunk-indicator">Série {{ chunkIndex + 1 }}</span>
             </div>
             <div class="progress-track">
                 <div class="progress-fill" :style="{ width: ((currentQuestionIndex + 1) / currentChunkQuestions.length) * 100 + '%' }"></div>
@@ -212,13 +271,13 @@ const hasNextChunkInPart = computed(() => {
         />
       </div>
 
-      <!-- RESULTS -->
+      <!-- STEP 4: RESULTS -->
       <div v-else-if="quizState === 'result'" class="result-wrapper">
          <ResultScreen
             :score="chunkScore"
             :total="currentChunkQuestions.length"
             :results="chunkResults"
-            :has-next-chunk="hasNextChunkInPart || currentPart < 3"
+            :has-next-chunk="hasNextChunkInPart"
             @next-chunk="nextChunk"
             @retry-chunk="startChunk"
             @restart="restartQuiz"
@@ -232,7 +291,7 @@ const hasNextChunkInPart = computed(() => {
 <style scoped>
 .quiz-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   min-height: 80vh;
   display: flex;
@@ -240,11 +299,10 @@ const hasNextChunkInPart = computed(() => {
   justify-content: center;
 }
 
-/* INTRO */
-.intro-screen {
+/* SELECTION SCREENS */
+.selection-screen {
     text-align: center;
     padding: 3rem;
-    animation: float 6s ease-in-out infinite;
 }
 
 .title {
@@ -257,53 +315,109 @@ const hasNextChunkInPart = computed(() => {
   -webkit-text-fill-color: transparent;
 }
 
-.subtitle {
-    color: #94a3b8;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.info-grid {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.info-item {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255,255,255,0.05);
-    padding: 1rem;
-    border-radius: 12px;
-    min-width: 120px;
-}
-
-.info-item .label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.info-item .val {
-    font-size: 1.2rem;
-    font-weight: bold;
+.section-title {
+    font-size: 2.5rem;
     color: var(--text-primary);
 }
 
-.start-btn {
-    font-size: 1.3rem;
-    padding: 1rem 3rem;
+.subtitle {
+    color: #94a3b8;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+.nav-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
 }
 
-/* PLAYING HEADER */
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.btn-text:hover { color: var(--accent-color); }
+
+/* Card Grid for Parts */
+.card-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.selection-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 220px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selection-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    background: rgba(0,0,0,0.2);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.selection-card h3 { margin: 0.5rem 0; font-size: 1.5rem; }
+.selection-card p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+.tag {
+    background: rgba(147, 51, 234, 0.2);
+    color: #d8b4fe;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Series Grid */
+.series-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.series-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.05);
+}
+
+.series-name { font-size: 1.2rem; font-weight: bold; }
+.series-count { font-size: 0.9rem; color: var(--text-secondary); }
+
+/* Play Header */
 .header-bar {
     display: flex;
     align-items: center;
@@ -317,19 +431,27 @@ const hasNextChunkInPart = computed(() => {
 }
 
 .part-indicator {
-    font-weight: 600;
-    color: var(--accent-color);
     display: flex;
-    gap: 0.5rem;
     align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
 }
 
-.chunk-indicator {
-    font-size: 0.8rem;
-    background: rgba(255,255,255,0.1);
+.separator { color: rgba(255,255,255,0.2); }
+
+.btn-xs {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.2);
     padding: 2px 8px;
     border-radius: 4px;
     color: var(--text-secondary);
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.chunk-indicator {
+    color: var(--accent-color);
 }
 
 .progress-track {
@@ -349,7 +471,6 @@ const hasNextChunkInPart = computed(() => {
 
 .question-counter {
     font-variant-numeric: tabular-nums;
-    color: var(--text-secondary);
-    font-weight: 500;
+    color: var(--text-secondary); 
 }
 </style>
