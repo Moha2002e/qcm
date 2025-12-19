@@ -120,7 +120,7 @@ function returnToIntro() {
 const chunkScore = computed(() => {
   let score = 0
   currentChunkQuestions.value.forEach(q => {
-    if (userAnswers.value[q.id] === q.correctAnswer) {
+    if (q && q.id && userAnswers.value[q.id] === q.correctAnswer) {
       score++
     }
   })
@@ -128,11 +128,14 @@ const chunkScore = computed(() => {
 })
 
 const chunkResults = computed(() => {
-  return currentChunkQuestions.value.map(q => ({
-    ...q,
-    userSelected: userAnswers.value[q.id],
-    isCorrect: userAnswers.value[q.id] === q.correctAnswer
-  }))
+  return currentChunkQuestions.value.map(q => {
+    if (!q) return null // Safety
+    return {
+      ...q,
+      userSelected: userAnswers.value[q.id],
+      isCorrect: userAnswers.value[q.id] === q.correctAnswer
+    }
+  }).filter(r => r !== null)
 })
 
 // Calculate available series for the selected part
