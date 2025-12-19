@@ -131,8 +131,8 @@ const chunkResults = computed(() => {
   return currentChunkQuestions.value.map(q => {
     if (!q) return null // Safety
     return {
-      ...q,
-      userSelected: userAnswers.value[q.id],
+      question: q,
+      userAnswer: userAnswers.value[q.id],
       isCorrect: userAnswers.value[q.id] === q.correctAnswer
     }
   }).filter(r => r !== null)
