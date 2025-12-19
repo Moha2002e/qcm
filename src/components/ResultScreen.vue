@@ -57,7 +57,7 @@ const gradeColor = computed(() => {
             <span class="q-num">#{{ idx + 1 }}</span>
             <span class="status-icon" v-if="item.question">{{ item.isCorrect ? '✅' : '❌' }}</span>
           </div>
-          <p class="review-q" v-if="item.question">{{ item.question.question }}</p>
+          <p class="review-q">{{ item.question?.question || 'Intitulé de la question indisponible' }}</p>
           
           <div v-if="!item.isCorrect && item.question" class="correction">
             <div class="your-answer">
@@ -191,6 +191,9 @@ const gradeColor = computed(() => {
 .review-q {
   font-weight: 600;
   margin: 0 0 1rem 0;
+  color: #fff; /* Explicit white for visibility */
+  font-size: 1.1rem;
+  line-height: 1.4;
 }
 
 .correction {
