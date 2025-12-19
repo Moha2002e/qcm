@@ -228,4 +228,32 @@ const gradeColor = computed(() => {
 .btn.secondary:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
+@media (max-width: 600px) {
+  .score-circle {
+      width: 120px;
+      height: 120px;
+  }
+  
+  .score-number {
+      font-size: 2rem;
+  }
+  
+  .feedback-text {
+      font-size: 1.4rem;
+  }
+  
+  .review-item {
+      padding: 0.8rem;
+  }
+  
+  .actions {
+      flex-direction: column;
+      width: 100%;
+  }
+  
+  .btn {
+      width: 100%;
+  }
+}
 </style>

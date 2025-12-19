@@ -482,4 +482,36 @@ const hasNextChunkInPart = computed(() => {
     font-variant-numeric: tabular-nums;
     color: var(--text-secondary); 
 }
+
+@media (max-width: 600px) {
+  .card-grid {
+      gap: 1rem;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .selection-card {
+      width: 100%;
+      max-width: 300px;
+  }
+  
+  .series-grid {
+      grid-template-columns: 1fr; /* Stack series buttons */
+  }
+  
+  .title {
+      font-size: 2.5rem;
+  }
+  
+  .header-bar {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+  }
+  
+  .progress-track {
+      width: 100%;
+      margin: 0.5rem 0;
+  }
+}
 </style>

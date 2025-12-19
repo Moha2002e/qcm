@@ -47,14 +47,8 @@ const selectOption = (originalIndex) => {
 </script>
 
 <template>
-  <div class="glass-panel question-card">
-    <div class="header">
-      <span class="badge">Question {{ questionNumber }} / {{ totalQuestions }}</span>
-      <div class="progress-bar">
-        <div class="progress-fill" :style="{ width: `${(questionNumber / totalQuestions) * 100}%` }"></div>
-      </div>
-    </div>
 
+  <div class="glass-panel question-card">
     <h2 class="question-text">{{ question.question }}</h2>
 
     <div class="options-grid">
@@ -163,5 +157,22 @@ const selectOption = (originalIndex) => {
 
 .option-text {
   font-size: 1.1rem;
+}
+@media (max-width: 600px) {
+  .question-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .option-btn {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .option-letter {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
 }
 </style>
