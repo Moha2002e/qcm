@@ -271,7 +271,7 @@ const hasNextChunkInPart = computed(() => {
             :question="currentChunkQuestions[currentQuestionIndex]"
             :index="currentQuestionIndex"
             :total="currentChunkQuestions.length"
-            @answer="handleAnswer"
+            @answer="(idx) => handleAnswer(currentChunkQuestions[currentQuestionIndex].id, idx)"
             />
         </div>
         <div v-else class="error-state">
