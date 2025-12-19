@@ -55,18 +55,18 @@ const gradeColor = computed(() => {
         >
           <div class="review-header">
             <span class="q-num">#{{ idx + 1 }}</span>
-            <span class="status-icon">{{ item.isCorrect ? '✅' : '❌' }}</span>
+            <span class="status-icon" v-if="item.question">{{ item.isCorrect ? '✅' : '❌' }}</span>
           </div>
-          <p class="review-q">{{ item.question.question }}</p>
+          <p class="review-q" v-if="item.question">{{ item.question.question }}</p>
           
-          <div v-if="!item.isCorrect" class="correction">
+          <div v-if="!item.isCorrect && item.question" class="correction">
             <div class="your-answer">
               <span class="label">Votre réponse:</span>
-              <span class="text">{{ item.question.options[item.userAnswer] || 'Aucune' }}</span>
+              <span class="text" v-if="item.question.options">{{ item.question.options[item.userAnswer] || 'Aucune' }}</span>
             </div>
             <div class="correct-answer">
               <span class="label">Réponse correcte:</span>
-              <span class="text">{{ item.question.options[item.question.correctAnswer] }}</span>
+              <span class="text" v-if="item.question.options">{{ item.question.options[item.question.correctAnswer] }}</span>
             </div>
           </div>
         </div>
