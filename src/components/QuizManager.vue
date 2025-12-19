@@ -248,27 +248,33 @@ const hasNextChunkInPart = computed(() => {
 
       <!-- STEP 3: PLAYING -->
       <div v-else-if="quizState === 'playing'" class="playing-screen">
-        <div class="header-bar">
-            <div class="part-indicator">
-                <button class="btn-xs" @click="restartQuiz">Accueil</button>
-                <span class="separator">/</span>
-                Partie {{ currentPart }} 
-                <span class="chunk-indicator">Série {{ chunkIndex + 1 }}</span>
+        <div v-if="currentChunkQuestions.length > 0 && currentChunkQuestions[currentQuestionIndex]" class="quiz-content">
+            <div class="header-bar">
+                <div class="part-indicator">
+                    <button class="btn-xs" @click="restartQuiz">Accueil</button>
+                    <span class="separator">/</span>
+                    Partie {{ currentPart }} 
+                    <span class="chunk-indicator">Série {{ chunkIndex + 1 }}</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" :style="{ width: ((currentQuestionIndex + 1) / currentChunkQuestions.length) * 100 + '%' }"></div>
+                </div>
+                <div class="question-counter">
+                    {{ currentQuestionIndex + 1 }} / {{ currentChunkQuestions.length }}
+                </div>
             </div>
-            <div class="progress-track">
-                <div class="progress-fill" :style="{ width: ((currentQuestionIndex + 1) / currentChunkQuestions.length) * 100 + '%' }"></div>
-            </div>
-            <div class="question-counter">
-                {{ currentQuestionIndex + 1 }} / {{ currentChunkQuestions.length }}
-            </div>
-        </div>
 
-        <QuestionCard 
-          :question="currentChunkQuestions[currentQuestionIndex]"
-          :index="currentQuestionIndex"
-          :total="currentChunkQuestions.length"
-          @answer="handleAnswer"
-        />
+            <QuestionCard 
+            :question="currentChunkQuestions[currentQuestionIndex]"
+            :index="currentQuestionIndex"
+            :total="currentChunkQuestions.length"
+            @answer="handleAnswer"
+            />
+        </div>
+        <div v-else class="error-state">
+            <p>Erreur: Aucune question chargée pour cette série.</p>
+            <button class="btn" @click="restartQuiz">Retour à l'accueil</button>
+        </div>
       </div>
 
       <!-- STEP 4: RESULTS -->

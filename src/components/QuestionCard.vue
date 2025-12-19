@@ -23,6 +23,10 @@ const selectedOptionOriginalIndex = ref(null)
 
 // Shuffle options when question changes
 watch(() => props.question, (newQ) => {
+  if (!newQ || !newQ.options) {
+    shuffledOptions.value = []
+    return
+  }
   selectedOptionOriginalIndex.value = null
   const optionsWithIndex = newQ.options.map((opt, index) => ({ text: opt, originalIndex: index }))
   // Fisher-Yates shuffle
