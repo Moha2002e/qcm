@@ -1452,7 +1452,7 @@
       "Modifie toutes les lignes correspondantes",
       "Nécessite explicitement context.Entry(entity).State = Modified"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1478,7 +1478,7 @@
       "Envoie un batch par propriété modifiée",
       "Dépend du provider de base de données uniquement"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1491,7 +1491,7 @@
       "Synchronise automatiquement les changements",
       "Fusionne les versions"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1504,7 +1504,7 @@
       "Elles sont équivalentes",
       "Attach ne fonctionne que sur les entités enfants"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1517,7 +1517,7 @@
       "Il est conçu pour une durée de vie courte (Scoped)",
       "Toutes ces réponses"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 4,
     "part": 3
   },
   {
@@ -1530,7 +1530,7 @@
       "Migrate()",
       "context.SaveChanges()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1543,7 +1543,7 @@
       "Sont désactivées par défaut",
       "N’agissent que sur les clés étrangères"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1556,7 +1556,7 @@
       "Les deux sont fusionnées",
       "Rien ne se passe"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1569,7 +1569,7 @@
       "De supprimer le contexte",
       "De rendre SaveChanges() instantané"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1582,7 +1582,7 @@
       "Jamais, par sécurité",
       "Pour toutes les entités enfants"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1608,7 +1608,7 @@
       "Nécessite une configuration One-to-Many double",
       "Ne supporte pas ce scénario"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1621,7 +1621,7 @@
       "Enregistre les changements",
       "Met les entités à Unchanged"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1647,7 +1647,7 @@
       "EF fusionne les deux schémas",
       "Rien ne change"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1660,7 +1660,7 @@
       "Rattache une entité",
       "Fait un rollback"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1673,7 +1673,7 @@
       "Crée un cache mémoire",
       "Est identique à LINQ to Objects"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1686,7 +1686,7 @@
       "Retourne null si rien n’est trouvé",
       "Crée une collection vide si rien n’est trouvé"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1712,7 +1712,7 @@
       "AsNoTracking() est plus léger pour la lecture seule",
       "Toutes ces réponses sont correctes"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 4,
     "part": 3
   },
   {
@@ -1725,7 +1725,7 @@
       "Déclenche une exception si la table est vide",
       "Met la ligne à Unchanged"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1738,7 +1738,7 @@
       "Désactive le tracking",
       "Ne supporte pas le Include()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1751,7 +1751,7 @@
       "Bloque SaveChanges()",
       "Nécessite un rechargement manuel pour modifier"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1764,7 +1764,7 @@
       "Une transaction est ouverte",
       "Le premier résultat reste en mémoire partagée"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1777,7 +1777,7 @@
       "Peuvent être persistées en base",
       "Toutes ces réponses"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 4,
     "part": 3
   },
   {
@@ -1790,7 +1790,7 @@
       "Supprime aussi le parent",
       "Déconnecte le contexte"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1803,7 +1803,7 @@
       "Nécessitent Fluent API",
       "Toutes ces réponses"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 4,
     "part": 3
   },
   {
@@ -1816,7 +1816,7 @@
       "[Timestamp]",
       "Nécessite un trigger SQL"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1829,7 +1829,7 @@
       "Exécutées ligne par ligne",
       "Converties en LINQ to Objects"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1855,7 +1855,7 @@
       "Exécuter SaveChanges() dans une boucle",
       "Toutes ces pratiques sont déconseillées"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 4,
     "part": 3
   },
   {
@@ -1868,7 +1868,7 @@
       "AddCompositeKey()",
       "Non supporté par EF"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1894,7 +1894,7 @@
       "Générer des migrations automatiques",
       "Sauvegarder le contexte"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1907,7 +1907,7 @@
       "Delete cascade",
       "Mapping complexe"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1920,7 +1920,7 @@
       "Affecte les performances",
       "Réponses : B, C, D"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 4,
     "part": 3
   },
   {
@@ -1933,7 +1933,7 @@
       "Find() est plus rapide si l’entité est déjà suivie",
       "Toutes ces réponses"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 4,
     "part": 3
   },
   {
@@ -1946,7 +1946,7 @@
       "N’est pas détectée automatiquement",
       "Supprime la contrainte FK associée"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1959,7 +1959,7 @@
       "Ajouter une migration spéciale",
       "Utiliser context.Database.Migrate()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1972,7 +1972,7 @@
       "Les middlewares ne peuvent pas court-circuiter la réponse",
       "Les middlewares peuvent s’appliquer aux fichiers statiques et endpoints non-API"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -1985,7 +1985,7 @@
       "ProblemDetails",
       "HttpResponseMessage"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -1998,7 +1998,7 @@
       "Intercepter via un ActionFilter et tester ModelState.IsValid",
       "app.Services.DisableValidation()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -2011,7 +2011,7 @@
       "Expose le type pour la doc OpenAPI plus précisément qu’un IActionResult",
       "N’est pas compatible avec async"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -2024,7 +2024,7 @@
       "Les paramètres simples (string, int) viennent du body",
       "Les paramètres simples viennent de la query/route par défaut"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -2037,7 +2037,7 @@
       "ILogger nécessite Serilog",
       "Le nom de catégorie du log “category name” est le nom de T par défaut"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -2050,7 +2050,7 @@
       "Possibilité d’enrichir (ex: WithMachineName, FromLogContext) via config",
       "Oblige le format JSON"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -2063,7 +2063,7 @@
       "app.MapScalarApiReference() pour l’UI Scalar",
       "app.UseOpenApiUI()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -2089,7 +2089,7 @@
       "Services stateless (Mapper, Validator) souvent en Transient",
       "Caches/configuration (lecture) en Singleton"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -2102,7 +2102,7 @@
       "Valider le DTO dans le contrôleur",
       "ModelState est obsolète"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -2115,7 +2115,7 @@
       "Utiliser AsNoTracking pour les listes",
       "Ignorer la stabilité d’ordre"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -2128,7 +2128,7 @@
       "Minimal interdit DI",
       "Minimal renvoie des IResult, contrôleur renvoie ActionResult<T>"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -2141,7 +2141,7 @@
       "Rediriger vers /error en production",
       "Journaliser (corrélation Id) + ne pas divulguer les détails en prod"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
@@ -2180,7 +2180,7 @@
       "Générer automatiquement des clients sans configuration",
       "MapOpenApi() supporte plusieurs versions"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -2193,7 +2193,7 @@
       "AsNoTracking() pour lecture seule",
       "SaveChanges() dans une boucle au lieu de batch"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "part": 3
   },
   {
@@ -2219,7 +2219,7 @@
       "Résolu en changeant toutes les durées de vie en Singleton",
       "Parfois corrigé en introduisant des ports/interfaces plus fins"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -2232,7 +2232,7 @@
       "Toujours préférable à PUT",
       "Penser à la concurrence (RowVersion)"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -2245,7 +2245,7 @@
       "Utiliser CQRS obligatoirement",
       "Faciliter le test unitaire et la maintenabilité dans le temps"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 4,
     "part": 3
   },
   {
@@ -2258,7 +2258,7 @@
       "Les dépendances vont toujours du haut (UI) vers le bas (Domain)",
       "Les DTO peuvent être définis dans Domain"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -2271,7 +2271,7 @@
       "De rendre les tests possibles avec des mocks ou bases InMemory",
       "D’utiliser EF Core"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "part": 3
   },
   {
@@ -2323,7 +2323,7 @@
       "Plusieurs handlers peuvent traiter une même commande simultanément",
       "Le Mediator centralise les appels pour découpler les dépendances directes"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 4,
     "part": 3
   },
   {
@@ -2336,7 +2336,7 @@
       "Violation du principe de séparation entre modèle métier et contrat d’exposition (DTO)",
       "Les entités ne sont pas sérialisables"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "part": 3
   },
   {
@@ -2349,7 +2349,7 @@
       "Peut inclure une logique de transformation (ex : concaténer Nom + Prénom)",
       "Est inutile si les entités correspondent 1:1 à la base"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "part": 3
   },
   {
