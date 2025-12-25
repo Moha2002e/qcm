@@ -78,13 +78,14 @@ function startChunk() {
 
 function handleAnswer(questionId, optionIndex) {
   userAnswers.value[questionId] = optionIndex
-  setTimeout(() => {
-    if (currentQuestionIndex.value < currentChunkQuestions.value.length - 1) {
-      currentQuestionIndex.value++
-    } else {
-      finishChunk()
-    }
-  }, 800)
+}
+
+function nextQuestion() {
+  if (currentQuestionIndex.value < currentChunkQuestions.value.length - 1) {
+    currentQuestionIndex.value++
+  } else {
+    finishChunk()
+  }
 }
 
 function finishChunk() {
@@ -272,6 +273,7 @@ const hasNextChunkInPart = computed(() => {
             :index="currentQuestionIndex"
             :total="currentChunkQuestions.length"
             @answer="(idx) => handleAnswer(currentChunkQuestions[currentQuestionIndex].id, idx)"
+            @next="nextQuestion"
             />
         </div>
         <div v-else class="error-state">
