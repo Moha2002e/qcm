@@ -786,10 +786,14 @@
       "Console",
       "Fichier",
       "ElasticSearch",
-      "EventLog",
-      "Toutes les réponses"
+      "EventLog"
     ],
-    "correctAnswer": 4,
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "part": 1
   },
   {
@@ -1514,10 +1518,14 @@
       "Il ne gère pas le multithreading",
       "Il ne supporte pas les transactions longues",
       "Son ChangeTracker accumule les entités",
-      "Il est conçu pour une durée de vie courte (Scoped)",
-      "Toutes ces réponses"
+      "Il est conçu pour une durée de vie courte (Scoped)"
     ],
-    "correctAnswer": 4,
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "part": 3
   },
   {
@@ -1709,10 +1717,14 @@
       "AsEnumerable() exécute la requête en mémoire",
       "AsNoTracking() désactive la détection des modifications",
       "AsEnumerable() conserve le tracking",
-      "AsNoTracking() est plus léger pour la lecture seule",
-      "Toutes ces réponses sont correctes"
+      "AsNoTracking() est plus léger pour la lecture seule"
     ],
-    "correctAnswer": 4,
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "part": 3
   },
   {
@@ -1774,10 +1786,14 @@
       "Sont des propriétés non déclarées dans la classe C# mais suivies par EF",
       "Permettent de stocker des métadonnées internes (FK, timestamps, etc.)",
       "Ne sont accessibles que via Entry().Property(\"Nom\")",
-      "Peuvent être persistées en base",
-      "Toutes ces réponses"
+      "Peuvent être persistées en base"
     ],
-    "correctAnswer": 4,
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "part": 3
   },
   {
@@ -1800,10 +1816,14 @@
       "Sont stockés dans la même table que l’entité propriétaire",
       "Représentent des objets de valeur sans clé propre",
       "Ne peuvent être partagés entre entités",
-      "Nécessitent Fluent API",
-      "Toutes ces réponses"
+      "Nécessitent Fluent API"
     ],
-    "correctAnswer": 4,
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "part": 3
   },
   {
@@ -1917,10 +1937,13 @@
       "Est activée par défaut",
       "Nécessite les propriétés virtual",
       "Crée des proxys dynamiques pour charger les données à la demande",
-      "Affecte les performances",
-      "Réponses : B, C, D"
+      "Affecte les performances"
     ],
-    "correctAnswer": 4,
+    "correctAnswer": [
+      1,
+      2,
+      3
+    ],
     "part": 3
   },
   {
@@ -1930,10 +1953,14 @@
       "Find() cherche d’abord dans le cache du contexte avant la DB",
       "Find() nécessite la clé primaire",
       "FirstOrDefault() exécute toujours une requête SQL",
-      "Find() est plus rapide si l’entité est déjà suivie",
-      "Toutes ces réponses"
+      "Find() est plus rapide si l’entité est déjà suivie"
     ],
-    "correctAnswer": 4,
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "part": 3
   },
   {

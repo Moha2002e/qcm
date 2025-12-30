@@ -76,8 +76,10 @@ function startChunk() {
   quizState.value = 'playing'
 }
 
-function handleAnswer(questionId, optionIndex) {
-  userAnswers.value[questionId] = optionIndex
+
+function handleAnswer(questionId, answer) {
+  // answer is now an array of indices
+  userAnswers.value[questionId] = answer
 }
 
 function nextQuestion() {
@@ -97,8 +99,6 @@ function nextChunk() {
        chunkIndex.value++
        startChunk()
    } else if (currentPart.value < 3) {
-       // Optional: Suggest moving to next part? 
-       // For now, let's go back to series selection or start of next part
        currentPart.value++
        quizState.value = 'series-selection'
    } else {
@@ -116,12 +116,34 @@ function returnToIntro() {
     quizState.value = 'intro'
 }
 
+// --- HELPER ---
+function isAnswerCorrect(question, userAnswer) {
+    if (!question || userAnswer === undefined) return false
+    
+    // Normalize correct answer to array
+    let correct = question.correctAnswer
+    if (!Array.isArray(correct)) {
+        correct = [correct]
+    }
+    
+    // Normalize user answer to array (should already be array from QuestionCard)
+    let user = userAnswer
+    if (!Array.isArray(user)) {
+        user = [user]
+    }
+    
+    if (correct.length !== user.length) return false
+    
+    const correctSet = new Set(correct)
+    return user.every(a => correctSet.has(a))
+}
+
 // --- COMPUTED ---
 
 const chunkScore = computed(() => {
   let score = 0
   currentChunkQuestions.value.forEach(q => {
-    if (q && q.id && userAnswers.value[q.id] === q.correctAnswer) {
+    if (q && q.id && isAnswerCorrect(q, userAnswers.value[q.id])) {
       score++
     }
   })
@@ -131,10 +153,11 @@ const chunkScore = computed(() => {
 const chunkResults = computed(() => {
   return currentChunkQuestions.value.map(q => {
     if (!q) return null // Safety
+    const isCorrect = isAnswerCorrect(q, userAnswers.value[q.id])
     return {
       question: q,
       userAnswer: userAnswers.value[q.id],
-      isCorrect: userAnswers.value[q.id] === q.correctAnswer
+      isCorrect: isCorrect
     }
   }).filter(r => r !== null)
 })

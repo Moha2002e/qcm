@@ -28,6 +28,16 @@ const gradeColor = computed(() => {
   if (percentage.value >= 50) return '#f59e0b' // Orange
   return '#ef4444' // Red
 })
+
+function formatAnswer(indices, options) {
+    if (indices === undefined || indices === null) return 'Aucune'
+    
+    let idxArray = Array.isArray(indices) ? indices : [indices]
+    
+    if (idxArray.length === 0) return 'Aucune'
+    
+    return idxArray.map(i => options[i]).join(', ')
+}
 </script>
 
 <template>
@@ -59,14 +69,15 @@ const gradeColor = computed(() => {
           </div>
           <p class="review-q">{{ item.question?.question || 'Intitulé de la question indisponible' }}</p>
           
+
           <div v-if="!item.isCorrect && item.question" class="correction">
             <div class="your-answer">
               <span class="label">Votre réponse:</span>
-              <span class="text" v-if="item.question.options">{{ item.question.options[item.userAnswer] || 'Aucune' }}</span>
+              <span class="text" v-if="item.question.options">{{ formatAnswer(item.userAnswer, item.question.options) }}</span>
             </div>
             <div class="correct-answer">
               <span class="label">Réponse correcte:</span>
-              <span class="text" v-if="item.question.options">{{ item.question.options[item.question.correctAnswer] }}</span>
+              <span class="text" v-if="item.question.options">{{ formatAnswer(item.question.correctAnswer, item.question.options) }}</span>
             </div>
           </div>
         </div>

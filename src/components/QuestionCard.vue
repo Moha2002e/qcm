@@ -18,9 +18,19 @@ const props = defineProps({
 
 const emit = defineEmits(['answer', 'next'])
 
-const shuffledOptions = ref([])
-const selectedOptionOriginalIndex = ref(null)
+const selectedIndices = ref([])
 const isAnswered = ref(false)
+
+// Determine the correct answers as a set for easy lookup
+const correctAnswersSet = computed(() => {
+  if (!props.question) return new Set()
+  // Support both single value and array in JSON
+  const correct = props.question.correctAnswer
+  if (Array.isArray(correct)) {
+    return new Set(correct)
+  }
+  return new Set([correct])
+})
 
 // Shuffle options when question changes
 watch(() => props.question, (newQ) => {
@@ -28,7 +38,7 @@ watch(() => props.question, (newQ) => {
     shuffledOptions.value = []
     return
   }
-  selectedOptionOriginalIndex.value = null
+  selectedIndices.value = []
   isAnswered.value = false
   const optionsWithIndex = newQ.options.map((opt, index) => ({ text: opt, originalIndex: index }))
   // Fisher-Yates shuffle
@@ -39,13 +49,31 @@ watch(() => props.question, (newQ) => {
   shuffledOptions.value = optionsWithIndex
 }, { immediate: true })
 
-const selectOption = (originalIndex) => {
+const toggleOption = (originalIndex) => {
   if (isAnswered.value) return
   
-  selectedOptionOriginalIndex.value = originalIndex
-  isAnswered.value = true
-  emit('answer', originalIndex)
+  const idx = selectedIndices.value.indexOf(originalIndex)
+  if (idx === -1) {
+    selectedIndices.value.push(originalIndex)
+  } else {
+    selectedIndices.value.splice(idx, 1)
+  }
 }
+
+const submitAnswer = () => {
+    isAnswered.value = true
+    emit('answer', [...selectedIndices.value])
+}
+
+const isCorrect = (index) => {
+    return correctAnswersSet.value.has(index)
+}
+
+const isFullCorrect = computed(() => {
+    // Check if selected indices match exactly the correct answer set
+    if (selectedIndices.value.length !== correctAnswersSet.value.size) return false
+    return selectedIndices.value.every(idx => correctAnswersSet.value.has(idx))
+})
 
 const nextQuestion = () => {
   emit('next')
@@ -63,28 +91,35 @@ const nextQuestion = () => {
         :key="idx"
         class="option-btn glass-panel"
         :class="{ 
-          'selected': selectedOptionOriginalIndex === opt.originalIndex,
-          'correct': isAnswered && opt.originalIndex === question.correctAnswer,
-          'wrong': isAnswered && selectedOptionOriginalIndex === opt.originalIndex && opt.originalIndex !== question.correctAnswer,
-          'dim': isAnswered && selectedOptionOriginalIndex !== opt.originalIndex && opt.originalIndex !== question.correctAnswer
+          'selected': selectedIndices.includes(opt.originalIndex),
+          'correct': isAnswered && isCorrect(opt.originalIndex),
+          'wrong': isAnswered && selectedIndices.includes(opt.originalIndex) && !isCorrect(opt.originalIndex),
+          'dim': isAnswered && !selectedIndices.includes(opt.originalIndex) && !isCorrect(opt.originalIndex)
         }"
         :disabled="isAnswered"
-        @click="selectOption(opt.originalIndex)"
+        @click="toggleOption(opt.originalIndex)"
       >
         <span class="option-letter">{{ String.fromCharCode(65 + idx) }}</span>
         <span class="option-text">{{ opt.text }}</span>
-        <span v-if="isAnswered && opt.originalIndex === question.correctAnswer" class="icon-status">✓</span>
-        <span v-if="isAnswered && selectedOptionOriginalIndex === opt.originalIndex && opt.originalIndex !== question.correctAnswer" class="icon-status">✗</span>
+        <span v-if="isAnswered && isCorrect(opt.originalIndex)" class="icon-status">✓</span>
+        <span v-if="isAnswered && selectedIndices.includes(opt.originalIndex) && !isCorrect(opt.originalIndex)" class="icon-status">✗</span>
       </button>
     </div>
 
-    <div v-if="isAnswered" class="actions-bar">
-        <div class="feedback-msg" :class="selectedOptionOriginalIndex === question.correctAnswer ? 'msg-correct' : 'msg-wrong'">
-            {{ selectedOptionOriginalIndex === question.correctAnswer ? 'Correct !' : 'Incorrect...' }}
-        </div>
-        <button class="btn-next" @click="nextQuestion">
-            Question Suivante →
+    <div class="actions-bar">
+        <!-- New Validation Button -->
+        <button v-if="!isAnswered" class="btn-validate" @click="submitAnswer" :disabled="selectedIndices.length === 0">
+            Valider la réponse
         </button>
+
+        <div v-else class="feedback-container">
+            <div class="feedback-msg" :class="isFullCorrect ? 'msg-correct' : 'msg-wrong'">
+                {{ isFullCorrect ? 'Correct !' : 'Incorrect...' }}
+            </div>
+            <button class="btn-next" @click="nextQuestion">
+                Question Suivante →
+            </button>
+        </div>
     </div>
   </div>
 </template>
@@ -210,7 +245,40 @@ const nextQuestion = () => {
     to { opacity: 1; transform: translateY(0); }
 }
 
+.btn-validate {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-validate:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
+}
+
+.btn-validate:disabled {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.3);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.feedback-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
 .feedback-msg {
+    flex-grow: 1;
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -219,9 +287,9 @@ const nextQuestion = () => {
 .msg-wrong { color: #f87171; }
 
 .btn-next {
-    background: var(--accent-color);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.2);
     padding: 0.8rem 1.5rem;
     border-radius: 12px;
     font-weight: 600;
@@ -234,20 +302,19 @@ const nextQuestion = () => {
 }
 
 .btn-next:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .option-letter {
-  background: rgba(255, 255, 255, 0.1);
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-weight: 700;
-  flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    flex-shrink: 0;
 }
 
 .option-text {
