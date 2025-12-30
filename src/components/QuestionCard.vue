@@ -20,6 +20,7 @@ const emit = defineEmits(['answer', 'next'])
 
 const selectedIndices = ref([])
 const isAnswered = ref(false)
+const shuffledOptions = ref([])
 
 // Determine the correct answers as a set for easy lookup
 const correctAnswersSet = computed(() => {
