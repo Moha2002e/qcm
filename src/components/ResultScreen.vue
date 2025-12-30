@@ -29,14 +29,19 @@ const gradeColor = computed(() => {
   return '#ef4444' // Red
 })
 
+
 function formatAnswer(indices, options) {
-    if (indices === undefined || indices === null) return 'Aucune'
+    if (!options) return 'Options not available'
+    if (indices === undefined || indices === null) return 'Aucune sélection'
     
     let idxArray = Array.isArray(indices) ? indices : [indices]
     
-    if (idxArray.length === 0) return 'Aucune'
+    if (idxArray.length === 0) return 'Aucune sélection'
     
-    return idxArray.map(i => options[i]).join(', ')
+    return idxArray.map(i => {
+        if (options[i] !== undefined) return options[i]
+        return `Option ${i} (Manquante)`
+    }).join(', ')
 }
 </script>
 

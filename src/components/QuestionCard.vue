@@ -75,6 +75,16 @@ const isFullCorrect = computed(() => {
     return selectedIndices.value.every(idx => correctAnswersSet.value.has(idx))
 })
 
+const correctAnswersText = computed(() => {
+    if (!props.question || !props.question.options) return ''
+    const correctIndices = Array.from(correctAnswersSet.value).sort()
+    // Find these indices in the SHUFFLED options to get the correct text?
+    // Wait, shuffledOptions has { text, originalIndex }.
+    // We essentially want the TEXT. 
+    // We can get text from props.question.options using originalIndex.
+    return correctIndices.map(i => props.question.options[i]).join(', ')
+})
+
 const nextQuestion = () => {
   emit('next')
 }
@@ -114,7 +124,11 @@ const nextQuestion = () => {
 
         <div v-else class="feedback-container">
             <div class="feedback-msg" :class="isFullCorrect ? 'msg-correct' : 'msg-wrong'">
-                {{ isFullCorrect ? 'Correct !' : 'Incorrect...' }}
+                <span v-if="isFullCorrect">Correct !</span>
+                <span v-else>
+                    Incorrect... <br>
+                    <small>La bonne réponse était : {{ correctAnswersText }}</small>
+                </span>
             </div>
             <button class="btn-next" @click="nextQuestion">
                 Question Suivante →
