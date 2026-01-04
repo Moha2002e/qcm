@@ -38,6 +38,15 @@ function selectSeries(seriesIndex) {
     startChunk()
 }
 
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 function startChunk() {
   const config = partConfig[currentPart.value]
   
@@ -69,12 +78,18 @@ function startChunk() {
   }
   
   endIndex = Math.min(endIndex, partQuestions.length)
-  currentChunkQuestions.value = partQuestions.slice(startIndex, endIndex)
+  
+  // Get the slice of questions for this series
+  const slicedQuestions = partQuestions.slice(startIndex, endIndex)
+  
+  // Shuffle them!
+  currentChunkQuestions.value = shuffleArray([...slicedQuestions])
   
   currentQuestionIndex.value = 0
   userAnswers.value = {}
   quizState.value = 'playing'
 }
+
 
 
 function handleAnswer(questionId, answer) {
