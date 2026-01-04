@@ -10,7 +10,8 @@
       "Une bibliothèque pour Blazor"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
       "Éviter les migrations"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@
       "ContextService"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@
       "Un logger d’exécution"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@
       "L’EntityStateManager"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 6,
@@ -75,7 +80,8 @@
       "context.Commit()"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 7,
@@ -88,7 +94,8 @@
       "Propriétés persistées"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 8,
@@ -101,7 +108,8 @@
       "Un lien nullable sans clé"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 9,
@@ -114,7 +122,8 @@
       "Spécifie la taille maximale"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 10,
@@ -130,7 +139,8 @@
       0,
       1
     ],
-    "part": 1
+    "part": 1,
+    "type": "multiple"
   },
   {
     "id": 11,
@@ -143,7 +153,8 @@
       "Charger les entités"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 12,
@@ -156,7 +167,8 @@
       "Configure une table"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 13,
@@ -172,7 +184,8 @@
       1,
       3
     ],
-    "part": 1
+    "part": 1,
+    "type": "multiple"
   },
   {
     "id": 14,
@@ -185,7 +198,8 @@
       "Mapper une clé étrangère"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 15,
@@ -198,7 +212,8 @@
       "Vide la table"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 16,
@@ -211,7 +226,8 @@
       "Unchanged"
     ],
     "correctAnswer": 3,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 17,
@@ -224,7 +240,8 @@
       "Mapper les deux côtés sans jointure"
     ],
     "correctAnswer": 4,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 18,
@@ -237,7 +254,8 @@
       "Nécessite WillCascadeOnDelete(false) pour l’activer"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 19,
@@ -250,7 +268,8 @@
       "Clone la relation"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 20,
@@ -266,7 +285,8 @@
       1,
       3
     ],
-    "part": 1
+    "part": 1,
+    "type": "multiple"
   },
   {
     "id": 21,
@@ -279,7 +299,8 @@
       "update-database"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 22,
@@ -292,7 +313,8 @@
       "context.apply()"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 23,
@@ -305,7 +327,8 @@
       "Installe EF Core"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 24,
@@ -318,7 +341,8 @@
       "N’existe pas"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 25,
@@ -331,7 +355,8 @@
       "Mettre à jour un snapshot"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 26,
@@ -344,7 +369,8 @@
       "Sérialiser les entités"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 27,
@@ -357,7 +383,8 @@
       "Une exception car AsNoTracking() et Include() sont incompatibles"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 28,
@@ -370,7 +397,8 @@
       "L’immuabilité"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 29,
@@ -383,7 +411,8 @@
       "EFCore.Context"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 30,
@@ -396,7 +425,8 @@
       "Servent au seeding"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 31,
@@ -409,7 +439,8 @@
       "Ajoute les seeds"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 32,
@@ -422,7 +453,8 @@
       "Synonyme de Deleted"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 33,
@@ -435,7 +467,8 @@
       "Sauvegarde l’entité"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 34,
@@ -448,7 +481,8 @@
       "builder.UseEFContext()"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 35,
@@ -461,7 +495,8 @@
       "Le fichier appsettings.json"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 36,
@@ -474,7 +509,8 @@
       "Sert uniquement aux Many-to-Many"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 37,
@@ -487,7 +523,8 @@
       "Avec [Transactional]"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 38,
@@ -500,7 +537,8 @@
       "Ne suis pas l’entité dans le change tracker"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 39,
@@ -513,7 +551,8 @@
       "Découple les configurations du DB contexte"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 40,
@@ -526,7 +565,8 @@
       "Crée un contexte"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 41,
@@ -539,7 +579,8 @@
       "Dédié à Blazor uniquement"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 42,
@@ -552,7 +593,8 @@
       "ApiEntry.cs"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 43,
@@ -565,7 +607,8 @@
       "Nécessite MVC"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 44,
@@ -578,7 +621,8 @@
       "MvcBase"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 45,
@@ -591,7 +635,8 @@
       "[Get]"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 46,
@@ -604,7 +649,8 @@
       "400 BadRequest"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 47,
@@ -617,7 +663,8 @@
       "Middleware + Result"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 48,
@@ -630,7 +677,8 @@
       "204"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 49,
@@ -643,7 +691,8 @@
       "Assemblies"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 50,
@@ -656,7 +705,8 @@
       "Crée la route API"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 51,
@@ -669,7 +719,8 @@
       "Initialise Serilog"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 52,
@@ -682,7 +733,8 @@
       "DatabaseConfig"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 53,
@@ -695,7 +747,8 @@
       "L’injection de dépendance"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 54,
@@ -708,7 +761,8 @@
       "return null"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 55,
@@ -721,7 +775,8 @@
       "Paramètre facultatif"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 56,
@@ -734,7 +789,8 @@
       "Des middlewares d’authentification"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 57,
@@ -747,7 +803,8 @@
       "Serilog"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 58,
@@ -760,7 +817,8 @@
       "Un container DI"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 59,
@@ -773,7 +831,8 @@
       "logger.Enable()"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 60,
@@ -786,7 +845,8 @@
       "De créer un fichier log manuellement"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 61,
@@ -803,7 +863,8 @@
       2,
       3
     ],
-    "part": 1
+    "part": 1,
+    "type": "multiple"
   },
   {
     "id": 62,
@@ -816,7 +877,8 @@
       "D’écrire des fichiers CSV"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 63,
@@ -829,7 +891,8 @@
       "Supprime la base"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 64,
@@ -842,7 +905,8 @@
       "Ajouter Swagger"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 65,
@@ -855,7 +919,8 @@
       "Sync, Upload, Remove, Refresh"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 66,
@@ -868,7 +933,8 @@
       "Logue les erreurs"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 67,
@@ -881,7 +947,8 @@
       "Ne sont pas supportés"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 68,
@@ -894,7 +961,8 @@
       "D’utiliser EF Core"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 69,
@@ -907,7 +975,8 @@
       "IResponse"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 70,
@@ -920,7 +989,8 @@
       "Retourne 204"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 71,
@@ -933,7 +1003,8 @@
       "try/catch au niveaudu program.cs"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 72,
@@ -946,7 +1017,8 @@
       "Task<object>"
     ],
     "correctAnswer": 3,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 73,
@@ -959,7 +1031,8 @@
       "Logger"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 74,
@@ -972,7 +1045,8 @@
       "Modifier appsettings.json"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 75,
@@ -985,7 +1059,8 @@
       "5 minutes"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 76,
@@ -998,7 +1073,8 @@
       "Debug < Trace < Warning < Info"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 77,
@@ -1011,7 +1087,8 @@
       "Améliorer la maintenabilité du code"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 78,
@@ -1024,7 +1101,8 @@
       "ORM, DTO, Controller, Logger"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 79,
@@ -1037,7 +1115,8 @@
       "Les vues"
     ],
     "correctAnswer": 2,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 80,
@@ -1050,7 +1129,8 @@
       "Configure EF"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 81,
@@ -1063,7 +1143,8 @@
       "Écrit dans Serilog"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 82,
@@ -1076,7 +1157,8 @@
       "Lit le fichier appsettings"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 83,
@@ -1089,7 +1171,8 @@
       "Control Query Reset Segment"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 84,
@@ -1102,7 +1185,8 @@
       "Configure l’API"
     ],
     "correctAnswer": 0,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 85,
@@ -1115,7 +1199,8 @@
       "Déclenche les migrations"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 86,
@@ -1128,7 +1213,8 @@
       "Limiter les données envoyées au client"
     ],
     "correctAnswer": 1,
-    "part": 1
+    "part": 1,
+    "type": "single"
   },
   {
     "id": 87,
@@ -1141,7 +1227,8 @@
       "Migration",
       "Scaffold"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "type": "single"
   },
   {
     "id": 88,
@@ -1154,7 +1241,8 @@
       "Connection String",
       "Entity Framework Core"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "type": "single"
   },
   {
     "id": 89,
@@ -1167,7 +1255,8 @@
       "Cascade Delete",
       "Repository Pattern"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "type": "single"
   },
   {
     "id": 90,
@@ -1180,7 +1269,8 @@
       "Application Layer",
       "Entity Framework Core"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "type": "single"
   },
   {
     "id": 91,
@@ -1193,7 +1283,8 @@
       "EntityState",
       "DbContext"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "type": "single"
   },
   {
     "id": 92,
@@ -1206,7 +1297,8 @@
       "Dependency Injection (DI)",
       "Scaffold"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "type": "single"
   },
   {
     "id": 93,
@@ -1219,7 +1311,8 @@
       "LINQ",
       "Cascade Delete"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "type": "single"
   },
   {
     "id": 94,
@@ -1232,7 +1325,8 @@
       "EntityState",
       "Dependency Injection (DI)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "type": "single"
   },
   {
     "id": 95,
@@ -1245,7 +1339,8 @@
       "Cascade Delete",
       "DTO (Data Transfer Object)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "type": "single"
   },
   {
     "id": 96,
@@ -1258,7 +1353,8 @@
       "Scaffold",
       "DbSet"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "type": "single"
   },
   {
     "id": 97,
@@ -1271,7 +1367,8 @@
       "Clean Architecture",
       "Serilog"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "type": "single"
   },
   {
     "id": 98,
@@ -1284,7 +1381,8 @@
       "Serilog",
       "Entity Framework Core"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "type": "single"
   },
   {
     "id": 99,
@@ -1297,7 +1395,8 @@
       "Swagger / OpenAPI",
       "Dependency Injection (DI)"
     ],
-    "correctAnswer": 4
+    "correctAnswer": 4,
+    "type": "single"
   },
   {
     "id": 100,
@@ -1310,7 +1409,8 @@
       "EntityState",
       "Service Layer"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "type": "single"
   },
   {
     "id": 101,
@@ -1323,7 +1423,8 @@
       "Swagger / OpenAPI",
       "DbContext"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "type": "single"
   },
   {
     "id": 102,
@@ -1336,7 +1437,8 @@
       "Migration",
       "Serilog"
     ],
-    "correctAnswer": 4
+    "correctAnswer": 4,
+    "type": "single"
   },
   {
     "id": 103,
@@ -1349,7 +1451,8 @@
       "Middleware",
       "Clean Architecture"
     ],
-    "correctAnswer": 4
+    "correctAnswer": 4,
+    "type": "single"
   },
   {
     "id": 104,
@@ -1362,7 +1465,8 @@
       "Entity Framework Core",
       "Clean Architecture"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "type": "single"
   },
   {
     "id": 105,
@@ -1375,7 +1479,8 @@
       "ActionResult",
       "Migration"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "type": "single"
   },
   {
     "id": 106,
@@ -1388,7 +1493,8 @@
       "EntityState",
       "Infrastructure Layer"
     ],
-    "correctAnswer": 4
+    "correctAnswer": 4,
+    "type": "single"
   },
   {
     "id": 107,
@@ -1401,7 +1507,8 @@
       "Domain Layer",
       "Serilog"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "type": "single"
   },
   {
     "id": 108,
@@ -1414,7 +1521,8 @@
       "Service Layer",
       "Clean Architecture"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "type": "single"
   },
   {
     "id": 109,
@@ -1427,7 +1535,8 @@
       "Swagger / OpenAPI",
       "Connection String"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "type": "single"
   },
   {
     "id": 110,
@@ -1440,7 +1549,8 @@
       "Migration",
       "Swagger / OpenAPI"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "type": "single"
   },
   {
     "id": 111,
@@ -1453,7 +1563,8 @@
       "ActionResult",
       "CQRS"
     ],
-    "correctAnswer": 4
+    "correctAnswer": 4,
+    "type": "single"
   },
   {
     "id": 112,
@@ -1466,7 +1577,8 @@
       "Nécessite explicitement context.Entry(entity).State = Modified"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 113,
@@ -1479,7 +1591,8 @@
       "Toutes ces réponses"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 114,
@@ -1492,7 +1605,8 @@
       "Dépend du provider de base de données uniquement"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 115,
@@ -1505,7 +1619,8 @@
       "Fusionne les versions"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 116,
@@ -1518,7 +1633,8 @@
       "Attach ne fonctionne que sur les entités enfants"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 117,
@@ -1535,7 +1651,8 @@
       2,
       3
     ],
-    "part": 3
+    "part": 3,
+    "type": "multiple"
   },
   {
     "id": 118,
@@ -1548,7 +1665,8 @@
       "context.SaveChanges()"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 119,
@@ -1561,7 +1679,8 @@
       "N’agissent que sur les clés étrangères"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 120,
@@ -1574,7 +1693,8 @@
       "Rien ne se passe"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 121,
@@ -1587,7 +1707,8 @@
       "De rendre SaveChanges() instantané"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 122,
@@ -1600,7 +1721,8 @@
       "Pour toutes les entités enfants"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 123,
@@ -1613,7 +1735,8 @@
       "Une exception de mapping"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 124,
@@ -1626,7 +1749,8 @@
       "Ne supporte pas ce scénario"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 125,
@@ -1639,7 +1763,8 @@
       "Met les entités à Unchanged"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 126,
@@ -1652,7 +1777,8 @@
       "Des triggers automatiques"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 127,
@@ -1665,7 +1791,8 @@
       "Rien ne change"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 128,
@@ -1678,7 +1805,8 @@
       "Fait un rollback"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 129,
@@ -1691,7 +1819,8 @@
       "Est identique à LINQ to Objects"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 130,
@@ -1704,7 +1833,8 @@
       "Crée une collection vide si rien n’est trouvé"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 131,
@@ -1717,7 +1847,8 @@
       "Applique la migration"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 132,
@@ -1734,7 +1865,8 @@
       2,
       3
     ],
-    "part": 3
+    "part": 3,
+    "type": "multiple"
   },
   {
     "id": 133,
@@ -1747,7 +1879,8 @@
       "Met la ligne à Unchanged"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 134,
@@ -1760,7 +1893,8 @@
       "Ne supporte pas le Include()"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 135,
@@ -1773,7 +1907,8 @@
       "Nécessite un rechargement manuel pour modifier"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 136,
@@ -1786,7 +1921,8 @@
       "Le premier résultat reste en mémoire partagée"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 137,
@@ -1803,7 +1939,8 @@
       2,
       3
     ],
-    "part": 3
+    "part": 3,
+    "type": "multiple"
   },
   {
     "id": 138,
@@ -1816,7 +1953,8 @@
       "Déconnecte le contexte"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 139,
@@ -1833,7 +1971,8 @@
       2,
       3
     ],
-    "part": 3
+    "part": 3,
+    "type": "multiple"
   },
   {
     "id": 140,
@@ -1846,7 +1985,8 @@
       "Nécessite un trigger SQL"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 141,
@@ -1859,7 +1999,8 @@
       "Converties en LINQ to Objects"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 142,
@@ -1872,7 +2013,8 @@
       "Nécessite un SaveChanges() pour exécuter le SQL"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 143,
@@ -1885,7 +2027,8 @@
       "Toutes ces pratiques sont déconseillées"
     ],
     "correctAnswer": 4,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 144,
@@ -1898,7 +2041,8 @@
       "Non supporté par EF"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 145,
@@ -1911,7 +2055,8 @@
       "Ne peut pas être traduit en SQL"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 146,
@@ -1924,7 +2069,8 @@
       "Sauvegarder le contexte"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 147,
@@ -1937,7 +2083,8 @@
       "Mapping complexe"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 148,
@@ -1953,7 +2100,8 @@
       2,
       3
     ],
-    "part": 3
+    "part": 3,
+    "type": "multiple"
   },
   {
     "id": 149,
@@ -1970,7 +2118,8 @@
       2,
       3
     ],
-    "part": 3
+    "part": 3,
+    "type": "multiple"
   },
   {
     "id": 150,
@@ -1983,7 +2132,8 @@
       "Supprime la contrainte FK associée"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 151,
@@ -1996,7 +2146,8 @@
       "Utiliser context.Database.Migrate()"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 152,
@@ -2009,7 +2160,8 @@
       "Les middlewares peuvent s’appliquer aux fichiers statiques et endpoints non-API"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 153,
@@ -2022,7 +2174,8 @@
       "HttpResponseMessage"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 154,
@@ -2035,7 +2188,8 @@
       "app.Services.DisableValidation()"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 155,
@@ -2048,7 +2202,8 @@
       "N’est pas compatible avec async"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 156,
@@ -2061,7 +2216,8 @@
       "Les paramètres simples viennent de la query/route par défaut"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 157,
@@ -2074,7 +2230,8 @@
       "Le nom de catégorie du log “category name” est le nom de T par défaut"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 158,
@@ -2087,7 +2244,8 @@
       "Oblige le format JSON"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 159,
@@ -2100,7 +2258,8 @@
       "app.UseOpenApiUI()"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 160,
@@ -2113,7 +2272,8 @@
       "N’est disponible qu’en Minimal API"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 161,
@@ -2126,7 +2286,8 @@
       "Caches/configuration (lecture) en Singleton"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 162,
@@ -2139,7 +2300,8 @@
       "ModelState est obsolète"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 163,
@@ -2152,7 +2314,8 @@
       "Ignorer la stabilité d’ordre"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 164,
@@ -2165,7 +2328,8 @@
       "Minimal renvoie des IResult, contrôleur renvoie ActionResult<T>"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 165,
@@ -2178,7 +2342,8 @@
       "Journaliser (corrélation Id) + ne pas divulguer les détails en prod"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 166,
@@ -2191,7 +2356,8 @@
       "* capture un segment, ** plusieurs (catch-all)"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 167,
@@ -2204,7 +2370,8 @@
       "La négociation peut renvoyer 406 si non supporté (si configuré)"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 168,
@@ -2217,7 +2384,8 @@
       "MapOpenApi() supporte plusieurs versions"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 169,
@@ -2230,7 +2398,8 @@
       "SaveChanges() dans une boucle au lieu de batch"
     ],
     "correctAnswer": 3,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 170,
@@ -2243,7 +2412,8 @@
       "Peut dégrader la perf si on logge les bodies volumineux"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 171,
@@ -2256,7 +2426,8 @@
       "Parfois corrigé en introduisant des ports/interfaces plus fins"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 172,
@@ -2269,7 +2440,8 @@
       "Penser à la concurrence (RowVersion)"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 173,
@@ -2282,7 +2454,8 @@
       "Faciliter le test unitaire et la maintenabilité dans le temps"
     ],
     "correctAnswer": 4,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 174,
@@ -2295,7 +2468,8 @@
       "Les DTO peuvent être définis dans Domain"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 175,
@@ -2308,7 +2482,8 @@
       "D’utiliser EF Core"
     ],
     "correctAnswer": 2,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 176,
@@ -2321,7 +2496,8 @@
       "Exécuter directement les requêtes SQL"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 177,
@@ -2334,7 +2510,8 @@
       "Les DTO d’entrée API"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 178,
@@ -2347,7 +2524,8 @@
       "Peut coexister avec Mediator / MediatR"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 179,
@@ -2360,7 +2538,8 @@
       "Le Mediator centralise les appels pour découpler les dépendances directes"
     ],
     "correctAnswer": 4,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 180,
@@ -2373,7 +2552,8 @@
       "Les entités ne sont pas sérialisables"
     ],
     "correctAnswer": 3,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 181,
@@ -2386,7 +2566,8 @@
       "Est inutile si les entités correspondent 1:1 à la base"
     ],
     "correctAnswer": 1,
-    "part": 3
+    "part": 3,
+    "type": "single"
   },
   {
     "id": 182,
@@ -2399,6 +2580,7 @@
       "Les transactions doivent être gérées dans les contrôleurs"
     ],
     "correctAnswer": 0,
-    "part": 3
+    "part": 3,
+    "type": "single"
   }
 ]
