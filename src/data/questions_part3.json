@@ -1,0 +1,1154 @@
+[
+  {
+    "id": 112,
+    "question": "Lorsqu’une entité est lue via un DbContext, puis modifiée sans appel à Attach ou Update, EF Core : (Une seule réponse possible)",
+    "options": [
+      "Lève une exception de suivi incohérent",
+      "Ignore la modification",
+      "La détecte automatiquement si elle est suivie par le ChangeTracker",
+      "Modifie toutes les lignes correspondantes",
+      "Nécessite explicitement context.Entry(entity).State = Modified"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 113,
+    "question": "Le comportement de context.Attach(entity) dépend de : (Une seule réponse possible)",
+    "options": [
+      "Si la clé primaire est renseignée ou non",
+      "L’état courant de l’entité",
+      "Les entités enfants rattachées",
+      "Le mode de suivi du contexte",
+      "Toutes ces réponses"
+    ],
+    "correctAnswer": 4,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 114,
+    "question": "Lors d’un SaveChanges(), EF Core : (Une seule réponse possible)",
+    "options": [
+      "Génère un script SQL et l’exécute sans transaction",
+      "Utilise une transaction implicite regroupant les modifications suivies",
+      "Valide chaque entité individuellement",
+      "Envoie un batch par propriété modifiée",
+      "Dépend du provider de base de données uniquement"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 115,
+    "question": "Si deux DbContext différents chargent la même entité et que chacun la modifie avant SaveChanges(), EF : (Une seule réponse possible)",
+    "options": [
+      "Écrase silencieusement le dernier enregistrement",
+      "Lance une exception d’accès concurrent",
+      "Ne détecte pas le conflit sauf si une colonne de concurrence est configurée",
+      "Synchronise automatiquement les changements",
+      "Fusionne les versions"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 116,
+    "question": "Quelle est la différence entre Add() et Attach() ? (Une seule réponse possible)",
+    "options": [
+      "Attach crée une nouvelle entité, Add la réutilise",
+      "Add attache mais ne change pas l’état",
+      "Add marque l’entité comme Added, Attach comme Unchanged",
+      "Elles sont équivalentes",
+      "Attach ne fonctionne que sur les entités enfants"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 117,
+    "question": "Un DbContext ne doit généralement pas être enregistré en Singleton car : (Plusieurs réponses possibles)",
+    "options": [
+      "Il ne gère pas le multithreading",
+      "Il ne supporte pas les transactions longues",
+      "Son ChangeTracker accumule les entités",
+      "Il est conçu pour une durée de vie courte (Scoped)"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 118,
+    "question": "Quelle instruction crée réellement la table en base dans une approche Code-First ? (Une seule réponse possible)",
+    "options": [
+      "EnsureCreated()",
+      "Add-Migration",
+      "Update-Database",
+      "Migrate()",
+      "context.SaveChanges()"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 119,
+    "question": "Les conventions par défaut d’EF Core : (Une seule réponse possible)",
+    "options": [
+      "Imposent les noms de colonnes en majuscules",
+      "Ne peuvent pas être surchargées",
+      "Peuvent être remplacées via Fluent API ou annotations",
+      "Sont désactivées par défaut",
+      "N’agissent que sur les clés étrangères"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 120,
+    "question": "Lorsqu’un DbContext suit deux entités ayant la même clé primaire : (Une seule réponse possible)",
+    "options": [
+      "EF met à jour la plus récente",
+      "EF crée deux lignes",
+      "Une exception InvalidOperationException est levée",
+      "Les deux sont fusionnées",
+      "Rien ne se passe"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 121,
+    "question": "Le ChangeTracker.AutoDetectChangesEnabled désactivé permet : (Plusieurs réponses possibles)",
+    "options": [
+      "D’empêcher la détection de modifications automatiques",
+      "D’optimiser les opérations massives (batch)",
+      "De désactiver la persistance",
+      "De supprimer le contexte",
+      "De rendre SaveChanges() instantané"
+    ],
+    "correctAnswer": [
+      0,
+      1
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 122,
+    "question": "La suppression en cascade implicite s’applique : (Une seule réponse possible)",
+    "options": [
+      "À toutes les relations",
+      "Seulement si la relation est Required (non nullable)",
+      "Seulement si DeleteBehavior.Cascade est explicite",
+      "Jamais, par sécurité",
+      "Pour toutes les entités enfants"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 123,
+    "question": "Quelle est la sortie SQL la plus probable du code suivant : context.Students.Where(s => s.Grade.GradeName == \"A\"); (Une seule réponse possible)",
+    "options": [
+      "Un JOIN avec la table Grade",
+      "Une sous-requête",
+      "Une requête cartésienne",
+      "Un SELECT sur Students uniquement",
+      "Une exception de mapping"
+    ],
+    "correctAnswer": 0,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 124,
+    "question": "Dans un modèle Many-to-Many sans entité de jointure explicite, EF Core : (Une seule réponse possible)",
+    "options": [
+      "Crée une entité Join implicite",
+      "Crée une table de liaison sans classe dédiée",
+      "Requiert [ForeignKey] manuelle",
+      "Nécessite une configuration One-to-Many double",
+      "Ne supporte pas ce scénario"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 125,
+    "question": "Quelle est la conséquence de context.ChangeTracker.Clear() ? (Une seule réponse possible)",
+    "options": [
+      "Supprime la base",
+      "Détache toutes les entités suivies",
+      "Vide les tables",
+      "Enregistre les changements",
+      "Met les entités à Unchanged"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 126,
+    "question": "Une migration EF Core contient : (Une seule réponse possible)",
+    "options": [
+      "Un snapshot du modèle + le code SQL des modifications",
+      "Des métadonnées JSON",
+      "Deux classes : une Migration et un ModelSnapshot",
+      "Des scripts SQL exécutables",
+      "Des triggers automatiques"
+    ],
+    "correctAnswer": 0,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 127,
+    "question": "Si Database.EnsureCreated() est utilisé avant une migration : (Une seule réponse possible)",
+    "options": [
+      "La migration suivante l’écrase",
+      "Les migrations ne pourront plus être appliquées sans supprimer la DB",
+      "Les migrations s’empilent",
+      "EF fusionne les deux schémas",
+      "Rien ne change"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 128,
+    "question": "Le code : context.Entry(student).State = EntityState.Detached; (Une seule réponse possible)",
+    "options": [
+      "Sauvegarde l’entité",
+      "Détache l’entité du contexte, elle n’est plus suivie",
+      "Supprime la ligne en DB",
+      "Rattache une entité",
+      "Fait un rollback"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 129,
+    "question": "LINQ to Entities : (Une seule réponse possible)",
+    "options": [
+      "Utilise des itérateurs C#",
+      "Exécute la requête côté client",
+      "Traduit l’expression en SQL exécuté côté serveur",
+      "Crée un cache mémoire",
+      "Est identique à LINQ to Objects"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 130,
+    "question": "FirstOrDefault() sur un IQueryable EF Core : (Plusieurs réponses possibles)",
+    "options": [
+      "Charge tout le dataset",
+      "Exécute immédiatement la requête SQL avec TOP 1",
+      "Retourne un proxy non chargé",
+      "Retourne null si rien n’est trouvé",
+      "Crée une collection vide si rien n’est trouvé"
+    ],
+    "correctAnswer": [
+      1,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 131,
+    "question": "La commande dotnet ef migrations add Init --context AppContext : (Plusieurs réponses possibles)",
+    "options": [
+      "Ajoute une migration en précisant la classe de contexte",
+      "Crée la base",
+      "Liste les migrations",
+      "Ajoute une première migration",
+      "Applique la migration"
+    ],
+    "correctAnswer": [
+      0,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 132,
+    "question": "Quelle différence principale existe entre AsEnumerable() et AsNoTracking() sur une requête EF Core ? (Plusieurs réponses possibles)",
+    "options": [
+      "AsEnumerable() exécute la requête en mémoire",
+      "AsNoTracking() désactive la détection des modifications",
+      "AsEnumerable() conserve le tracking",
+      "AsNoTracking() est plus léger pour la lecture seule"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 133,
+    "question": "Le code suivant : var s = context.Students.First(); s.Name = \"Karl\"; context.SaveChanges(); Que fait EF Core ? (Une seule réponse possible)",
+    "options": [
+      "N’enregistre pas le changement sans Update()",
+      "Détecte la modification et exécute un UPDATE SQL",
+      "Crée un nouvel enregistrement",
+      "Déclenche une exception si la table est vide",
+      "Met la ligne à Unchanged"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 134,
+    "question": "Lorsqu’une propriété Navigation est marquée virtual, EF Core : (Plusieurs réponses possibles)",
+    "options": [
+      "Crée un proxy dynamique pour le lazy loading",
+      "Peut différer le chargement des données liées",
+      "Nécessite Microsoft.EntityFrameworkCore.Proxies",
+      "Désactive le tracking",
+      "Ne supporte pas le Include()"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 135,
+    "question": "L’option UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking) configurée globalement : (Plusieurs réponses possibles)",
+    "options": [
+      "Désactive les transactions",
+      "Désactive par défaut le suivi des entités retournées",
+      "Rend la lecture plus performante",
+      "Bloque SaveChanges()",
+      "Nécessite un rechargement manuel pour modifier"
+    ],
+    "correctAnswer": [
+      1,
+      2
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 136,
+    "question": "Quel est le résultat de ce code ? context.Students.Where(s => s.Id == 1).FirstOrDefault(); context.Students.Where(s => s.Id == 1).FirstOrDefault(); (Une seule réponse possible)",
+    "options": [
+      "Une seule requête SQL est exécutée grâce au cache EF",
+      "Deux requêtes SQL sont exécutées, pas de cache de requête par défaut",
+      "La seconde lève une exception de suivi",
+      "Une transaction est ouverte",
+      "Le premier résultat reste en mémoire partagée"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 137,
+    "question": "Les Shadow Properties dans EF Core : (Plusieurs réponses possibles)",
+    "options": [
+      "Sont des propriétés non déclarées dans la classe C# mais suivies par EF",
+      "Permettent de stocker des métadonnées internes (FK, timestamps, etc.)",
+      "Ne sont accessibles que via Entry().Property(\"Nom\")",
+      "Peuvent être persistées en base"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 138,
+    "question": "Le type de suppression DeleteBehavior.ClientSetNull : (Une seule réponse possible)",
+    "options": [
+      "Supprime les enfants en base",
+      "Met à null les FK en mémoire, sans propager en DB avant SaveChanges()",
+      "Dépend de la transaction",
+      "Supprime aussi le parent",
+      "Déconnecte le contexte"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 139,
+    "question": "Les Owned Types : (Plusieurs réponses possibles)",
+    "options": [
+      "Sont stockés dans la même table que l’entité propriétaire",
+      "Représentent des objets de valeur sans clé propre",
+      "Ne peuvent être partagés entre entités",
+      "Nécessitent Fluent API"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 140,
+    "question": "Pour qu’une propriété DateCreated soit automatiquement remplie lors de l’insertion : (Une seule réponse possible)",
+    "options": [
+      "[DatabaseGenerated(DatabaseGeneratedOption.Computed)]",
+      "[DefaultValue(\"getdate()\")]",
+      "Configuration via Fluent API .HasDefaultValueSql(\"getutcdate()\")",
+      "[Timestamp]",
+      "Nécessite un trigger SQL"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 141,
+    "question": "Les requêtes composées sur IQueryable EF Core sont : (Une seule réponse possible)",
+    "options": [
+      "Exécutées immédiatement",
+      "Construites en expression tree et traduites à l’exécution (deferred execution)",
+      "Stockées en cache jusqu’à ToList()",
+      "Exécutées ligne par ligne",
+      "Converties en LINQ to Objects"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 142,
+    "question": "Le code suivant : var stud = new Student { Id = 10, Name = \"Karl\" }; context.Update(stud); Suppose que l’étudiant existe déjà. (Plusieurs réponses possibles)",
+    "options": [
+      "Marque l’entité comme Modified sans la lire",
+      "Charge la ligne depuis la base",
+      "Lève une exception s’il n’existe pas",
+      "Supprime les relations",
+      "Nécessite un SaveChanges() pour exécuter le SQL"
+    ],
+    "correctAnswer": [
+      0,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 143,
+    "question": "Quelle pratique est déconseillée pour les performances EF ? (Une seule réponse possible)",
+    "options": [
+      "Include() sur plusieurs niveaux de profondeur",
+      "ToList() avant Where()",
+      "Charger 10 000 entités trackées",
+      "Exécuter SaveChanges() dans une boucle",
+      "Toutes ces pratiques sont déconseillées"
+    ],
+    "correctAnswer": 4,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 144,
+    "question": "Les clés composites sont configurées via : (Une seule réponse possible)",
+    "options": [
+      "[Key(\"A\",\"B\")]",
+      "[CompositeKey]",
+      "modelBuilder.Entity<T>().HasKey(e => new { e.A, e.B })",
+      "AddCompositeKey()",
+      "Non supporté par EF"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 145,
+    "question": "Le mode SingleOrDefault() : (Plusieurs réponses possibles)",
+    "options": [
+      "Lève une exception si plus d’une correspondance existe",
+      "Retourne null si aucune entité",
+      "Peut charger plus lentement qu’un FirstOrDefault()",
+      "Combine filtrage + validation d’unicité",
+      "Ne peut pas être traduit en SQL"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 146,
+    "question": "Les Compiled Queries d’EF Core servent à : (Une seule réponse possible)",
+    "options": [
+      "Exécuter du SQL brut",
+      "Précompiler l’arbre d’expression pour réutilisation (gain de perf)",
+      "Créer des index",
+      "Générer des migrations automatiques",
+      "Sauvegarder le contexte"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 147,
+    "question": "Quel scénario nécessite le TransactionScope ? (Une seule réponse possible)",
+    "options": [
+      "SaveChanges() standard",
+      "Modification de plusieurs contextes ou sources de données dans la même transaction",
+      "Lazy Loading",
+      "Delete cascade",
+      "Mapping complexe"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 148,
+    "question": "L’option .UseLazyLoadingProxies() : (Plusieurs réponses possibles)",
+    "options": [
+      "Est activée par défaut",
+      "Nécessite les propriétés virtual",
+      "Crée des proxys dynamiques pour charger les données à la demande",
+      "Affecte les performances"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 149,
+    "question": "Quelle différence entre Find() et FirstOrDefault() ? (Plusieurs réponses possibles)",
+    "options": [
+      "Find() cherche d’abord dans le cache du contexte avant la DB",
+      "Find() nécessite la clé primaire",
+      "FirstOrDefault() exécute toujours une requête SQL",
+      "Find() est plus rapide si l’entité est déjà suivie"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 150,
+    "question": "Une migration contenant un renommage de colonne et un changement de type : (Une seule réponse possible)",
+    "options": [
+      "Est exécutée en une seule commande SQL",
+      "Peut générer un DROP + CREATE selon le provider",
+      "Ne peut pas être rollbackée",
+      "N’est pas détectée automatiquement",
+      "Supprime la contrainte FK associée"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 151,
+    "question": "Pour insérer des données initiales conditionnelles : (Plusieurs réponses possibles)",
+    "options": [
+      "[SeedData]",
+      "Utiliser HasData() dans OnModelCreating",
+      "Créer une classe statique DbSeeder exécutée au démarrage",
+      "Ajouter une migration spéciale",
+      "Utiliser context.Database.Migrate()"
+    ],
+    "correctAnswer": [
+      1,
+      2
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 152,
+    "question": "Différence principale Middleware vs Filter en Web API : (Plusieurs réponses possibles)",
+    "options": [
+      "Les filters s’exécutent avant le routing",
+      "Les middlewares enveloppent tout le pipeline, les filters ciblent contrôleurs/actions",
+      "Les filters ont accès au ModelState et aux résultats d’action",
+      "Les middlewares ne peuvent pas court-circuiter la réponse",
+      "Les middlewares peuvent s’appliquer aux fichiers statiques et endpoints non-API"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 153,
+    "question": "En Minimal APIs, que renvoie le plus précisément Results.NotFound() ? (Une seule réponse possible)",
+    "options": [
+      "ActionResult",
+      "IActionResult",
+      "Un IResult (implémentation HttpResults)",
+      "ProblemDetails",
+      "HttpResponseMessage"
+    ],
+    "correctAnswer": 2,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 154,
+    "question": "Pour masquer la validation implicite d’[ApiController] et gérer toi-même la réponse : (Plusieurs réponses possibles)",
+    "options": [
+      "Supprimer [ApiController]",
+      "Désactiver SuppressModelStateInvalidFilter",
+      "Utiliser [ValidateNever] sur le type",
+      "Intercepter via un ActionFilter et tester ModelState.IsValid",
+      "app.Services.DisableValidation()"
+    ],
+    "correctAnswer": [
+      1,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 155,
+    "question": "Concernant ActionResult<T> : (Plusieurs réponses possibles)",
+    "options": [
+      "Empêche de retourner NotFound()",
+      "Permet de retourner soit un T, soit un IActionResult",
+      "Sérialise T et force 200 OK",
+      "Expose le type pour la doc OpenAPI plus précisément qu’un IActionResult",
+      "N’est pas compatible avec async"
+    ],
+    "correctAnswer": [
+      1,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 156,
+    "question": "[FromBody] vs [FromQuery] : comportement par défaut en API : (Plusieurs réponses possibles)",
+    "options": [
+      "Les paramètres simples viennent du body par défaut",
+      "Un seul paramètre [FromBody] par action en JSON (par défaut)",
+      "Les paramètres complexes (classe) viennent du body par défaut",
+      "Les paramètres simples (string, int) viennent du body",
+      "Les paramètres simples viennent de la query/route par défaut"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 157,
+    "question": "ILogger<T> : lequel est vrai ? (Plusieurs réponses possibles)",
+    "options": [
+      "Les messages interpolés sont toujours structurés",
+      "Utiliser des “message templates” logger.LogInformation(\"User {Id} ...\", id) crée des champs structurés",
+      "Écrire des objets comme {@obj} n’est supporté que par STJ",
+      "ILogger nécessite Serilog",
+      "Le nom de catégorie du log “category name” est le nom de T par défaut"
+    ],
+    "correctAnswer": [
+      1,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 158,
+    "question": "Serilog avec ASP.NET Core pour journaliser chaque requête : (Plusieurs réponses possibles)",
+    "options": [
+      "Ajouter UseLogging()",
+      "app.UseSerilogRequestLogging()",
+      "Logger uniquement en Production",
+      "Possibilité d’enrichir (ex: WithMachineName, FromLogContext) via config",
+      "Oblige le format JSON"
+    ],
+    "correctAnswer": [
+      1,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 159,
+    "question": "Configurer Swagger/Scalar en .NET 9 : (Plusieurs réponses possibles)",
+    "options": [
+      "builder.Services.AddOpenApi()",
+      "app.UseSwagger() obligatoire",
+      "app.MapOpenApi() pour exposer /openapi/v1.json",
+      "app.MapScalarApiReference() pour l’UI Scalar",
+      "app.UseOpenApiUI()"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 160,
+    "question": "CancellationToken dans une action : (Plusieurs réponses possibles)",
+    "options": [
+      "Peut être passé en paramètre pour annuler un await db.ToListAsync(ct)",
+      "Inutile pour EF Core",
+      "Désactive le time-out",
+      "Est alimenté par la fermeture de la connexion HTTP",
+      "N’est disponible qu’en Minimal API"
+    ],
+    "correctAnswer": [
+      0,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 161,
+    "question": "Choisir la durée de vie DI appropriée : (Plusieurs réponses possibles)",
+    "options": [
+      "DbContext en Singleton pour réduire les allocations",
+      "HttpClient en Scoped par défaut",
+      "DbContext en Scoped (requête)",
+      "Services stateless (Mapper, Validator) souvent en Transient",
+      "Caches/configuration (lecture) en Singleton"
+    ],
+    "correctAnswer": [
+      2,
+      3,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 162,
+    "question": "Pour valider un modèle d’entrée (DTO) avec des règles avancées : (Plusieurs réponses possibles)",
+    "options": [
+      "[RegularExpression] uniquement",
+      "FluentValidation (librairie tierce) ou DataAnnotations",
+      "Créer un ActionFilter de validation pour format unifié des erreurs",
+      "Valider le DTO dans le contrôleur",
+      "ModelState est obsolète"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 163,
+    "question": "Pagination propre en Web API : (Plusieurs réponses possibles)",
+    "options": [
+      "Prendre tout puis paginer en mémoire",
+      "Retourner des métadonnées (page, size, total) dans des en-têtes ou un enveloppe JSON",
+      "Limiter pageSize max côté serveur",
+      "Utiliser AsNoTracking pour les listes",
+      "Ignorer la stabilité d’ordre"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 164,
+    "question": "Minimal APIs vs Controllers : (Plusieurs réponses possibles)",
+    "options": [
+      "Minimal = pas de filtres possible",
+      "Minimal expose des endpoints fonctionnels, léger pour microservices",
+      "Controllers = filtres + conventions MVC + attributs riches",
+      "Minimal interdit DI",
+      "Minimal renvoie des IResult, contrôleur renvoie ActionResult<T>"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 165,
+    "question": "Global exception handling recommandé : (Plusieurs réponses possibles)",
+    "options": [
+      "try/catch dans chaque action",
+      "Middleware global + mapping → ProblemDetails standard",
+      "Filtres d’exception uniquement",
+      "Rediriger vers /error en production",
+      "Journaliser (corrélation Id) + ne pas divulguer les détails en prod"
+    ],
+    "correctAnswer": [
+      1,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 166,
+    "question": "Routing : contraintes et noms : (Plusieurs réponses possibles)",
+    "options": [
+      "[HttpGet(\"{id:int}\")] contraint id à un entier",
+      "Le nom d’une route (ex. :GetByName) doit être unique quel que soit le contrôleur",
+      "Les routes nommées ne servent qu’à la doc",
+      "Des paramètres optionnels \"{category?}\" sont possibles",
+      "* capture un segment, ** plusieurs (catch-all)"
+    ],
+    "correctAnswer": [
+      0,
+      3,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 167,
+    "question": "Content negotiation : (Plusieurs réponses possibles)",
+    "options": [
+      "Par défaut JSON via System.Text.Json",
+      "Accept: application/xml est toujours respecté sans config",
+      "On peut ajouter un formatter XML",
+      "text/csv est pris en charge nativement",
+      "La négociation peut renvoyer 406 si non supporté (si configuré)"
+    ],
+    "correctAnswer": [
+      0,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 168,
+    "question": "OpenAPI doc : (Plusieurs réponses possibles)",
+    "options": [
+      "Toujours exposer /openapi/v1.json en prod sans auth",
+      "Protéger l’UI (Swagger/Scalar) en prod ou la désactiver",
+      "Décrire les schémas, codes de retour, auth (OAuth2/Bearer)",
+      "Générer automatiquement des clients sans configuration",
+      "MapOpenApi() supporte plusieurs versions"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 169,
+    "question": "Performance — anti-patterns courants : (Plusieurs réponses possibles)",
+    "options": [
+      "Serializer synchro sur gros payloads",
+      "ToList() prématuré avant Where/Select",
+      "Logging verbeux au niveau Debug/Trace en prod",
+      "AsNoTracking() pour lecture seule",
+      "SaveChanges() dans une boucle au lieu de batch"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 170,
+    "question": "HttpLoggingMiddleware : (Plusieurs réponses possibles)",
+    "options": [
+      "Peut journaliser headers, requête, réponse",
+      "Toujours recommandé en prod sans filtre",
+      "Risque de fuite de données sensibles si mal configuré",
+      "Ne fonctionne pas avec HTTPS",
+      "Peut dégrader la perf si on logge les bodies volumineux"
+    ],
+    "correctAnswer": [
+      0,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 171,
+    "question": "DI circular dependency : (Plusieurs réponses possibles)",
+    "options": [
+      "Peut provoquer des boucles d’initialisation et exceptions",
+      "Résolu automatiquement par le conteneur",
+      "Souvent signe d’un design à refactorer",
+      "Résolu en changeant toutes les durées de vie en Singleton",
+      "Parfois corrigé en introduisant des ports/interfaces plus fins"
+    ],
+    "correctAnswer": [
+      0,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 172,
+    "question": "JSON patch / partial updates : (Plusieurs réponses possibles)",
+    "options": [
+      "HttpPatch non supporté",
+      "Supporté uniquement via Newtonsoft",
+      "Valider les opérations patch et la sécurité (chemins autorisés)",
+      "Toujours préférable à PUT",
+      "Penser à la concurrence (RowVersion)"
+    ],
+    "correctAnswer": [
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 173,
+    "question": "La Clean Architecture vise avant tout à : (Plusieurs réponses possibles)",
+    "options": [
+      "Réduire le couplage entre UI et données",
+      "Faire dépendre le code métier uniquement d’abstractions",
+      "Isoler le domaine de toute technologie (framework, base, UI)",
+      "Utiliser CQRS obligatoirement",
+      "Faciliter le test unitaire et la maintenabilité dans le temps"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 174,
+    "question": "Dans une architecture en couches proprement isolée : (Une seule réponse possible)",
+    "options": [
+      "La couche Presentation référence la couche Domain directement",
+      "La couche Application référence le Domain et expose des interfaces implémentées dans Infrastructure",
+      "Infrastructure connaît Application mais pas l’inverse",
+      "Les dépendances vont toujours du haut (UI) vers le bas (Domain)",
+      "Les DTO peuvent être définis dans Domain"
+    ],
+    "correctAnswer": 1,
+    "part": 3,
+    "type": "single"
+  },
+  {
+    "id": 175,
+    "question": "Le pattern Repository permet : (Plusieurs réponses possibles)",
+    "options": [
+      "De remplacer les requêtes SQL par LINQ",
+      "D’avoir un accès direct au contexte EF",
+      "D’encapsuler la logique d’accès aux données derrière une interface abstraite",
+      "De rendre les tests possibles avec des mocks ou bases InMemory",
+      "D’utiliser EF Core"
+    ],
+    "correctAnswer": [
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 176,
+    "question": "Quel est le rôle d’un Service d’application dans la Clean Architecture ? (Plusieurs réponses possibles)",
+    "options": [
+      "Orchestrer les règles métier entre plusieurs entités et repositories",
+      "Remplacer le contrôleur",
+      "Coordonner le mapping entité ↔ DTO et déclencher des transactions",
+      "Implémenter la logique de validation HTTP",
+      "Exécuter directement les requêtes SQL"
+    ],
+    "correctAnswer": [
+      0,
+      2
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 177,
+    "question": "Le Domain Layer devrait contenir : (Plusieurs réponses possibles)",
+    "options": [
+      "Des entités, des value objects, et les règles métier pures",
+      "Les classes de configuration EF",
+      "Les contrôleurs",
+      "Aucune dépendance vers Entity Framework ou ASP.NET Core",
+      "Les DTO d’entrée API"
+    ],
+    "correctAnswer": [
+      0,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 178,
+    "question": "Le CQRS (Command Query Responsibility Segregation) : (Plusieurs réponses possibles)",
+    "options": [
+      "Sépare les modèles de lecture et d’écriture",
+      "Nécessite deux bases de données distinctes",
+      "Améliore la scalabilité et la clarté des intentions (read/write)",
+      "Est obligatoire pour tout projet EF Core",
+      "Peut coexister avec Mediator / MediatR"
+    ],
+    "correctAnswer": [
+      0,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 179,
+    "question": "Dans une implémentation CQRS avec MediatR : (Plusieurs réponses possibles)",
+    "options": [
+      "Chaque Command ou Query est un objet envoyé à un Handler",
+      "Le Handler retourne toujours IActionResult",
+      "Les Commands modifient l’état, les Queries ne doivent avoir aucun effet de bord",
+      "Plusieurs handlers peuvent traiter une même commande simultanément",
+      "Le Mediator centralise les appels pour découpler les dépendances directes"
+    ],
+    "correctAnswer": [
+      0,
+      2,
+      4
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 180,
+    "question": "Pourquoi ne pas exposer les entités EF Core directement via l’API ? (Plusieurs réponses possibles)",
+    "options": [
+      "Cela simplifie la maintenance",
+      "Fuite de la structure interne de la base (casse les clients à chaque évolution)",
+      "Risque de référence circulaire et sérialisation infinie",
+      "Violation du principe de séparation entre modèle métier et contrat d’exposition (DTO)",
+      "Les entités ne sont pas sérialisables"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 181,
+    "question": "Le mapping entité ↔ DTO : (Plusieurs réponses possibles)",
+    "options": [
+      "Doit toujours être manuel",
+      "Peut être automatisé par des frameworks (Mapperly, AutoMapper)",
+      "Peut être généré compile-time (Mapperly) pour éviter le coût de réflexion",
+      "Peut inclure une logique de transformation (ex : concaténer Nom + Prénom)",
+      "Est inutile si les entités correspondent 1:1 à la base"
+    ],
+    "correctAnswer": [
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  },
+  {
+    "id": 182,
+    "question": "Concernant la cohérence transactionnelle entre Command et Query : (Plusieurs réponses possibles)",
+    "options": [
+      "Une Command doit être transactionnelle (atomicité garantie)",
+      "Une Query peut ouvrir une transaction pour lecture isolée",
+      "On évite que les Query et Command partagent le même DbContext",
+      "Les Handlers Command peuvent injecter un IUnitOfWork pour contrôler la persistance",
+      "Les transactions doivent être gérées dans les contrôleurs"
+    ],
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "part": 3,
+    "type": "multiple"
+  }
+]

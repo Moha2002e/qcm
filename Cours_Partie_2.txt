@@ -1,0 +1,32 @@
+SYNTHÈSE : PARTIE 2 (DÉFINITIONS MOTS-CLÉS)
+=====================================
+
+1. ACCÈS AUX DONNÉES (EF CORE)
+-----------------------------
+- Entity Framework Core : ORM permettant de gérer la base de données via du code C#.
+- DbContext : Classe représentant la session avec la base et gérant les entités.
+- DbSet<T> : Collection d'entités d'un type donné (table).
+- Migration : Fichier C# décrivant les changements de schéma à appliquer à la BDD.
+- Fluent API : Configuration des entités via code C# (prioritaire sur les attributs).
+- Data Annotation : Configuration via attributs ([Key], [Required]...).
+- LINQ : Syntaxe C# pour interroger des collections et bases de données.
+- Cascade Delete : Suppression automatique des enfants quand le parent est supprimé.
+- Scaffold : Génération du modèle (Classes + DbContext) depuis une BDD existante.
+
+2. ASP.NET CORE WEB API
+----------------------
+- Middleware : Composant interceptant/traitant les requêtes HTTP dans le pipeline.
+- Dependency Injection (DI) : Injection automatique des services dans les classes (constructeur).
+- ActionResult : Type de retour combinant données et code statut HTTP.
+- Swagger / OpenAPI : Outils de documentation et test d'API.
+- Serilog : Framework de logging structuré.
+
+3. ARCHITECTURE LOGICIELLE
+-------------------------
+- Clean Architecture : Organisation en couches concentriques (Domain au centre) pour isoler le métier.
+- Domain Layer : Cœur métier : Entités, Règles pures (sans dépendances).
+- Application Layer : Cas d'usage, orchestration, interfaces.
+- Infrastructure Layer : Implémentation technique (BDD, API externes, Fichiers).
+- Repository : Encapsule l'accès aux données (Collection en mémoire).
+- DTO (Data Transfer Object) : Objet simple pour transférer des données entre couches (sans logique).
+- CQRS (Command Query Responsibility Segregation) : Séparation Lecture / Écriture.
