@@ -1228,7 +1228,8 @@
       "Scaffold"
     ],
     "correctAnswer": 0,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Entity Framework Core</strong> : ORM pour gérer la base de données depuis du code C#."
   },
   {
     "id": 88,
@@ -1242,7 +1243,8 @@
       "Entity Framework Core"
     ],
     "correctAnswer": 0,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>DbContext</strong> : Classe représentant la session avec la base et les entités."
   },
   {
     "id": 89,
@@ -1256,7 +1258,8 @@
       "Repository Pattern"
     ],
     "correctAnswer": 2,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>DbSet</strong> : Collection d’entités d’un type spécifique dans le DbContext."
   },
   {
     "id": 90,
@@ -1270,7 +1273,8 @@
       "Entity Framework Core"
     ],
     "correctAnswer": 0,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Migration</strong> : Fichier qui modifie ou crée le schéma de la base."
   },
   {
     "id": 91,
@@ -1284,7 +1288,8 @@
       "DbContext"
     ],
     "correctAnswer": 2,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Fluent API</strong> : Configuration des entités via code C# plutôt qu’attributs."
   },
   {
     "id": 92,
@@ -1298,7 +1303,8 @@
       "Scaffold"
     ],
     "correctAnswer": 1,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Data Annotation</strong> : Attributs C# pour configurer les entités et colonnes."
   },
   {
     "id": 93,
@@ -1312,7 +1318,8 @@
       "Cascade Delete"
     ],
     "correctAnswer": 3,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>LINQ</strong> : Syntaxe C# pour interroger collections et bases de données."
   },
   {
     "id": 94,
@@ -1326,7 +1333,8 @@
       "Dependency Injection (DI)"
     ],
     "correctAnswer": 3,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>EntityState</strong> : État d’une entité suivi par EF Core (Added, Modified, Deleted…)."
   },
   {
     "id": 95,
@@ -1340,7 +1348,8 @@
       "DTO (Data Transfer Object)"
     ],
     "correctAnswer": 3,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Cascade Delete</strong> : Supprime automatiquement les entités enfants lors de la suppression du parent."
   },
   {
     "id": 96,
@@ -1354,7 +1363,8 @@
       "DbSet"
     ],
     "correctAnswer": 3,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Scaffold</strong> : DbContext – Génère le modèle EF Core à partir d’une base existante."
   },
   {
     "id": 97,
@@ -1368,7 +1378,8 @@
       "Serilog"
     ],
     "correctAnswer": 0,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Connection String</strong> : Chaîne définissant comment se connecter à la base de données."
   },
   {
     "id": 98,
@@ -1382,7 +1393,8 @@
       "Entity Framework Core"
     ],
     "correctAnswer": 0,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Middleware</strong> : Composant de traitement d’une requête dans le pipeline ASP.NET Core."
   },
   {
     "id": 99,
@@ -1396,7 +1408,8 @@
       "Dependency Injection (DI)"
     ],
     "correctAnswer": 4,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Dependency Injection (DI)</strong> : Injection automatique des dépendances dans les classes."
   },
   {
     "id": 100,
@@ -1410,7 +1423,8 @@
       "Service Layer"
     ],
     "correctAnswer": 2,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>ActionResult</strong> : Type de retour d’une action contrôleur combinant données et statut HTTP."
   },
   {
     "id": 101,
@@ -1424,7 +1438,8 @@
       "DbContext"
     ],
     "correctAnswer": 3,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Swagger / OpenAPI</strong> : Outils pour documenter et tester les API REST."
   },
   {
     "id": 102,
@@ -1438,7 +1453,8 @@
       "Serilog"
     ],
     "correctAnswer": 4,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Serilog</strong> : Framework de logging structuré pour applications .NET."
   },
   {
     "id": 103,
@@ -1452,7 +1468,8 @@
       "Clean Architecture"
     ],
     "correctAnswer": 4,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Clean Architecture</strong> : Organisation du code en couches séparant responsabilités et dépendances."
   },
   {
     "id": 104,
@@ -1466,7 +1483,8 @@
       "Clean Architecture"
     ],
     "correctAnswer": 0,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Domain Layer</strong> : Contient les entités métier et la logique pure."
   },
   {
     "id": 105,
@@ -1480,7 +1498,8 @@
       "Migration"
     ],
     "correctAnswer": 0,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Application Layer</strong> : Contient la logique d’orchestration et les cas d’usage."
   },
   {
     "id": 106,
@@ -1494,7 +1513,8 @@
       "Infrastructure Layer"
     ],
     "correctAnswer": 4,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Infrastructure Layer</strong> : Gère l’accès aux données, API externes et services techniques."
   },
   {
     "id": 107,
@@ -1508,7 +1528,8 @@
       "Serilog"
     ],
     "correctAnswer": 1,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Repository Pattern</strong> : Classe qui encapsule l’accès aux données pour une entité."
   },
   {
     "id": 108,
@@ -1522,7 +1543,8 @@
       "Clean Architecture"
     ],
     "correctAnswer": 3,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Service Layer</strong> : Contient la logique métier réutilisable par l’application."
   },
   {
     "id": 109,
@@ -1536,7 +1558,8 @@
       "Connection String"
     ],
     "correctAnswer": 2,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>DTO (Data Transfer Object)</strong> : Objet pour transférer uniquement les données nécessaires entre couches."
   },
   {
     "id": 110,
@@ -1550,7 +1573,8 @@
       "Swagger / OpenAPI"
     ],
     "correctAnswer": 0,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>Mapperly</strong> : Outil pour convertir automatiquement entités ↔ DTO."
   },
   {
     "id": 111,
@@ -1564,7 +1588,8 @@
       "CQRS"
     ],
     "correctAnswer": 4,
-    "type": "single"
+    "type": "single",
+    "explanation": "<strong>CQRS</strong> : Sépare les opérations de lecture (Query) et d’écriture (Command) sur les données."
   },
   {
     "id": 112,

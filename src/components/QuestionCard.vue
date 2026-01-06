@@ -125,11 +125,14 @@ const nextQuestion = () => {
 
         <div v-else class="feedback-container">
             <div class="feedback-msg" :class="isFullCorrect ? 'msg-correct' : 'msg-wrong'">
-                <span v-if="isFullCorrect">Correct !</span>
-                <span v-else>
+                <div v-if="isFullCorrect">
+                    Correct !
+                </div>
+                <div v-else>
                     Incorrect... <br>
                     <small>La bonne réponse était : {{ correctAnswersText }}</small>
-                </span>
+                </div>
+                <div v-if="question.explanation" class="explanation-box" v-html="question.explanation"></div>
             </div>
             <button class="btn-next" @click="nextQuestion">
                 Question Suivante →
@@ -351,5 +354,16 @@ const nextQuestion = () => {
     height: 28px;
     font-size: 0.9rem;
   }
+}
+
+.explanation-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #e2e8f0;
+    text-align: left;
+    border-left: 4px solid var(--accent-color);
 }
 </style>
