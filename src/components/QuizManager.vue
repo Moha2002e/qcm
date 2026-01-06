@@ -4,6 +4,8 @@ import { ref, computed, onMounted } from 'vue'
 import QuestionCard from './QuestionCard.vue'
 import ResultScreen from './ResultScreen.vue'
 import CoursePart1 from './CoursePart1.vue'
+import CoursePart2 from './CoursePart2.vue'
+import CoursePart3 from './CoursePart3.vue'
 import rawQuestions from '../data/questions.json'
 
 // --- STATE ---
@@ -14,7 +16,8 @@ const allQuestions = ref([])
 const currentChunkQuestions = ref([])
 const userAnswers = ref({})
 const currentQuestionIndex = ref(0)
-const quizState = ref('intro') // intro, series-selection, playing, result
+const quizState = ref('intro') // intro, series-selection, playing, result, course
+const selectedCourse = ref(1) // 1, 2, or 3
 
 // --- CONFIGURATION ---
 const partConfig = {
@@ -34,7 +37,8 @@ function selectPart(partId) {
     quizState.value = 'series-selection'
 }
 
-function openCourse() {
+function openCourse(courseId) {
+    selectedCourse.value = courseId
     quizState.value = 'course'
 }
 
@@ -272,10 +276,22 @@ const hasNextChunkInPart = computed(() => {
         <div class="resources-section">
             <h3 class="section-subtitle">Ressources</h3>
             <div class="card-grid">
-                <div class="selection-card course-card" @click="openCourse">
+                <div class="selection-card course-card" @click="openCourse(1)">
                     <div class="card-icon course-icon">📖</div>
                     <h3>Synthèse</h3>
                     <p>Révision Partie 1</p>
+                    <div class="tag course-tag">Cours</div>
+                </div>
+                <div class="selection-card course-card" @click="openCourse(2)">
+                    <div class="card-icon course-icon">📚</div>
+                    <h3>Définitions</h3>
+                    <p>Révision Partie 2</p>
+                    <div class="tag course-tag">Cours</div>
+                </div>
+                 <div class="selection-card course-card" @click="openCourse(3)">
+                    <div class="card-icon course-icon">🧠</div>
+                    <h3>Avancé</h3>
+                    <p>Révision Partie 3</p>
                     <div class="tag course-tag">Cours</div>
                 </div>
             </div>
@@ -352,7 +368,9 @@ const hasNextChunkInPart = computed(() => {
 
       <!-- STEP 5: COURSE VIEW -->
       <div v-else-if="quizState === 'course'" class="course-wrapper">
-          <CoursePart1 @close="returnToIntro" />
+          <CoursePart1 v-if="selectedCourse === 1" @close="returnToIntro" />
+          <CoursePart2 v-if="selectedCourse === 2" @close="returnToIntro" />
+          <CoursePart3 v-if="selectedCourse === 3" @close="returnToIntro" />
       </div>
 
     </transition>
