@@ -8,94 +8,114 @@ defineEmits(['close'])
       <button class="btn-icon" @click="$emit('close')">
         ← Retour
       </button>
-      <h2>Synthèse : Partie 3 (.NET Avancé)</h2>
+      <h2>Synthèse : Partie 3 (EF Core Avancé & Architecture)</h2>
     </div>
 
     <div class="content-scroll">
       
-      <!-- EF CORE INTERNALS -->
+      <!-- SECTION 1: EF CORE AVANCÉ -->
       <section class="module-section">
-        <h3 class="section-title">1. EF Core : Fonctionnement Interne</h3>
+        <h3 class="section-title">1. EF Core Avancé : Interne & Performance</h3>
         
         <div class="topic-card">
-          <h4>Change Tracker & États</h4>
+          <h4>Change Tracking & États</h4>
           <ul>
-            <li><strong>ChangeTracker</strong> : Mécanisme central qui surveille les entités.</li>
-            <li>Si une entité est chargée (Tracking), modifier ses propriétés suffit. Pas besoin d'<code>Update()</code>.</li>
-            <li><code>AsNoTracking()</code> : Lecture seule, plus rapide (pas de snapshot mémoire).</li>
-            <li><strong>AutoDetectChanges</strong> : Activé par défaut. Peut être désactivé pour les gros batchs.</li>
+            <li><strong>États d'une entité</strong> : <code>Added</code>, <code>Unchanged</code>, <code>Modified</code>, <code>Deleted</code>, <code>Detached</code>.</li>
+            <li><strong>ChangeTracker</strong> : Surveille les entités attachées. Une modification de propriété est détectée automatiquement par <code>DetectChanges()</code> (appelé par SaveChanges).</li>
+            <li><strong>Optimisation Lecture</strong> : Utiliser <code>AsNoTracking()</code> pour les scénarios de lecture seule (évite le snapshot mémoire).</li>
+            <li><strong>Update sur Détaché</strong> : <code>Update()</code> marque <em>toutes</em> les propriétés comme modifiées. Préférer l'attachement (<code>Attach</code>) + modification ciblée pour des UPDATE partiels.</li>
           </ul>
         </div>
 
         <div class="topic-card">
-          <h4>Persistance & Concurrence</h4>
+          <h4>Transactions & Concurrence</h4>
           <ul>
-            <li><code>SaveChanges()</code> : Crée une <strong>transaction implicite</strong> pour toutes les modifications.</li>
-            <li><strong>Concurrence</strong> : Si la même donnée est modifiée par 2 contextes, le dernier gagne (Last Win) sauf si <code>RowVersion</code> est configuré (→ <code>DbUpdateConcurrencyException</code>).</li>
-            <li><strong>Add() vs Attach()</strong> :
+            <li><strong>Transactions</strong> : <code>SaveChanges()</code> crée une transaction implicite si aucune n'existe.</li>
+            <li><strong>Explicite</strong> : <code>BeginTransaction()</code> permet de grouper plusieurs opérations ou requêtes SQL brutes.</li>
+            <li><strong>Concurrence Optimiste</strong> : EF Core utilise "Last Write Wins" par défaut. Utiliser un <code>RowVersion</code> (Timestamp) pour détecter les conflits (lève une <code>DbUpdateConcurrencyException</code>).</li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+          <h4>Stratégies de Chargement (Loading)</h4>
+          <ul>
+            <li><strong>Eager Loading</strong> : <code>.Include(x => x.Rel)</code> (JOIN immédiat). Attention aux "Cartesian explosions" → utiliser <code>AsSplitQuery()</code>.</li>
+            <li><strong>Lazy Loading</strong> : Chargement à la demande (nécessite <code>virtual</code> + Proxies). Risque majeur de <strong>N+1 Selects</strong> (1 requête liste + N requêtes enfants).</li>
+            <li><strong>Explicit Loading</strong> : Chargement manuel post-lecture via <code>Entry(e).Collection(c).Load()</code>.</li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+          <h4>Fonctionnalités Puissantes</h4>
+          <ul>
+            <li><strong>Global Query Filters</strong> : Filtres appliqués partout par défaut (ex: Soft Delete <code>IsDeleted == false</code>). Ignorer avec <code>IgnoreQueryFilters()</code>.</li>
+            <li><strong>Shadow Properties</strong> : Propriétés mappées en base mais invisibles dans la classe C# (ex: FK audit, DateCreated).</li>
+            <li><strong>SQL Brut</strong> : <code>FromSqlRaw</code> (doit retourner toutes les colonnes de l'entité) ou <code>ExecuteSqlRaw</code> (UPDATE/DELETE direct pour perf).</li>
+            <li><strong>Interceptors</strong> : Permet d'intercepter/modifier les commandes SQL avant exécution (Logs, Audit, Soft Delete).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2: ASP.NET CORE -->
+      <section class="module-section">
+        <h3 class="section-title">2. ASP.NET Core & API Design</h3>
+        
+        <div class="topic-card">
+          <h4>Pipeline & Architecture</h4>
+          <ul>
+            <li><strong>Middleware vs Filter</strong> :
                <ul>
-                   <li><code>Add()</code> : Marque tout le graphe comme <em>Added</em> (Insertion).</li>
-                   <li><code>Attach()</code> : Marque comme <em>Unchanged</em> (puis détecte les modifs).</li>
+                   <li><em>Middleware</em> : Pipeline global (Technique, Auth, Log).</li>
+                   <li><em>Filter</em> : Contexte MVC local à l'action (Validation, Formatage).</li>
                </ul>
             </li>
+            <li><strong>DI Scopes</strong> : <code>DbContext</code> doit être <strong>Scoped</strong> (1 par requête HTTP). Jamais Singleton (concurrence fatale) !</li>
+            <li><strong>Logging</strong> : Utiliser le <strong>Logging Structuré</strong> (<code>Logger.LogInfo("Item {Id}", id)</code>) avec Serilog (Requests logs plus propres).</li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+          <h4>Bonnes Pratiques API</h4>
+          <ul>
+            <li><strong>Retour Controller</strong> : Utiliser <code>ActionResult&lt;T&gt;</code> pour combiner type de retour et codes HTTP (NotFound, BadRequest).</li>
+            <li><strong>Minimal API</strong> : Alternative légère sans contrôleur. Retour via <code>Results.Ok()</code>, <code>Results.NotFound()</code>.</li>
+            <li><strong>Content Negotiation</strong> : L'API adapte le format (JSON/XML) selon le header <code>Accept</code> du client.</li>
+            <li><strong>Async/Await</strong> : Toujours propager le <code>CancellationToken</code> jusqu'à EF Core (<code>ToListAsync(ct)</code>) pour annuler la requête SQL si le client coupe.</li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+          <h4>Pièges à Éviter</h4>
+          <ul>
+            <li><strong>Find vs First</strong> : <code>Find(id)</code> utilise le cache local du contexte (rapide). <code>First/Single</code> tape toujours la BDD.</li>
+            <li><strong>Exposition</strong> : Ne JAMAIS retourner des **Entités EF Core** directement (Circular Ref, Over-fetching). Utiliser des **DTO**.</li>
+            <li><strong>Pagination</strong> : Obligatoire. Ne pas faire <code>ToList()</code> sur une grosse table. Utiliser <code>Skip(x).Take(y)</code>.</li>
+            <li><strong>Sync over Async</strong> : Ne jamais bloquer le thread (<code>.Result</code>, <code>.Wait()</code>). Risque de Deadlock et effondrement de perf.</li>
           </ul>
         </div>
       </section>
 
-      <!-- EF CORE ADVANCED -->
+      <!-- SECTION 3: ARCHITECTURE -->
       <section class="module-section">
-        <h3 class="section-title">2. EF Core : Concepts Avancés</h3>
-        
+        <h3 class="section-title">3. Clean Architecture & CQRS</h3>
+
         <div class="topic-card">
-          <h4>Performance</h4>
+          <h4>Clean Architecture (Onion)</h4>
           <ul>
-            <li>Attention au <strong>N+1</strong> : Utiliser <code>Include()</code>.</li>
-            <li><strong>Filtering</strong> : Faire le <code>Where()</code> AVANT le <code>ToList()</code> (sinon filtrage en mémoire RAM).</li>
-            <li><strong>Compiled Queries</strong> : Mettre en cache la traduction LINQ → SQL.</li>
-            <li><strong>Global Query Filters</strong> : Filtres automatiques (ex: Soft Delete <code>IsDeleted==false</code>).</li>
+            <li><strong>Domain</strong> : Le cœur. Règles métier pures. Zéro dépendance (pas de HTTP, pas de EF Core idéalement).</li>
+            <li><strong>Application</strong> : Orchestration (Use Cases). Manipule interfaces et DTOs.</li>
+            <li><strong>Infrastructure</strong> : Implémentation technique (EF Core, Email, File System). Dépendance inversée vers Domain/App.</li>
+            <li><strong>Presentation (UI)</strong> : Contrôleurs, Blazor. Dépend de App.</li>
           </ul>
         </div>
 
         <div class="topic-card">
-          <h4>Modélisation</h4>
+          <h4>Pattern CQRS (Command Query Responsibility Segregation)</h4>
           <ul>
-            <li><strong>Shadow Properties</strong> : Propriétés suivies par EF mais absentes de la classe C# (ex: FK, Timestamp).</li>
-            <li><strong>Owned Types</strong> : Objets de valeur (Value Objects) stockés dans la même table.</li>
-            <li><strong>Composite Keys</strong> : Clés composées via <code>HasKey(e => new { e.A, e.B })</code>.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- API & ARCHITECTURE -->
-      <section class="module-section">
-        <h3 class="section-title">3. ASP.NET Core & Architecture</h3>
-
-        <div class="topic-card">
-          <h4>Web API Avancé</h4>
-          <ul>
-            <li><strong>Minimal APIs</strong> : <code>Results.Ok()</code>, pas de contrôleurs complexes, très léger.</li>
-            <li><strong>Content Negotiation</strong> : Adapter la réponse (JSON/XML) selon le header <code>Accept</code>.</li>
-            <li><strong>Middleware vs Filter</strong> :
-              <ul>
-                <li><em>Middleware</em> : Pipeline global (Technique).</li>
-                <li><em>Filter</em> : Lié à une action/contrôleur (Métier/Validation).</li>
-              </ul>
-            </li>
-            <li><strong>ILogger</strong> : Utiliser le logging structuré <code>LogInfo("User {Id}", id)</code>.</li>
-          </ul>
-        </div>
-
-        <div class="topic-card">
-          <h4>CQRS & Clean Architecture</h4>
-          <ul>
-            <li><strong>CQRS</strong> : Séparation stricte.
-              <ul>
-                <li><em>Command</em> : Modifie l'état, transactionnel.</li>
-                <li><em>Query</em> : Lecture seule, optimisé (peut éviter le Domain).</li>
-              </ul>
-            </li>
-            <li><strong>MediatR</strong> : Pattern Médiateur pour le couplage faible (Envoi de Messages).</li>
-            <li><strong>UnitOfWork</strong> : Garantir que plusieurs Repositories partagent la même transaction.</li>
+            <li><strong>Principe</strong> : Séparer les opérations d'écriture (Command) et de lecture (Query).</li>
+            <li><strong>Write (Command)</strong> : Transactionnel, riche, validation métier forte (Domain).</li>
+            <li><strong>Read (Query)</strong> : Optimisé, souvent <code>AsNoTracking</code>, projection DTO directe (peut court-circuiter le Domain).</li>
+            <li><strong>MediatR</strong> : Librairie standard pour implémenter CQRS in-process (Bus de messages interne).</li>
           </ul>
         </div>
       </section>
@@ -162,6 +182,7 @@ defineEmits(['close'])
   border-bottom: 2px solid var(--accent-color);
   padding-bottom: 0.5rem;
   display: inline-block;
+  text-align: left;
 }
 
 .topic-card {
@@ -170,6 +191,7 @@ defineEmits(['close'])
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   border: 1px solid rgba(255,255,255,0.05);
+  text-align: left;
 }
 
 .topic-card h4 {

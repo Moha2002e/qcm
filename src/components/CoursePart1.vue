@@ -8,99 +8,88 @@ defineEmits(['close'])
       <button class="btn-icon" @click="$emit('close')">
         ← Retour
       </button>
-      <h2>Synthèse : Partie 1</h2>
+      <h2>Synthèse : Partie 1 (Bases EF Core & ASP.NET)</h2>
     </div>
 
     <div class="content-scroll">
       
-      <!-- ENTITY FRAMEWORK CORE -->
+      <!-- SECTION 1: EF CORE BASICS -->
       <section class="module-section">
-        <h3 class="section-title">1. Entity Framework Core (EF Core)</h3>
+        <h3 class="section-title">1. EF Core : Les Fondamentaux</h3>
         
         <div class="topic-card">
-          <h4>Concepts Fondamentaux</h4>
+          <h4>Architecture</h4>
           <ul>
-            <li><strong>ORM</strong> : Transforme les données relationnelles (SQL) en objets C#.</li>
-            <li><strong>DbContext</strong> : Représente une session avec la BDD. C'est l'unité de travail (Unit of Work).</li>
-            <li><strong>DbSet&lt;T&gt;</strong> : Représente une table de la base de données.</li>
-            <li><strong>Code-First</strong> : On définit les classes C# en premier, la BDD est générée ensuite.</li>
-          </ul>
-        </div>
-
-        <div class="topic-card">
-          <h4>Cycle de Vie & Persistance</h4>
-          <ul>
-            <li><strong>Change Tracker</strong> : Surveille l'état des entités (<em>Added, Modified, Deleted, Unchanged</em>).</li>
-            <li><strong>SaveChanges()</strong> : Applique tous les changements détectés à la base de données (Transaction).</li>
-            <li><strong>Attach(e)</strong> : Attache une entité existante au contexte (état <em>Unchanged</em>).</li>
-            <li><strong>ExecuteUpdateAsync</strong> : Mise à jour directe en SQL sans charger les entités (Performance ++).</li>
-          </ul>
-        </div>
-
-        <div class="topic-card">
-          <h4>Configuration (Fluent API)</h4>
-          <p>La <em>Fluent API</em> (dans <code>OnModelCreating</code>) est prioritaire sur les Data Annotations.</p>
-          <div class="code-block">
-            <code>modelBuilder.Entity&lt;Student&gt;()<br>.HasKey(s => s.Id);</code>
-          </div>
-          <ul>
-            <li><strong>[Key]</strong> : Clé primaire.</li>
-            <li><strong>[NotMapped]</strong> : Exclure une propriété.</li>
-            <li><strong>Relations</strong> :
-              <ul>
-                <li>Utiliser <code>virtual</code> pour le <em>Lazy Loading</em>.</li>
-                <li>Utiliser <code>.Include()</code> pour le <em>Eager Loading</em> (chargement immédiat).</li>
-              </ul>
-            </li>
-            <li><strong>Cascade Delete</strong> : Suppression des enfants si le parent est supprimé.</li>
+            <li><strong>Code-First</strong> : On écrit les classes C# (Entités) d'abord, on génère la DB ensuite.</li>
+            <li><strong>DbContext</strong> : La classe centrale (héritant de <code>DbContext</code>). Elle contient les <code>DbSet</code> et gère la connexion.</li>
+            <li><strong>OnConfiguring</strong> : Méthode pour configurer le provider (SQL Server, etc.) et la chaîne de connexion.</li>
           </ul>
         </div>
 
         <div class="topic-card">
           <h4>Migrations</h4>
           <ul>
-            <li><code>dotnet ef migrations add Nom</code> : Créer une migration.</li>
-            <li><code>dotnet ef database update</code> : Appliquer à la BDD.</li>
-            <li><code>EnsureCreated()</code> : Crée la BDD sans migrations (interdit en prod).</li>
+            <li><strong>Rôle</strong> : Synchroniser le modèle C# avec le schéma SQL sans perte de données.</li>
+            <li><code>add-migration Nom</code> : Crée un fichier C# décrivant les changements (Up/Down).</li>
+            <li><code>update-database</code> : Applique les changements SQL sur la base réelle.</li>
+            <li><code>Script-Migration</code> : Génère le script SQL équivalent (pour la prod).</li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+          <h4>Modélisation (Fluent API vs Annotations)</h4>
+          <ul>
+            <li><strong>Data Annotations</strong> : Attributs rapides (ex: <code>[Key]</code>, <code>[Required]</code>, <code>[MaxLength(50)]</code>).</li>
+            <li><strong>Fluent API</strong> : Configuration puissante dans <code>OnModelCreating</code>.
+                <br>Ex: <code>modelBuilder.Entity&lt;User&gt;().HasKey(u => u.Id);</code>
+            </li>
+            <li><strong>Relations</strong> : 
+                <ul>
+                    <li>1-N : <code>HasOne(...).WithMany(...)</code></li>
+                    <li>N-N : Géré automatiquement ou avec table de jointure explicite.</li>
+                </ul>
+            </li>
           </ul>
         </div>
       </section>
 
-      <!-- ASP.NET CORE -->
+      <!-- SECTION 2: ASP.NET CORE -->
       <section class="module-section">
-        <h3 class="section-title">2. ASP.NET Core Web API</h3>
-
+        <h3 class="section-title">2. ASP.NET Core : Web API</h3>
+        
         <div class="topic-card">
-          <h4>Structure & Injection</h4>
+          <h4>Démarrage (Program.cs)</h4>
           <ul>
-            <li><strong>Program.cs</strong> : Point d'entrée et configuration du pipeline.</li>
-            <li><strong>Services (DI)</strong> :
-              <ul>
-                <li><code>AddDbContext&lt;T&gt;()</code> : Enregistre EF Core.</li>
-                <li><code>AddControllers()</code> : Active les contrôleurs API.</li>
-              </ul>
+            <li><strong>Builder</strong> : <code>WebApplication.CreateBuilder(args)</code>. Configure services et config.</li>
+            <li><strong>Dependency Injection (DI)</strong> :
+               <ul>
+                   <li><code>AddTransient</code> : Nouveau à chaque demande.</li>
+                   <li><code>AddScoped</code> : Nouveau par requête HTTP (Idéal pour <strong>DbContext</strong>).</li>
+                   <li><code>AddSingleton</code> : Unique pour toute la vie de l'app.</li>
+               </ul>
             </li>
-            <li><strong>Middleware</strong> : Composants du pipeline (Auth, Routing, etc.).</li>
+            <li><strong>App</strong> : <code>builder.Build()</code>. Configure le <strong>Pipeline Middleware</strong> (Auth -> StaticFiles -> Controllers).</li>
           </ul>
         </div>
 
         <div class="topic-card">
-          <h4>Contrôleurs</h4>
+          <h4>Contrôleurs & Routing</h4>
           <ul>
-            <li>Hériter de <strong>ControllerBase</strong> (et non <em>Controller</em>).</li>
-            <li><strong>[ApiController]</strong> : Validation auto, Binding, Réponses 400.</li>
-            <li><strong>Verbes</strong> : <code>[HttpGet]</code>, <code>[HttpPost]</code>, <code>[HttpPut]</code>, <code>[HttpDelete]</code>.</li>
-            <li><strong>Routes</strong> : <code>[HttpGet("{id:int}")]</code> contraint l'ID à être un entier.</li>
+            <li><strong>ControllerBase</strong> : Classe de base pour les API (sans Vue).</li>
+            <li><strong>[ApiController]</strong> : Active la validation automatique des modèles et le binding intelligent.</li>
+            <li><strong>Attributs HTTP</strong> : <code>[HttpGet]</code>, <code>[HttpPost]</code>, <code>[HttpPut]</code>, <code>[HttpDelete]</code>.</li>
+            <li><strong>Routing</strong> : <code>[Route("api/[controller]")]</code> ou <code>[HttpGet("{id}")]</code> pour capturer des paramètres d'URL.</li>
           </ul>
         </div>
 
         <div class="topic-card">
-          <h4>Réponses HTTP</h4>
+          <h4>Réponses HTTP (Status Codes)</h4>
           <ul>
-            <li><span class="badge success">200 OK</span> : <code>Ok(data)</code></li>
-            <li><span class="badge success">201 Created</span> : <code>CreatedAtAction(...)</code></li>
-            <li><span class="badge success">204 No Content</span> : <code>NoContent()</code> (Update/Delete)</li>
-            <li><span class="badge error">404 Not Found</span> : <code>NotFound()</code></li>
+            <li><code>200 OK</code> : Succès standard (Lecture, Modification).</li>
+            <li><code>201 Created</code> : Succès création (POST). Retourner l'URL de la ressource créée (<code>CreatedAtAction</code>).</li>
+            <li><code>204 No Content</code> : Succès sans contenu (souvent pour PUT ou DELETE).</li>
+            <li><code>400 Bad Request</code> : Erreur de validation client.</li>
+            <li><code>404 Not Found</code> : Ressource non trouvée.</li>
           </ul>
         </div>
       </section>
@@ -167,6 +156,7 @@ defineEmits(['close'])
   border-bottom: 2px solid var(--accent-color);
   padding-bottom: 0.5rem;
   display: inline-block;
+  text-align: left;
 }
 
 .topic-card {
@@ -175,11 +165,12 @@ defineEmits(['close'])
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   border: 1px solid rgba(255,255,255,0.05);
+  text-align: left;
 }
 
 .topic-card h4 {
   margin-top: 0;
-  color: #e2e8f0;
+  color: #60a5fa; /* Blue for Part 1 Basics */
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
@@ -191,34 +182,12 @@ ul {
 }
 
 li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 strong {
   color: #f1f5f9;
 }
-
-.code-block {
-  background: #1e293b;
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-  font-family: 'Consolas', monospace;
-  font-size: 0.9rem;
-  color: #a5b4fc;
-  border-left: 3px solid var(--accent-color);
-}
-
-.badge {
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #1e293b;
-}
-
-.badge.success { background: #4ade80; }
-.badge.error { background: #f87171; }
 
 /* Scrollbar */
 .content-scroll::-webkit-scrollbar {

@@ -8,117 +8,87 @@ defineEmits(['close'])
       <button class="btn-icon" @click="$emit('close')">
         ← Retour
       </button>
-      <h2>Synthèse : Partie 2 (Définitions Mots-Clés)</h2>
+      <h2>Synthèse : Partie 2 (Définitions & Concepts)</h2>
     </div>
 
     <div class="content-scroll">
       
-      <!-- DATA ACCESS -->
+      <!-- EF CORE CONCEPTS -->
       <section class="module-section">
-        <h3 class="section-title">1. Accès aux Données (EF Core)</h3>
+        <h3 class="section-title">1. Concepts de Données (EF Core)</h3>
         
-        <div class="topic-grid">
-          <div class="def-card">
-            <h4>Entity Framework Core</h4>
-            <p><strong>ORM</strong> permettant de gérer la base de données via du code C#.</p>
-          </div>
-          <div class="def-card">
-            <h4>DbContext</h4>
-            <p>Classe représentant la <strong>session</strong> avec la base et gérant les entités.</p>
-          </div>
-          <div class="def-card">
-            <h4>DbSet&lt;T&gt;</h4>
-            <p>Collection d'entités d'un type donné (table).</p>
-          </div>
-          <div class="def-card">
-            <h4>Migration</h4>
-            <p>Fichier C# décrivant les changements de schéma à appliquer à la BDD.</p>
-          </div>
-          <div class="def-card">
-            <h4>Fluent API</h4>
-            <p>Configuration des entités via <strong>code C#</strong> (prioritaire sur les attributs).</p>
-          </div>
-          <div class="def-card">
-            <h4>Data Annotation</h4>
-            <p>Configuration via <strong>attributs</strong> (<code>[Key]</code>, <code>[Required]</code>...).</p>
-          </div>
-          <div class="def-card">
-            <h4>LINQ</h4>
-            <p>Syntaxe C# pour interroger des collections et bases de données.</p>
-          </div>
-          <div class="def-card">
-            <h4>Cascade Delete</h4>
-            <p>Suppression automatique des enfants quand le parent est supprimé.</p>
-          </div>
-          <div class="def-card">
-            <h4>Scaffold</h4>
-            <p>Génération du modèle (Classes + DbContext) depuis une BDD existante.</p>
-          </div>
+        <div class="topic-card">
+          <h4>Briques Fondamentales</h4>
+          <ul>
+            <li><strong>Entity Framework Core</strong> : ORM (Object-Relational Mapper) transformant les objets C# en requêtes SQL automatiquement.</li>
+            <li><strong>DbContext</strong> : Chef d’orchestre. Ouvre la session, surveille les modifications (Tracking) et gère la sauvegarde.</li>
+            <li><strong>DbSet</strong> : Représente une table spécifique (Liste d'entités C# mappée à la BDD).</li>
+            <li><strong>Connection String</strong> : Chaîne de connexion contenant l'adresse, l'utilisateur et le mot de passe de la base.</li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+          <h4>Configuration & Mise à jour</h4>
+          <ul>
+              <li><strong>Migration</strong> : Script généré pour synchroniser le schéma de la base de données avec les classes C#.</li>
+              <li><strong>Scaffold-DbContext</strong> : Génération automatique du code (Reverse Engineering) à partir d'une base de données existante (Database-First).</li>
+              <li><strong>Fluent API</strong> : Configuration avancée des relations et tables en C# (dans <code>OnModelCreating</code>), plus puissant que les attributs.</li>
+              <li><strong>Data Annotation</strong> : Attributs simples (<code>[Key]</code>, <code>[Required]</code>) placés directement sur les classes.</li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+          <h4>Fonctionnement</h4>
+          <ul>
+              <li><strong>LINQ</strong> : Syntaxe C# pour interroger les données (<code>.Where()</code>, <code>.Select()</code>) sans écrire de SQL.</li>
+              <li><strong>EntityState</strong> : État interne d'une entité (Added, Modified, Deleted) déterminant la requête SQL générée par <code>SaveChanges</code>.</li>
+              <li><strong>Cascade Delete</strong> : Suppression automatique des entités enfants lorsque le parent est supprimé.</li>
+          </ul>
         </div>
       </section>
 
-      <!-- WEB API -->
+      <!-- ARCHITECTURE CONCEPTS -->
       <section class="module-section">
-        <h3 class="section-title">2. ASP.NET Core Web API</h3>
+        <h3 class="section-title">2. Architecture & Design Patterns</h3>
 
-        <div class="topic-grid">
-          <div class="def-card">
-            <h4>Middleware</h4>
-            <p>Composant interceptant/traitant les requêtes HTTP dans le pipeline.</p>
-          </div>
-          <div class="def-card">
-            <h4>Dependency Injection (DI)</h4>
-            <p>Injection automatique des services dans les classes (constructeur).</p>
-          </div>
-          <div class="def-card">
-            <h4>ActionResult</h4>
-            <p>Type de retour combinant données et code statut HTTP.</p>
-          </div>
-          <div class="def-card">
-            <h4>Swagger / OpenAPI</h4>
-            <p>Outils de documentation et test d'API.</p>
-          </div>
-          <div class="def-card">
-            <h4>Serilog</h4>
-            <p>Framework de <strong>logging structuré</strong>.</p>
-          </div>
+        <div class="topic-card">
+          <h4>Structure d'Application</h4>
+          <ul>
+              <li><strong>Middleware</strong> : Composant du pipeline HTTP. Intercepte la requête (Log, Auth) avant qu'elle n'atteigne le contrôleur.</li>
+              <li><strong>Dependency Injection (DI)</strong> : Technique permettant de fournir les services (DbContext, Repository) aux classes plutôt que de les instancier manuellement (<code>new Service()</code>).</li>
+              <li><strong>Clean Architecture</strong> : Organisation en couches concentriques (Domain au centre) pour isoler le métier de la technique.</li>
+          </ul>
         </div>
-      </section>
 
-      <!-- ARCHITECTURE -->
-      <section class="module-section">
-        <h3 class="section-title">3. Architecture Logicielle</h3>
-
-        <div class="topic-grid">
-          <div class="def-card">
-            <h4>Clean Architecture</h4>
-            <p>Organisation en couches concentriques (Domain au centre) pour isoler le métier.</p>
-          </div>
-          <div class="def-card">
-            <h4>Domain Layer</h4>
-            <p>Cœur métier : Entités, Règles pures (sans dépendances).</p>
-          </div>
-          <div class="def-card">
-            <h4>Application Layer</h4>
-            <p>Cas d'usage, orchestration, interfaces.</p>
-          </div>
-          <div class="def-card">
-            <h4>Infrastructure Layer</h4>
-            <p>Implémentation technique (BDD, API externes, Fichiers).</p>
-          </div>
-          <div class="def-card">
-            <h4>Repository</h4>
-            <p>Encapsule l'accès aux données (Collection en mémoire).</p>
-          </div>
-          <div class="def-card">
-            <h4>DTO (Data Transfer Object)</h4>
-            <p>Objet simple pour transférer des données entre couches (sans logique).</p>
-          </div>
-          <div class="def-card">
-            <h4>CQRS</h4>
-            <p><strong>C</strong>ommand <strong>Q</strong>uery <strong>R</strong>esponsibility <strong>S</strong>egregation : Séparation Lecture / Écriture.</p>
-          </div>
+        <div class="topic-card">
+          <h4>Les Couches (Layers)</h4>
+          <ul>
+              <li><strong>Domain Layer</strong> : Cœur pur. Contient seulement les Entités et règles métier. Aucune dépendance technique.</li>
+              <li><strong>Application Layer</strong> : Orchestration. Gère les cas d'utilisation (Use Cases) en coordonnant Domaine et Utils.</li>
+              <li><strong>Infrastructure Layer</strong> : Implémentation technique (EF Core, Email, API externes).</li>
+          </ul>
         </div>
+
+        <div class="topic-card">
+          <h4>Modèles & Objets</h4>
+          <ul>
+              <li><strong>Repository Pattern</strong> : Abstraction de l'accès aux données (Collection-like interface) pour cacher la logique SQL/EF.</li>
+              <li><strong>Service Layer</strong> : Logique métier complexe située entre le Contrôleur et le Repository.</li>
+              <li><strong>DTO (Data Transfer Object)</strong> : Objet simple transportant des données (sans logique) entre les couches.</li>
+              <li><strong>Mapperly / AutoMapper</strong> : Outils pour copier automatiquement les propriétés d'une Entité vers un DTO.</li>
+              <li><strong>CQRS</strong> : Séparation des responsabilités : une stack pour l'Écriture (Command, complexe) et une pour la Lecture (Query, rapide).</li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+            <h4>API & Outils</h4>
+            <ul>
+                <li><strong>ActionResult</strong> : Type de retour flexible combinant données et statuts HTTP (200 OK, 404 NotFound).</li>
+                <li><strong>Swagger / OpenAPI</strong> : Documentation interactive générée automatiquement pour tester l'API.</li>
+                <li><strong>Serilog</strong> : Logging structuré (JSON) plus puissant que le log texte standard.</li>
+            </ul>
+        </div>
+
       </section>
 
     </div>
@@ -183,45 +153,37 @@ defineEmits(['close'])
   border-bottom: 2px solid var(--accent-color);
   padding-bottom: 0.5rem;
   display: inline-block;
+  text-align: left;
 }
 
-.topic-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
-.def-card {
+.topic-card {
   background: rgba(255,255,255,0.03);
   border-radius: 12px;
-  padding: 1.2rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
   border: 1px solid rgba(255,255,255,0.05);
-  transition: transform 0.2s;
+  text-align: left;
 }
 
-.def-card:hover {
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.06);
-  border-color: var(--accent-color);
+.topic-card h4 {
+  margin-top: 0;
+  color: #c084fc; /* Purple for Part 2 Definitions */
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-.def-card h4 {
-  margin: 0 0 0.5rem 0;
-  color: #e2e8f0;
-  font-size: 1.1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding-bottom: 0.5rem;
-}
-
-.def-card p {
-  margin: 0;
+ul {
+  padding-left: 1.2rem;
   color: #94a3b8;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+li {
+  margin-bottom: 0.8rem;
 }
 
 strong {
-  color: #818cf8;
+  color: #f1f5f9;
 }
 
 /* Scrollbar */
