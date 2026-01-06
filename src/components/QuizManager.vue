@@ -3,6 +3,7 @@
 import { ref, computed, onMounted } from 'vue'
 import QuestionCard from './QuestionCard.vue'
 import ResultScreen from './ResultScreen.vue'
+import CoursePart1 from './CoursePart1.vue'
 import rawQuestions from '../data/questions.json'
 
 // --- STATE ---
@@ -31,6 +32,10 @@ onMounted(() => {
 function selectPart(partId) {
     currentPart.value = partId
     quizState.value = 'series-selection'
+}
+
+function openCourse() {
+    quizState.value = 'course'
 }
 
 function selectSeries(seriesIndex) {
@@ -263,6 +268,18 @@ const hasNextChunkInPart = computed(() => {
                 <div class="tag">71 Questions</div>
             </div>
         </div>
+
+        <div class="resources-section">
+            <h3 class="section-subtitle">Ressources</h3>
+            <div class="card-grid">
+                <div class="selection-card course-card" @click="openCourse">
+                    <div class="card-icon course-icon">📖</div>
+                    <h3>Synthèse</h3>
+                    <p>Révision Partie 1</p>
+                    <div class="tag course-tag">Cours</div>
+                </div>
+            </div>
+        </div>
       </div>
 
       <!-- STEP 2: SERIES SELECTION -->
@@ -331,6 +348,11 @@ const hasNextChunkInPart = computed(() => {
             @retry-chunk="startChunk"
             @restart="restartQuiz"
         />
+      </div>
+
+      <!-- STEP 5: COURSE VIEW -->
+      <div v-else-if="quizState === 'course'" class="course-wrapper">
+          <CoursePart1 @close="returnToIntro" />
       </div>
 
     </transition>
@@ -553,5 +575,34 @@ const hasNextChunkInPart = computed(() => {
       width: 100%;
       margin: 0.5rem 0;
   }
+}
+
+/* Resources Section */
+.resources-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.section-subtitle {
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.course-card {
+    border-color: rgba(16, 185, 129, 0.2);
+}
+.course-card:hover {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+.course-icon {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+.course-tag {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
 }
 </style>
